@@ -116,10 +116,10 @@ export const RoboticsDiagram: React.FC = () => {
   };
 
   return (
-    <div className="bg-white border border-slate-200/90 rounded-[28px] p-6 sm:p-9 shadow-subtle-card relative overflow-hidden select-none">
-      <div className="flex flex-col lg:flex-row items-center gap-8">
+    <div className="bg-white border border-slate-200/90 rounded-2xl sm:rounded-[28px] p-4 sm:p-9 shadow-subtle-card relative overflow-hidden select-none">
+      <div className="flex flex-col lg:flex-row items-stretch gap-6 sm:gap-8">
         {/* Production Hardware & Kinematics Code Terminal */}
-        <div className="w-full lg:w-1/2 flex flex-col justify-between bg-[#090D16] rounded-3xl border border-slate-800 relative overflow-hidden min-h-[420px] shadow-[0_20px_50px_-15px_rgba(15,23,42,0.5)]">
+        <div className="w-full lg:w-1/2 flex flex-col justify-between bg-[#090D16] rounded-2xl sm:rounded-3xl border border-slate-800 relative overflow-hidden min-h-[320px] sm:min-h-[420px] shadow-[0_20px_50px_-15px_rgba(15,23,42,0.5)]">
           {/* Subtle Top Ambient Glow Line */}
           <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-brand-orange-500/30 to-transparent pointer-events-none" />
 
@@ -159,7 +159,7 @@ export const RoboticsDiagram: React.FC = () => {
           </div>
 
           {/* Subsystem Pill Selector */}
-          <div className="px-5 pt-3 pb-2 flex items-center gap-1.5 border-b border-slate-800/60 bg-[#090D16]">
+          <div className="px-4 sm:px-5 pt-3 pb-2 flex items-center gap-1.5 flex-wrap border-b border-slate-800/60 bg-[#090D16]">
             {Object.values(modules).map((mod) => {
               const isActive = activeModule === mod.id;
               const Icon = mod.icon;

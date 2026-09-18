@@ -6,6 +6,7 @@ import { PerspectiveCard } from '../components/ui/PerspectiveCard';
 import { IsometricBoard } from '../components/ui/IsometricBoard';
 import { IsometricBrowser } from '../components/ui/IsometricBrowser';
 import { ServicesProcessSection } from '../components/ui/ServicesProcessSection';
+import { RoboticsDiagram } from '../components/ui/RoboticsDiagram';
 import { TechnicalInquirySection } from '../components/forms/TechnicalInquirySection';
 import {
   Cpu,
@@ -54,10 +55,10 @@ export const Home: React.FC = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2.5 bg-white border border-slate-200/90 px-4 py-2 rounded-full shadow-sm"
+              className="inline-flex items-center gap-2 bg-white border border-slate-200/90 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-sm max-w-full"
             >
-              <span className="w-2.5 h-2.5 rounded-full bg-brand-orange-500 animate-pulse" />
-              <span className="text-xs font-mono font-bold tracking-widest text-slate-800 uppercase">
+              <span className="w-2 h-2 rounded-full bg-brand-orange-500 animate-pulse flex-shrink-0" />
+              <span className="text-[10px] sm:text-xs font-mono font-bold tracking-wider sm:tracking-widest text-slate-800 uppercase leading-snug">
                 Web Platforms &amp; Digital Studio <span className="text-slate-300">•</span> Operating Pan-India
               </span>
             </motion.div>
@@ -69,12 +70,12 @@ export const Home: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="space-y-4"
             >
-              <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight text-slate-950 leading-[1.12] font-display flex flex-col items-center">
+              <h1 className="text-3xl sm:text-6xl lg:text-7xl font-black tracking-tight text-slate-950 leading-[1.14] font-display flex flex-col items-center">
                 <span>
                   Websites <span className="text-brand-orange-600">&amp;</span> Platforms
                 </span>
                 {/* Luminous Animated Laser Beam Running All Around the Tagline */}
-                <div className="relative inline-flex items-center justify-center mt-3 p-[2.5px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_0_35px_rgba(249,115,22,0.22)]">
+                <div className="relative inline-flex items-center justify-center mt-3 p-[2px] sm:p-[2.5px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_0_35px_rgba(249,115,22,0.22)] max-w-[95vw]">
                   {/* Rotating Conic Laser Beam Running All Around with Smooth Cadence */}
                   <motion.div
                     animate={{ rotate: 360 }}
@@ -86,9 +87,9 @@ export const Home: React.FC = () => {
                     }}
                   />
                   {/* Inner Crisp Container */}
-                  <div className="relative z-10 px-6 sm:px-9 py-2.5 sm:py-3.5 rounded-[14px] sm:rounded-[22px] bg-white/95 backdrop-blur-md flex items-center gap-3">
-                    <span className="w-2.5 h-2.5 rounded-full bg-brand-orange-500 animate-pulse flex-shrink-0" />
-                    <span className="bg-gradient-to-r from-brand-orange-600 via-amber-500 to-brand-orange-600 bg-clip-text text-transparent font-black tracking-tight text-2xl sm:text-4xl lg:text-5xl drop-shadow-xs">
+                  <div className="relative z-10 px-4 sm:px-9 py-2 sm:py-3.5 rounded-[14px] sm:rounded-[22px] bg-white/95 backdrop-blur-md flex items-center justify-center gap-2 sm:gap-3 text-center">
+                    <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-brand-orange-500 animate-pulse flex-shrink-0" />
+                    <span className="bg-gradient-to-r from-brand-orange-600 via-amber-500 to-brand-orange-600 bg-clip-text text-transparent font-black tracking-tight text-xl sm:text-4xl lg:text-5xl drop-shadow-xs text-center">
                       Engineering the Futures of Tech
                     </span>
                   </div>
@@ -101,19 +102,19 @@ export const Home: React.FC = () => {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex flex-wrap items-center justify-center gap-4 pt-2"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 pt-2 w-full max-w-xs sm:max-w-none mx-auto"
             >
               <button
                 onClick={scrollToQuote}
                 type="button"
-                className="inline-flex items-center gap-2 py-3.5 px-8 bg-brand-orange-500 hover:bg-brand-orange-600 text-white font-mono font-extrabold text-xs sm:text-sm uppercase tracking-widest rounded-full shadow-orange-md hover:shadow-orange-lg hover:-translate-y-0.5 transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-8 bg-brand-orange-500 hover:bg-brand-orange-600 text-white font-mono font-extrabold text-xs sm:text-sm uppercase tracking-widest rounded-full shadow-orange-md hover:shadow-orange-lg hover:-translate-y-0.5 transition-all"
               >
                 <span>Start a Project</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
               <a
                 href="#capabilities"
-                className="inline-flex items-center gap-2 py-3.5 px-7 bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-mono font-bold text-xs sm:text-sm uppercase tracking-widest rounded-full shadow-sm hover:border-brand-orange-400 transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3.5 px-7 bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-mono font-bold text-xs sm:text-sm uppercase tracking-widest rounded-full shadow-sm hover:border-brand-orange-400 transition-all"
               >
                 <span>Explore Capabilities</span>
                 <ChevronDown className="w-4 h-4 text-brand-orange-500" />
@@ -125,52 +126,52 @@ export const Home: React.FC = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4 max-w-3xl mx-auto text-left"
+              className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3 pt-4 max-w-3xl mx-auto text-left"
             >
-              <div className="bg-white/80 border border-slate-200/80 p-3.5 rounded-2xl shadow-xs">
-                <span className="text-[10px] font-mono font-bold text-brand-orange-600 uppercase tracking-widest block">
+              <div className="bg-white/90 border border-slate-200/90 p-3 sm:p-3.5 rounded-xl sm:rounded-2xl shadow-xs">
+                <span className="text-[9px] sm:text-[10px] font-mono font-bold text-brand-orange-600 uppercase tracking-wider sm:tracking-widest block truncate">
                   Core Web Vitals
                 </span>
-                <strong className="text-base font-bold text-slate-900 block font-display mt-0.5">
+                <strong className="text-sm sm:text-base font-bold text-slate-900 block font-display mt-0.5">
                   &lt; 0.8s LCP
                 </strong>
-                <span className="text-[11px] text-slate-500 block">Sub-second load speeds</span>
+                <span className="text-[10px] sm:text-[11px] text-slate-500 block truncate">Sub-second load speeds</span>
               </div>
-              <div className="bg-white/80 border border-slate-200/80 p-3.5 rounded-2xl shadow-xs">
-                <span className="text-[10px] font-mono font-bold text-brand-orange-600 uppercase tracking-widest block">
+              <div className="bg-white/90 border border-slate-200/90 p-3 sm:p-3.5 rounded-xl sm:rounded-2xl shadow-xs">
+                <span className="text-[9px] sm:text-[10px] font-mono font-bold text-brand-orange-600 uppercase tracking-wider sm:tracking-widest block truncate">
                   Code Ownership
                 </span>
-                <strong className="text-base font-bold text-slate-900 block font-display mt-0.5">
+                <strong className="text-sm sm:text-base font-bold text-slate-900 block font-display mt-0.5">
                   100% Transfer
                 </strong>
-                <span className="text-[11px] text-slate-500 block">Zero vendor lock-in</span>
+                <span className="text-[10px] sm:text-[11px] text-slate-500 block truncate">Zero vendor lock-in</span>
               </div>
-              <div className="bg-white/80 border border-slate-200/80 p-3.5 rounded-2xl shadow-xs">
-                <span className="text-[10px] font-mono font-bold text-brand-orange-600 uppercase tracking-widest block">
+              <div className="bg-white/90 border border-slate-200/90 p-3 sm:p-3.5 rounded-xl sm:rounded-2xl shadow-xs">
+                <span className="text-[9px] sm:text-[10px] font-mono font-bold text-brand-orange-600 uppercase tracking-wider sm:tracking-widest block truncate">
                   Sprint Scoping
                 </span>
-                <strong className="text-base font-bold text-slate-900 block font-display mt-0.5">
+                <strong className="text-sm sm:text-base font-bold text-slate-900 block font-display mt-0.5">
                   24 - 48 Hours
                 </strong>
-                <span className="text-[11px] text-slate-500 block">Fixed-price quotation</span>
+                <span className="text-[10px] sm:text-[11px] text-slate-500 block truncate">Fixed-price quotation</span>
               </div>
-              <div className="bg-white/80 border border-slate-200/80 p-3.5 rounded-2xl shadow-xs">
-                <span className="text-[10px] font-mono font-bold text-brand-orange-600 uppercase tracking-widest block">
+              <div className="bg-white/90 border border-slate-200/90 p-3 sm:p-3.5 rounded-xl sm:rounded-2xl shadow-xs">
+                <span className="text-[9px] sm:text-[10px] font-mono font-bold text-brand-orange-600 uppercase tracking-wider sm:tracking-widest block truncate">
                   Delivery Scope
                 </span>
-                <strong className="text-base font-bold text-slate-900 block font-display mt-0.5">
+                <strong className="text-sm sm:text-base font-bold text-slate-900 block font-display mt-0.5">
                   Pan-India &amp; Global
                 </strong>
-                <span className="text-[11px] text-slate-500 block">Remote deployment &amp; QA</span>
+                <span className="text-[10px] sm:text-[11px] text-slate-500 block truncate">Remote deployment &amp; QA</span>
               </div>
             </motion.div>
 
             {/* 3D Visualizer Mode Switcher */}
-            <div className="pt-4 flex items-center justify-center gap-2">
+            <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2 w-full max-w-xs sm:max-w-none mx-auto">
               <button
                 onClick={() => setHeroMode('web')}
                 type="button"
-                className={`px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all ${
+                className={`px-4 sm:px-5 py-2.5 rounded-full font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all ${
                   heroMode === 'web'
                     ? 'bg-slate-900 text-white shadow-md'
                     : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
@@ -182,7 +183,7 @@ export const Home: React.FC = () => {
               <button
                 onClick={() => setHeroMode('hardware')}
                 type="button"
-                className={`px-5 py-2.5 rounded-full font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all ${
+                className={`px-4 sm:px-5 py-2.5 rounded-full font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 transition-all ${
                   heroMode === 'hardware'
                     ? 'bg-slate-900 text-white shadow-md'
                     : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
@@ -214,19 +215,19 @@ export const Home: React.FC = () => {
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 block mb-1">
               Core Disciplines
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight font-display">
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-950 tracking-tight font-display">
               Engineered Solutions for Modern Companies
             </h2>
-            <p className="text-sm text-slate-600 mt-2 font-mono">
+            <p className="text-xs sm:text-sm text-slate-600 mt-2 font-mono">
               Three focused engineering tracks designed to launch fast, convert visitors, and scale reliably.
             </p>
           </div>
 
           {/* Capabilities Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             {/* Track 01: Web Platforms */}
             <PerspectiveCard>
-              <div className="h-full bg-slate-50 border border-slate-200/90 rounded-3xl p-7 shadow-subtle-card hover:border-brand-orange-400 flex flex-col justify-between transition-all">
+              <div className="h-full bg-slate-50 border border-slate-200/90 rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-subtle-card hover:border-brand-orange-400 flex flex-col justify-between transition-all">
                 <div className="space-y-4">
                   <div className="w-12 h-12 rounded-2xl bg-slate-900 text-brand-orange-400 flex items-center justify-center">
                     <Globe className="w-6 h-6" />
@@ -273,7 +274,7 @@ export const Home: React.FC = () => {
 
             {/* Track 02: SaaS & Web Apps */}
             <PerspectiveCard>
-              <div className="h-full bg-slate-50 border border-slate-200/90 rounded-3xl p-7 shadow-subtle-card hover:border-brand-orange-400 flex flex-col justify-between transition-all">
+              <div className="h-full bg-slate-50 border border-slate-200/90 rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-subtle-card hover:border-brand-orange-400 flex flex-col justify-between transition-all">
                 <div className="space-y-4">
                   <div className="w-12 h-12 rounded-2xl bg-slate-900 text-brand-orange-400 flex items-center justify-center">
                     <Zap className="w-6 h-6" />
@@ -320,7 +321,7 @@ export const Home: React.FC = () => {
 
             {/* Track 03: Hardware & IoT Lab */}
             <PerspectiveCard>
-              <div className="h-full bg-slate-50 border border-slate-200/90 rounded-3xl p-7 shadow-subtle-card hover:border-brand-orange-400 flex flex-col justify-between transition-all">
+              <div className="h-full bg-slate-50 border border-slate-200/90 rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-subtle-card hover:border-brand-orange-400 flex flex-col justify-between transition-all">
                 <div className="space-y-4">
                   <div className="w-12 h-12 rounded-2xl bg-slate-900 text-brand-orange-400 flex items-center justify-center">
                     <Cpu className="w-6 h-6" />
@@ -365,6 +366,22 @@ export const Home: React.FC = () => {
               </div>
             </PerspectiveCard>
           </div>
+
+          {/* Hardware Architecture Deep-Dive */}
+          <div className="mt-10 sm:mt-14">
+            <div className="text-center max-w-2xl mx-auto mb-6">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 block mb-1">
+                Hardware Lab Preview
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-black text-slate-950 tracking-tight font-display">
+                Real Firmware. Real Architecture.
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 mt-2 font-mono">
+                Every hardware project ships with production C++ firmware — reviewable, transferable, and fully yours.
+              </p>
+            </div>
+            <RoboticsDiagram />
+          </div>
         </div>
       </Section>
 
@@ -389,20 +406,20 @@ export const Home: React.FC = () => {
         borderBottom
       >
         <div className="max-w-5xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-10">
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 block mb-1">
               The Studio Advantage
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight font-display">
+            <h2 className="text-2xl sm:text-4xl font-black text-slate-950 tracking-tight font-display">
               Why Ambitious Businesses Choose Us
             </h2>
-            <p className="text-sm text-slate-600 mt-2 font-mono">
+            <p className="text-xs sm:text-sm text-slate-600 mt-2 font-mono">
               Direct senior engineer collaboration. Zero agency markup. Full code and schematic ownership.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            <div className="bg-slate-50 border border-slate-200/90 hover:border-brand-orange-400 p-6 rounded-3xl shadow-subtle-card transition-all">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+            <div className="bg-slate-50 border border-slate-200/90 hover:border-brand-orange-400 p-5 sm:p-6 rounded-2xl sm:rounded-3xl shadow-subtle-card transition-all">
               <div className="w-11 h-11 rounded-2xl bg-brand-orange-50 text-brand-orange-600 flex items-center justify-center mb-4 border border-brand-orange-200">
                 <Wrench className="w-5 h-5" />
               </div>
@@ -414,7 +431,7 @@ export const Home: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-slate-50 border border-slate-200/90 hover:border-brand-orange-400 p-6 rounded-3xl shadow-subtle-card transition-all">
+            <div className="bg-slate-50 border border-slate-200/90 hover:border-brand-orange-400 p-5 sm:p-6 rounded-2xl sm:rounded-3xl shadow-subtle-card transition-all">
               <div className="w-11 h-11 rounded-2xl bg-brand-orange-50 text-brand-orange-600 flex items-center justify-center mb-4 border border-brand-orange-200">
                 <Zap className="w-5 h-5" />
               </div>
@@ -426,7 +443,7 @@ export const Home: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-slate-50 border border-slate-200/90 hover:border-brand-orange-400 p-6 rounded-3xl shadow-subtle-card transition-all">
+            <div className="bg-slate-50 border border-slate-200/90 hover:border-brand-orange-400 p-5 sm:p-6 rounded-2xl sm:rounded-3xl shadow-subtle-card transition-all">
               <div className="w-11 h-11 rounded-2xl bg-brand-orange-50 text-brand-orange-600 flex items-center justify-center mb-4 border border-brand-orange-200">
                 <ShieldCheck className="w-5 h-5" />
               </div>
@@ -438,7 +455,7 @@ export const Home: React.FC = () => {
               </p>
             </div>
 
-            <div className="bg-slate-50 border border-slate-200/90 hover:border-brand-orange-400 p-6 rounded-3xl shadow-subtle-card transition-all">
+            <div className="bg-slate-50 border border-slate-200/90 hover:border-brand-orange-400 p-5 sm:p-6 rounded-2xl sm:rounded-3xl shadow-subtle-card transition-all">
               <div className="w-11 h-11 rounded-2xl bg-brand-orange-50 text-brand-orange-600 flex items-center justify-center mb-4 border border-brand-orange-200">
                 <Truck className="w-5 h-5" />
               </div>

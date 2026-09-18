@@ -45,9 +45,9 @@ export const Footer: React.FC = () => {
 
       {/* Main Multi-Column Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-10">
           {/* Col 1 & 2: Brand & Blurb */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="sm:col-span-2 lg:col-span-2 space-y-4">
             <Link to="/" className="inline-flex items-center gap-3 focus:outline-none">
               <div className="bg-white rounded-xl p-2.5 border border-slate-700 shadow-sm inline-block">
                 <img

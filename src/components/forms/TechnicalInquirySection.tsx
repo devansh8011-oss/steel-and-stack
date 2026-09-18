@@ -148,7 +148,7 @@ export const TechnicalInquirySection: React.FC = () => {
   };
 
   return (
-    <div id="contact" className="w-full relative py-8 select-none">
+    <div id="contact" className="w-full relative py-6 sm:py-8 select-none">
       <div id="quote-terminal" className="absolute -top-24 left-0 w-1 h-1 pointer-events-none opacity-0" />
       {/* Subtle floating ambient dust dots */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -174,7 +174,7 @@ export const TechnicalInquirySection: React.FC = () => {
       {/* 2 Side-by-Side Rounded Cards */}
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch relative z-10 px-4">
         {/* Left Card: Engineering & Technical Support */}
-        <div className="bg-white border border-slate-200/90 rounded-[28px] p-7 sm:p-10 shadow-[0_10px_35px_-5px_rgba(0,0,0,0.04)] flex flex-col justify-between">
+        <div className="bg-white border border-slate-200/90 rounded-2xl sm:rounded-[28px] p-5 sm:p-10 shadow-[0_10px_35px_-5px_rgba(0,0,0,0.04)] flex flex-col justify-between">
           <div className="space-y-6">
             <div>
               <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight font-display">
@@ -229,7 +229,7 @@ export const TechnicalInquirySection: React.FC = () => {
         </div>
 
         {/* Right Card: Technical Inquiry Form */}
-        <div className="bg-white border border-slate-200/90 rounded-[28px] p-7 sm:p-10 shadow-[0_10px_35px_-5px_rgba(0,0,0,0.04)] flex flex-col justify-between">
+        <div className="bg-white border border-slate-200/90 rounded-2xl sm:rounded-[28px] p-5 sm:p-10 shadow-[0_10px_35px_-5px_rgba(0,0,0,0.04)] flex flex-col justify-between">
           {state.success ? (
             <div className="my-auto py-8 text-center space-y-4">
               <div className="w-14 h-14 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center mx-auto shadow-sm">

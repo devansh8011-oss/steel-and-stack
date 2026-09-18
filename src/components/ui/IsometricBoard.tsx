@@ -47,25 +47,25 @@ export const IsometricBoard: React.FC = () => {
         <div className="absolute w-72 h-72 rounded-full bg-brand-orange-500/10 blur-[90px] pointer-events-none" />
 
         {/* Sanitized Matte Obsidian Hardware Board */}
-        <div className="w-full max-w-[500px] h-[300px] sm:h-[330px] bg-[#090D16] border border-slate-800/90 rounded-[28px] shadow-[0_25px_60px_-15px_rgba(15,23,42,0.35)] p-6 sm:p-8 relative flex flex-col justify-between overflow-hidden">
+        <div className="w-full max-w-[500px] min-h-[300px] sm:h-[330px] bg-[#090D16] border border-slate-800/90 rounded-2xl sm:rounded-[28px] shadow-[0_25px_60px_-15px_rgba(15,23,42,0.35)] p-4 sm:p-8 relative flex flex-col justify-between overflow-hidden">
           {/* Subtle Ambient Circuit Glow Line */}
           <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-brand-orange-500/30 to-transparent" />
 
           {/* Minimalist Top Header Strip */}
-          <div className="flex items-center justify-between z-10">
-            <div className="flex items-center gap-2.5">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 z-10 w-full">
+            <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-400/90 shadow-[0_0_8px_rgba(52,211,153,0.6)]" />
-              <span className="text-[11px] font-mono tracking-widest text-slate-300 font-bold uppercase">
+              <span className="text-[10px] sm:text-[11px] font-mono tracking-wider sm:tracking-widest text-slate-300 font-bold uppercase">
                 DEV-BOARD // REV 3.0
               </span>
             </div>
 
             {/* Mode Selector Tabs (Sanitized Controls) */}
-            <div className="flex items-center gap-1 bg-slate-900/90 p-1 rounded-full border border-slate-800">
+            <div className="flex items-center gap-1 bg-slate-900/90 p-1 rounded-full border border-slate-800 w-full sm:w-auto justify-between sm:justify-start">
               <button
                 type="button"
                 onClick={() => setActiveTab('mcu')}
-                className={`px-3 py-1 rounded-full text-[10px] font-mono font-bold transition-all ${
+                className={`flex-1 sm:flex-initial text-center px-2.5 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-mono font-bold transition-all ${
                   activeTab === 'mcu'
                     ? 'bg-brand-orange-500 text-white shadow-xs'
                     : 'text-slate-400 hover:text-slate-200'
@@ -76,7 +76,7 @@ export const IsometricBoard: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setActiveTab('wireless')}
-                className={`px-3 py-1 rounded-full text-[10px] font-mono font-bold transition-all ${
+                className={`flex-1 sm:flex-initial text-center px-2.5 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-mono font-bold transition-all ${
                   activeTab === 'wireless'
                     ? 'bg-brand-orange-500 text-white shadow-xs'
                     : 'text-slate-400 hover:text-slate-200'
@@ -87,7 +87,7 @@ export const IsometricBoard: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setActiveTab('io')}
-                className={`px-3 py-1 rounded-full text-[10px] font-mono font-bold transition-all ${
+                className={`flex-1 sm:flex-initial text-center px-2.5 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-mono font-bold transition-all ${
                   activeTab === 'io'
                     ? 'bg-brand-orange-500 text-white shadow-xs'
                     : 'text-slate-400 hover:text-slate-200'

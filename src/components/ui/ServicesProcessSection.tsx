@@ -123,39 +123,39 @@ export const ServicesProcessSection: React.FC = () => {
     <div id="services" className="space-y-12">
       {/* Section Header */}
       <div className="text-center max-w-3xl mx-auto space-y-3">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-orange-50 border border-brand-orange-200">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange-50 border border-brand-orange-200">
           <Sparkles className="w-3.5 h-3.5 text-brand-orange-600" />
-          <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600">
+          <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600">
             Web Architecture &amp; Studio Pipeline
           </span>
         </div>
-        <h2 className="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight font-display">
+        <h2 className="text-2xl sm:text-5xl font-black text-slate-950 tracking-tight font-display">
           Website Engineering &amp; Build Pipeline
         </h2>
-        <p className="text-sm sm:text-base text-slate-600 font-sans leading-relaxed">
+        <p className="text-xs sm:text-base text-slate-600 font-sans leading-relaxed">
           From high-converting responsive web platforms and custom SaaS portals to connected physical IoT hardware. Transparently engineered with sub-second speeds.
         </p>
       </div>
 
       {/* 1. Minimized View of Core Services (Always Visible - Not Hidden) */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 items-stretch">
         {SERVICES_TRACKS.map((track) => {
           const Icon = track.icon;
           return (
             <PerspectiveCard key={track.id} className="h-full w-full">
-              <div className="h-full bg-white border border-slate-200 rounded-3xl p-6 sm:p-7 shadow-subtle-card hover:border-brand-orange-400 hover:shadow-hover-card transition-all flex flex-col justify-between">
+              <div className="h-full bg-white border border-slate-200 rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-subtle-card hover:border-brand-orange-400 hover:shadow-hover-card transition-all flex flex-col justify-between">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="w-12 h-12 rounded-2xl bg-brand-orange-50 border border-brand-orange-200 flex items-center justify-center text-brand-orange-600 shadow-orange-sm">
-                      <Icon className="w-6 h-6" />
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-brand-orange-50 border border-brand-orange-200 flex items-center justify-center text-brand-orange-600 shadow-orange-sm">
+                      <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                     </div>
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500 bg-slate-100 px-3 py-1 rounded-full">
+                    <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500 bg-slate-100 px-2.5 py-1 rounded-full">
                       {track.discipline}
                     </span>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-black text-slate-950 font-display">
+                    <h3 className="text-lg sm:text-xl font-black text-slate-950 font-display">
                       {track.title}
                     </h3>
                     <p className="text-xs text-slate-600 mt-2 leading-relaxed font-sans">
@@ -168,7 +168,7 @@ export const ServicesProcessSection: React.FC = () => {
                     {track.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-[10px] font-mono font-bold text-slate-800 bg-slate-50 border border-slate-200 px-2.5 py-1 rounded-full"
+                        className="text-[10px] font-mono font-bold text-slate-800 bg-slate-50 border border-slate-200 px-2.5 py-0.5 rounded-full"
                       >
                         {tag}
                       </span>
@@ -176,8 +176,8 @@ export const ServicesProcessSection: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="pt-5 mt-5 border-t border-slate-100 space-y-3">
-                  <div className="flex items-center gap-2 text-[11px] font-mono text-brand-orange-600 font-bold">
+                <div className="pt-4 mt-4 border-t border-slate-100 space-y-3">
+                  <div className="flex items-center gap-2 text-[10px] sm:text-[11px] font-mono text-brand-orange-600 font-bold">
                     <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0" />
                     <span className="truncate">{track.deliverables}</span>
                   </div>
@@ -189,13 +189,13 @@ export const ServicesProcessSection: React.FC = () => {
       </div>
 
       {/* 2. Minimized View of 4-Phase Operating Process (Always Visible - Not Hidden) */}
-      <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6">
-        <div className="flex flex-wrap items-center justify-between gap-4">
+      <div className="bg-slate-50 border border-slate-200 rounded-2xl sm:rounded-3xl p-4 sm:p-8 space-y-5 sm:space-y-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 block">
               Execution Methodology
             </span>
-            <h3 className="text-xl sm:text-2xl font-black text-slate-950 font-display">
+            <h3 className="text-lg sm:text-2xl font-black text-slate-950 font-display">
               The 4-Step Milestone Sprint
             </h3>
           </div>
@@ -204,7 +204,7 @@ export const ServicesProcessSection: React.FC = () => {
           <button
             type="button"
             onClick={() => setIsExpanded(!isExpanded)}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-slate-100 border border-slate-300 hover:border-brand-orange-400 text-slate-900 font-mono text-xs font-bold uppercase tracking-wider shadow-sm transition-all"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 rounded-full bg-white hover:bg-slate-100 border border-slate-300 hover:border-brand-orange-400 text-slate-900 font-mono text-xs font-bold uppercase tracking-wider shadow-sm transition-all"
           >
             <span>{isExpanded ? 'Minimize Detailed Specs' : 'View Full Process & Specs'}</span>
             {isExpanded ? (
@@ -216,31 +216,31 @@ export const ServicesProcessSection: React.FC = () => {
         </div>
 
         {/* 4 Steps Horizontal Chain */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 items-stretch">
           {PROCESS_STEPS.map((step) => (
             <div
               key={step.step}
-              className="bg-white border border-slate-200/90 rounded-2xl p-5 shadow-xs flex flex-col justify-between"
+              className="bg-white border border-slate-200/90 rounded-xl sm:rounded-2xl p-4 sm:p-5 shadow-xs flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-2xl font-black font-mono text-brand-orange-500">
+                <div className="flex items-center justify-between mb-2 sm:mb-3">
+                  <span className="text-xl sm:text-2xl font-black font-mono text-brand-orange-500">
                     {step.step}
                   </span>
-                  <span className="text-[10px] font-mono font-bold text-slate-600 bg-slate-100 px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                  <span className="text-[9px] sm:text-[10px] font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full flex items-center gap-1">
                     <Clock className="w-3 h-3 text-slate-500" />
                     {step.timeframe}
                   </span>
                 </div>
-                <h4 className="text-sm font-black text-slate-950 font-display">
+                <h4 className="text-xs sm:text-sm font-black text-slate-950 font-display">
                   {step.title}
                 </h4>
-                <p className="text-xs text-slate-600 mt-1.5 leading-relaxed font-sans">
+                <p className="text-xs text-slate-600 mt-1 leading-relaxed font-sans">
                   {step.summary}
                 </p>
               </div>
 
-              <div className="mt-4 pt-3 border-t border-slate-100 text-[10px] font-mono font-semibold text-emerald-600 flex items-center gap-1.5">
+              <div className="mt-3 pt-2.5 border-t border-slate-100 text-[10px] font-mono font-semibold text-emerald-600 flex items-center gap-1.5">
                 <CheckCircle2 className="w-3 h-3" />
                 <span>Verified Milestone</span>
               </div>
@@ -259,8 +259,8 @@ export const ServicesProcessSection: React.FC = () => {
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <div className="bg-[#090D16] border border-slate-800 rounded-3xl p-6 sm:p-9 text-slate-200 shadow-2xl space-y-8">
-              <div className="flex flex-wrap items-center justify-between border-b border-slate-800 pb-5 gap-4">
+            <div className="bg-[#090D16] border border-slate-800 rounded-2xl sm:rounded-3xl p-4 sm:p-9 text-slate-200 shadow-2xl space-y-6 sm:space-y-8">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-slate-800 pb-4 sm:pb-5 gap-3">
                 <div className="space-y-1">
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-brand-orange-500 animate-pulse" />

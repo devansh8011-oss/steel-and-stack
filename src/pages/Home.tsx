@@ -90,7 +90,7 @@ export const Home: React.FC = () => {
                   <div className="relative z-10 px-4 sm:px-9 py-2 sm:py-3.5 rounded-[14px] sm:rounded-[22px] bg-white/95 backdrop-blur-md flex items-center justify-center gap-2 sm:gap-3 text-center">
                     <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-brand-orange-500 animate-pulse flex-shrink-0" />
                     <span className="bg-gradient-to-r from-brand-orange-600 via-amber-500 to-brand-orange-600 bg-clip-text text-transparent font-black tracking-tight text-xl sm:text-4xl lg:text-5xl drop-shadow-xs text-center">
-                      Engineering the Futures of Tech
+                      Engineering the Future of Tech
                     </span>
                   </div>
                 </div>

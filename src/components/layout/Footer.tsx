@@ -151,7 +151,7 @@ export const Footer: React.FC = () => {
         <div className="mt-12 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-slate-400">
           <p>© {new Date().getFullYear()} Steel &amp; Stack Studio. All rights reserved.</p>
           <div className="flex items-center gap-4 text-slate-400">
-            <span className="text-brand-orange-400">Engineering the Futures of Tech</span>
+            <span className="text-brand-orange-400">Engineering the Future of Tech</span>
             <span>•</span>
             <Link to="/contact" className="hover:text-white transition-colors">
               Request Quote

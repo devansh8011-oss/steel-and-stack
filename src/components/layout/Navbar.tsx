@@ -25,26 +25,33 @@ export const Navbar: React.FC = () => {
     if (href.startsWith('#')) {
       e.preventDefault();
       const targetId = href.replace('#', '');
-      const el = document.getElementById(targetId);
+      const el =
+        document.getElementById(targetId) ||
+        (targetId === 'contact' ? document.getElementById('quote-terminal') : null);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth' });
+        window.history.pushState(null, '', href);
+      } else if (location.pathname !== '/') {
+        window.location.href = `/${href}`;
       }
       return;
     }
     if (location.pathname === '/') {
-      if (href === '/services' || href === '#services' || href === '#capabilities') {
-        e.preventDefault();
-        const el = document.getElementById('capabilities') || document.getElementById('services');
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }
-        return;
-      }
       if (href === '/contact' || href === '#contact' || href === '#quote-terminal') {
         e.preventDefault();
         const el = document.getElementById('contact') || document.getElementById('quote-terminal');
         if (el) {
           el.scrollIntoView({ behavior: 'smooth' });
+          window.history.pushState(null, '', '#contact');
+        }
+        return;
+      }
+      if (href === '/services' || href === '#services' || href === '#capabilities') {
+        e.preventDefault();
+        const el = document.getElementById('capabilities') || document.getElementById('services');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+          window.history.pushState(null, '', '#capabilities');
         }
         return;
       }

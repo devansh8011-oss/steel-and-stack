@@ -1,5 +1,4 @@
-import React, { useActionState, useState } from 'react';
-import { useFormStatus } from 'react-dom';
+import React, { useState } from 'react';
 import { Mail, Clock, ShieldCheck, Send, CheckCircle2 } from 'lucide-react';
 import { SITE_CONFIG } from '../../config/site';
 
@@ -13,9 +12,7 @@ const initialState: FormState = {
   success: false,
 };
 
-function SubmitButton() {
-  const { pending } = useFormStatus();
-
+function SubmitButton({ pending }: { pending: boolean }) {
   return (
     <button
       type="submit"
@@ -126,11 +123,33 @@ async function submitInquiryAction(
 }
 
 export const TechnicalInquirySection: React.FC = () => {
-  const [state, formAction] = useActionState(submitInquiryAction, initialState);
-  const [resetKey, setResetKey] = useState(0);
+  const [state, setState] = useState<FormState>(initialState);
+  const [isPending, setIsPending] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsPending(true);
+    try {
+      const formData = new FormData(e.currentTarget);
+      const res = await submitInquiryAction(state, formData);
+      setState(res);
+    } catch (err: any) {
+      setState({
+        success: false,
+        message: err?.message || 'Failed to submit inquiry. Please try again or email us directly.',
+      });
+    } finally {
+      setIsPending(false);
+    }
+  };
+
+  const handleReset = () => {
+    setState({ success: false });
+  };
 
   return (
-    <div className="w-full relative py-8 select-none">
+    <div id="contact" className="w-full relative py-8 select-none">
+      <div id="quote-terminal" className="absolute -top-24 left-0 w-1 h-1 pointer-events-none opacity-0" />
       {/* Subtle floating ambient dust dots */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-12 left-1/4 w-1.5 h-1.5 rounded-full bg-brand-orange-400/30" />
@@ -225,15 +244,15 @@ export const TechnicalInquirySection: React.FC = () => {
               <div className="pt-4">
                 <button
                   type="button"
-                  onClick={() => setResetKey((k) => k + 1)}
-                  className="py-2.5 px-6 rounded-full border border-slate-300 hover:border-brand-orange-500 text-xs font-mono uppercase tracking-wider text-slate-800 transition-colors"
+                  onClick={handleReset}
+                  className="py-2.5 px-6 rounded-full border border-slate-300 hover:border-brand-orange-500 hover:text-brand-orange-600 text-xs font-mono font-bold uppercase tracking-wider text-slate-800 transition-colors shadow-xs"
                 >
                   Send Another Inquiry
                 </button>
               </div>
             </div>
           ) : (
-            <form key={resetKey} action={formAction} className="space-y-5 flex-1 flex flex-col justify-between">
+            <form onSubmit={handleSubmit} className="space-y-5 flex-1 flex flex-col justify-between">
               {/* Spam Honeypot */}
               <input
                 type="text"
@@ -317,7 +336,7 @@ export const TechnicalInquirySection: React.FC = () => {
 
               {/* Submit Button */}
               <div className="pt-2">
-                <SubmitButton />
+                <SubmitButton pending={isPending} />
               </div>
             </form>
           )}

@@ -23,6 +23,7 @@ export const Button: React.FC<ButtonProps> = ({
   icon,
   iconPosition = 'right',
   disabled,
+  onClick,
   ...props
 }) => {
   const baseStyles =
@@ -80,20 +81,28 @@ export const Button: React.FC<ButtonProps> = ({
   );
 
   if (href) {
-    if (isExternal || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('http')) {
+    if (
+      isExternal ||
+      href.startsWith('#') ||
+      href.startsWith('mailto:') ||
+      href.startsWith('tel:') ||
+      href.startsWith('http')
+    ) {
       return (
         <a
           href={href}
           className={combinedClass}
           target={isExternal ? '_blank' : undefined}
           rel={isExternal ? 'noopener noreferrer' : undefined}
+          onClick={onClick as any}
+          {...(props as any)}
         >
           {content}
         </a>
       );
     }
     return (
-      <Link to={href} className={combinedClass}>
+      <Link to={href} className={combinedClass} onClick={onClick as any} {...(props as any)}>
         {content}
       </Link>
     );
@@ -103,7 +112,8 @@ export const Button: React.FC<ButtonProps> = ({
     <button
       className={combinedClass}
       disabled={disabled || isLoading}
-      {...props}
+      onClick={onClick as any}
+      {...(props as any)}
     >
       {content}
     </button>

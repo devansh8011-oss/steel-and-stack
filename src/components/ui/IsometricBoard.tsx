@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Cpu, Wifi, Zap } from 'lucide-react';
 
 interface NodeSpec {
@@ -47,12 +47,12 @@ export const IsometricBoard: React.FC = () => {
         <div className="absolute w-72 h-72 rounded-full bg-brand-orange-500/10 blur-[90px] pointer-events-none" />
 
         {/* Sanitized Matte Obsidian Hardware Board */}
-        <div className="w-full max-w-[500px] min-h-[300px] sm:h-[330px] bg-[#090D16] border border-slate-800/90 rounded-2xl sm:rounded-[28px] shadow-[0_25px_60px_-15px_rgba(15,23,42,0.35)] p-4 sm:p-8 relative flex flex-col justify-between overflow-hidden">
+        <div className="w-full max-w-[500px] min-h-[300px] sm:h-[330px] bg-[#090D16] border border-slate-800/90 rounded-2xl sm:rounded-[28px] shadow-[0_25px_60px_-15px_rgba(15,23,42,0.35)] p-3 sm:p-8 relative flex flex-col justify-between overflow-hidden">
           {/* Subtle Ambient Circuit Glow Line */}
           <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-brand-orange-500/30 to-transparent" />
 
           {/* Minimalist Top Header Strip */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 z-10 w-full">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 z-10 w-full">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-400/90 shadow-[0_0_8px_rgba(52,211,153,0.6)]" />
               <span className="text-[10px] sm:text-[11px] font-mono tracking-wider sm:tracking-widest text-slate-300 font-bold uppercase">
@@ -65,7 +65,7 @@ export const IsometricBoard: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setActiveTab('mcu')}
-                className={`flex-1 sm:flex-initial text-center px-2.5 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-mono font-bold transition-all ${
+                className={`flex-1 sm:flex-initial text-center px-2 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-mono font-bold transition-all ${
                   activeTab === 'mcu'
                     ? 'bg-brand-orange-500 text-white shadow-xs'
                     : 'text-slate-400 hover:text-slate-200'
@@ -76,7 +76,7 @@ export const IsometricBoard: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setActiveTab('wireless')}
-                className={`flex-1 sm:flex-initial text-center px-2.5 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-mono font-bold transition-all ${
+                className={`flex-1 sm:flex-initial text-center px-2 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-mono font-bold transition-all ${
                   activeTab === 'wireless'
                     ? 'bg-brand-orange-500 text-white shadow-xs'
                     : 'text-slate-400 hover:text-slate-200'
@@ -87,7 +87,7 @@ export const IsometricBoard: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setActiveTab('io')}
-                className={`flex-1 sm:flex-initial text-center px-2.5 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-mono font-bold transition-all ${
+                className={`flex-1 sm:flex-initial text-center px-2 sm:px-3 py-1 rounded-full text-[9px] sm:text-[10px] font-mono font-bold transition-all ${
                   activeTab === 'io'
                     ? 'bg-brand-orange-500 text-white shadow-xs'
                     : 'text-slate-400 hover:text-slate-200'
@@ -171,51 +171,17 @@ export const IsometricBoard: React.FC = () => {
 
           {/* Minimalist Bottom Bar */}
           <div className="flex items-center justify-between z-10 pt-2 border-t border-slate-800/80 text-[10px] font-mono text-slate-400">
-            <div className="flex items-center gap-2">
-              <span className="text-slate-500">BUS:</span>
-              <span className="text-slate-300 font-bold">I2C / SPI / UART</span>
+            <div className="flex items-center gap-2 truncate">
+              <span className="text-slate-500">SPEC:</span>
+              <span className="text-brand-orange-400 font-bold truncate">{current.name}</span>
             </div>
-            <div className="flex items-center gap-1.5 text-emerald-400">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span>ACTIVE</span>
+            <div className="flex items-center gap-1.5 text-emerald-400 flex-shrink-0">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_6px_rgba(52,211,153,0.8)]" />
+              <span>{current.status}</span>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Satisfying Telemetry HUD Card Below */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={current.id}
-          initial={{ opacity: 0, y: 6 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -6 }}
-          transition={{ duration: 0.25, ease: 'easeOut' }}
-          className="w-full max-w-lg bg-white border border-slate-200/90 rounded-3xl p-5 shadow-subtle-card mt-3 flex items-center gap-4"
-        >
-          <div className="w-11 h-11 rounded-2xl bg-brand-orange-50 border border-brand-orange-200 flex items-center justify-center text-brand-orange-600 flex-shrink-0">
-            {current.id === 'mcu' && <Cpu className="w-5 h-5" />}
-            {current.id === 'wireless' && <Wifi className="w-5 h-5" />}
-            {current.id === 'io' && <Zap className="w-5 h-5" />}
-          </div>
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center justify-between gap-2">
-              <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-brand-orange-600">
-                {current.category}
-              </span>
-              <span className="text-[10px] font-mono text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200 font-semibold">
-                {current.status}
-              </span>
-            </div>
-            <h4 className="text-sm font-black text-slate-900 font-display mt-0.5">
-              {current.name}
-            </h4>
-            <p className="text-xs font-mono text-slate-600 mt-1">
-              {current.specs}
-            </p>
-          </div>
-        </motion.div>
-      </AnimatePresence>
     </div>
   );
 };

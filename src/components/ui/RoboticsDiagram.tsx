@@ -13,6 +13,80 @@ interface ModuleData {
   codeLines: { num: number; text: string; highlight?: boolean }[];
 }
 
+const highlightSyntax = (text: string) => {
+  if (!text) return <span>&nbsp;</span>;
+  const trimmed = text.trim();
+  if (trimmed.startsWith('//')) {
+    return <span className="text-emerald-400/90 italic">{text}</span>;
+  }
+  if (trimmed.startsWith('#include')) {
+    const match = text.match(/(#include\s+)(<[^>]+>|"[^"]+")/);
+    if (match) {
+      return (
+        <>
+          <span className="text-rose-400 font-semibold">{match[1]}</span>
+          <span className="text-amber-300 font-medium">{match[2]}</span>
+        </>
+      );
+    }
+    return <span className="text-rose-400 font-semibold">{text}</span>;
+  }
+
+  // Handle inline comments
+  const commentIndex = text.indexOf('//');
+  const code = commentIndex !== -1 ? text.slice(0, commentIndex) : text;
+  const comment = commentIndex !== -1 ? text.slice(commentIndex) : '';
+
+  // Token Regex: Types, Control Flow, Function Calls, Numbers/Constants, Operators, Identifiers
+  const tokenRegex =
+    /(\b(?:void|float|uint8_t|uint16_t|uint32_t|int32_t|TickType_t|const|bool)\b)|(\b(?:if|for|while|return|else)\b)|(\b[a-zA-Z_]\w*(?=\s*\())|(\b(?:0x[0-9a-fA-F]+|\d+(?:\.\d+)?f?|STALL_VALUE)\b)|(<<|>>|<=|>=|==|!=|&&|\|\||[&|*<>=!+\-~])|(\b[a-zA-Z_]\w*\b)/g;
+
+  const parts: React.ReactNode[] = [];
+  let lastIdx = 0;
+  let m: RegExpExecArray | null;
+
+  while ((m = tokenRegex.exec(code)) !== null) {
+    if (m.index > lastIdx) {
+      parts.push(code.substring(lastIdx, m.index));
+    }
+    const [
+      ,
+      typeKw,
+      ctrlKw,
+      funcCall,
+      numConst,
+      operator,
+      identifier,
+    ] = m;
+
+    if (typeKw) {
+      parts.push(<span key={m.index} className="text-sky-400 font-semibold">{typeKw}</span>);
+    } else if (ctrlKw) {
+      parts.push(<span key={m.index} className="text-purple-400 font-bold">{ctrlKw}</span>);
+    } else if (funcCall) {
+      parts.push(<span key={m.index} className="text-amber-300 font-medium">{funcCall}</span>);
+    } else if (numConst) {
+      parts.push(<span key={m.index} className="text-orange-400 font-mono">{numConst}</span>);
+    } else if (operator) {
+      parts.push(<span key={m.index} className="text-rose-300 font-medium">{operator}</span>);
+    } else if (identifier) {
+      parts.push(<span key={m.index} className="text-slate-100">{identifier}</span>);
+    }
+    lastIdx = tokenRegex.lastIndex;
+  }
+
+  if (lastIdx < code.length) {
+    parts.push(code.substring(lastIdx));
+  }
+
+  return (
+    <>
+      {parts}
+      {comment && <span className="text-emerald-400/90 italic">{comment}</span>}
+    </>
+  );
+};
+
 export const RoboticsDiagram: React.FC = () => {
   const [activeModule, setActiveModule] = useState<string>('lidar');
   const [copied, setCopied] = useState<boolean>(false);
@@ -88,15 +162,15 @@ export const RoboticsDiagram: React.FC = () => {
       id: 'imu',
       label: '9-DoF IMU & Orientation Fusion',
       detail: 'Kalman-filtered accelerometer and gyroscope for terrain tilt compensation and drift-free dead reckoning.',
-      specs: '±2000°/s Gyro • 100Hz Kalman Filter',
+      specs: 'BNO085 Sensor Hub • 100Hz Quaternions',
       icon: Compass,
-      tag: 'Navigation Fusion',
-      filename: 'kalman_fusion.cpp',
+      tag: 'Spatial Sensing',
+      filename: 'imu_fusion.cpp',
       codeLines: [
-        { num: 1, text: '// 9-DoF Sensor Fusion - 100Hz Kalman Filter' },
-        { num: 2, text: '#include <Wire.h>' },
-        { num: 3, text: '#include <BNO085.h>' },
-        { num: 4, text: '' },
+        { num: 1, text: '// 9-Axis Sensor Fusion with Extended Kalman Filter' },
+        { num: 2, text: '#include <Adafruit_BNO08x.h>' },
+        { num: 3, text: '' },
+        { num: 4, text: '// Fused quaternion state estimation loop' },
         { num: 5, text: 'void update_orientation(float ax, float ay, float az, float gx, float gy, float gz) {' },
         { num: 6, text: '  kalman_predict(&roll, &pitch, gx, gy, dt);', highlight: true },
         { num: 7, text: '  kalman_update(&roll, &pitch, ax, ay, az);', highlight: true },
@@ -116,23 +190,23 @@ export const RoboticsDiagram: React.FC = () => {
   };
 
   return (
-    <div className="bg-white border border-slate-200/90 rounded-2xl sm:rounded-[28px] p-4 sm:p-9 shadow-subtle-card relative overflow-hidden select-none">
+    <div className="bg-white dark:bg-[#090D16] border border-slate-200/90 dark:border-slate-800 rounded-2xl sm:rounded-[28px] p-4 sm:p-8 shadow-subtle-card dark:shadow-[0_20px_50px_-15px_rgba(0,0,0,0.8)] relative overflow-hidden select-none transition-colors">
       <div className="flex flex-col lg:flex-row items-stretch gap-6 sm:gap-8">
         {/* Production Hardware & Kinematics Code Terminal */}
-        <div className="w-full lg:w-1/2 flex flex-col justify-between bg-[#090D16] rounded-2xl sm:rounded-3xl border border-slate-800 relative overflow-hidden min-h-[320px] sm:min-h-[420px] shadow-[0_20px_50px_-15px_rgba(15,23,42,0.5)]">
+        <div className="w-full lg:w-1/2 flex flex-col justify-between bg-[#0A0E1A] dark:bg-[#060A14] rounded-2xl sm:rounded-3xl border border-slate-800/90 dark:border-slate-800 relative overflow-hidden min-h-[340px] sm:min-h-[420px] shadow-[0_20px_50px_-15px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.06)]">
           {/* Subtle Top Ambient Glow Line */}
-          <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-brand-orange-500/30 to-transparent pointer-events-none" />
+          <div className="absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-brand-orange-500/40 to-transparent pointer-events-none" />
 
           {/* Top Window Bar */}
-          <div className="flex flex-wrap items-center justify-between px-5 py-3.5 bg-[#0D1322] border-b border-slate-800 gap-2">
+          <div className="flex flex-wrap items-center justify-between px-4 sm:px-5 py-3 bg-[#0E1528] dark:bg-[#0A0F1F] border-b border-slate-800/90 gap-2">
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
-                <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
-                <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
+                <span className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-rose-500 shadow-[0_0_6px_rgba(244,63,94,0.6)] inline-block" />
+                <span className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-amber-500 shadow-[0_0_6px_rgba(245,158,11,0.6)] inline-block" />
+                <span className="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full bg-emerald-500 shadow-[0_0_6px_rgba(16,185,129,0.6)] inline-block" />
               </div>
-              <div className="flex items-center gap-1.5 pl-3 border-l border-slate-800 font-mono text-xs text-slate-300 font-bold">
-                <Terminal className="w-3.5 h-3.5 text-brand-orange-500" />
+              <div className="flex items-center gap-1.5 pl-3 border-l border-slate-700/80 font-mono text-xs text-slate-200 font-bold">
+                <Terminal className="w-3.5 h-3.5 text-brand-orange-400" />
                 <span>{current.filename}</span>
               </div>
             </div>
@@ -141,7 +215,7 @@ export const RoboticsDiagram: React.FC = () => {
             <button
               type="button"
               onClick={handleCopy}
-              className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800/90 hover:bg-slate-700 border border-slate-700 text-slate-300 font-mono text-xs transition-colors"
+              className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-800/90 hover:bg-slate-700 border border-slate-700/80 text-slate-300 hover:text-white font-mono text-xs transition-colors cursor-pointer"
               title="Copy code"
             >
               {copied ? (
@@ -158,8 +232,8 @@ export const RoboticsDiagram: React.FC = () => {
             </button>
           </div>
 
-          {/* Subsystem Pill Selector */}
-          <div className="px-4 sm:px-5 pt-3 pb-2 flex items-center gap-1.5 flex-wrap border-b border-slate-800/60 bg-[#090D16]">
+          {/* Module Tabs Strip */}
+          <div className="px-3 sm:px-5 pt-2.5 pb-2 flex items-center gap-1 sm:gap-1.5 flex-wrap border-b border-slate-800/80 bg-[#0A0E1A] dark:bg-[#070A14]">
             {Object.values(modules).map((mod) => {
               const isActive = activeModule === mod.id;
               const Icon = mod.icon;
@@ -168,9 +242,9 @@ export const RoboticsDiagram: React.FC = () => {
                   key={mod.id}
                   type="button"
                   onClick={() => setActiveModule(mod.id)}
-                  className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-mono font-bold transition-all ${
+                  className={`flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-mono font-bold transition-all cursor-pointer ${
                     isActive
-                      ? 'bg-brand-orange-500 text-white shadow-xs'
+                      ? 'bg-brand-orange-500 text-white shadow-[0_0_12px_rgba(249,115,22,0.4)]'
                       : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60'
                   }`}
                 >
@@ -181,30 +255,32 @@ export const RoboticsDiagram: React.FC = () => {
             })}
           </div>
 
-          {/* Code Viewer Viewport */}
-          <div className="p-5 flex-1 overflow-x-auto font-mono text-xs sm:text-[13px] leading-relaxed bg-[#090D16]">
+          {/* Code Viewer Viewport with Vibrant Syntax Highlighting */}
+          <div className="p-4 sm:p-5 flex-1 overflow-x-auto font-mono text-xs sm:text-[13px] leading-relaxed bg-[#04060E] dark:bg-[#020409]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={current.id}
-                initial={{ opacity: 0, y: 3 }}
+                initial={{ opacity: 0, y: 5 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -3 }}
+                exit={{ opacity: 0, y: -5 }}
                 transition={{ duration: 0.15 }}
-                className="space-y-0.5"
+                className="space-y-1"
               >
                 {current.codeLines.map((line) => (
                   <div
                     key={line.num}
-                    className={`flex items-center px-1.5 py-0.5 rounded transition-colors ${
+                    className={`flex items-baseline py-0.5 rounded px-1 transition-colors ${
                       line.highlight
-                        ? 'bg-brand-orange-950/40 border-l-2 border-brand-orange-500 pl-1.5 text-orange-200'
-                        : 'hover:bg-slate-900/60 text-slate-300'
+                        ? 'bg-brand-orange-950/40 border-l-2 border-brand-orange-500 pl-1.5'
+                        : 'hover:bg-slate-900/60'
                     }`}
                   >
                     <span className="w-7 select-none text-slate-600 text-right pr-3 flex-shrink-0 text-[11px]">
                       {line.num}
                     </span>
-                    <span className="font-mono whitespace-pre">{line.text}</span>
+                    <span className="font-mono whitespace-pre inline-block">
+                      {highlightSyntax(line.text)}
+                    </span>
                   </div>
                 ))}
               </motion.div>
@@ -212,11 +288,11 @@ export const RoboticsDiagram: React.FC = () => {
           </div>
 
           {/* Bottom Telemetry Bar */}
-          <div className="flex flex-wrap items-center justify-between px-5 py-2.5 bg-[#0D1322] border-t border-slate-800 font-mono text-[10px] sm:text-[11px] text-slate-400 gap-2">
+          <div className="flex flex-wrap items-center justify-between px-4 sm:px-5 py-2.5 bg-[#0E1528] dark:bg-[#0A0F1F] border-t border-slate-800/90 font-mono text-[10px] sm:text-[11px] text-slate-300 gap-2">
             <div className="flex items-center gap-2 truncate">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
-              <span className="text-slate-300 font-bold">SPEC:</span>
-              <span className="text-slate-400 truncate">{current.specs}</span>
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0 shadow-[0_0_6px_rgba(52,211,153,0.8)]" />
+              <span className="text-slate-400 font-bold">SPEC:</span>
+              <span className="text-slate-200 truncate">{current.specs}</span>
             </div>
             <div className="flex items-center gap-1.5 text-emerald-400 font-bold flex-shrink-0">
               <span>● COMPILED C++</span>
@@ -224,18 +300,18 @@ export const RoboticsDiagram: React.FC = () => {
           </div>
         </div>
 
-        {/* Sanitized Modules Breakdown List */}
+        {/* Modules Breakdown List (Fully Themed for Dark & Light) */}
         <div className="w-full lg:w-1/2 space-y-3">
           <div className="mb-2">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 block">
+            <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 dark:text-brand-orange-400 block">
               Autonomous Architecture
             </span>
-            <h3 className="text-xl sm:text-2xl font-black text-slate-950 font-display">
+            <h3 className="text-xl sm:text-2xl font-black text-slate-950 dark:text-white font-display">
               Sub-System Kinematics &amp; Control
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 gap-3">
+          <div className="grid grid-cols-1 gap-2.5 sm:gap-3">
             {Object.values(modules).map((mod) => {
               const Icon = mod.icon;
               const isSelected = activeModule === mod.id;
@@ -244,31 +320,31 @@ export const RoboticsDiagram: React.FC = () => {
                   key={mod.id}
                   onClick={() => setActiveModule(mod.id)}
                   type="button"
-                  className={`text-left p-4 rounded-2xl border transition-all flex items-start gap-3.5 ${
+                  className={`text-left p-3.5 sm:p-4 rounded-2xl border transition-all flex items-start gap-3.5 cursor-pointer ${
                     isSelected
-                      ? 'bg-brand-orange-50/60 border-brand-orange-400 shadow-xs'
-                      : 'bg-white border-slate-200 hover:border-slate-300 hover:bg-slate-50/60'
+                      ? 'bg-brand-orange-50/70 dark:bg-brand-orange-950/40 border-brand-orange-400 dark:border-brand-orange-500 shadow-xs dark:shadow-[0_0_20px_rgba(249,115,22,0.15)]'
+                      : 'bg-white dark:bg-[#0D1426] border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 hover:bg-slate-50/60 dark:hover:bg-[#111A30]'
                   }`}
                 >
                   <div
-                    className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 border ${
+                    className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 border transition-all ${
                       isSelected
-                        ? 'bg-brand-orange-500 text-white border-brand-orange-600 shadow-xs'
-                        : 'bg-slate-100 text-slate-600 border-slate-200'
+                        ? 'bg-brand-orange-500 text-white border-brand-orange-600 shadow-xs dark:shadow-[0_0_12px_rgba(249,115,22,0.5)]'
+                        : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700'
                     }`}
                   >
                     <Icon className="w-4 h-4" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
-                      <h4 className="text-xs font-bold font-mono text-slate-900 uppercase tracking-wide">
+                      <h4 className="text-xs font-bold font-mono text-slate-900 dark:text-white uppercase tracking-wide">
                         {mod.label}
                       </h4>
-                      <span className="text-[10px] font-mono text-brand-orange-600 font-semibold bg-brand-orange-50 px-2.5 py-0.5 rounded-full border border-brand-orange-200">
+                      <span className="text-[9px] sm:text-[10px] font-mono text-brand-orange-600 dark:text-brand-orange-400 font-semibold bg-brand-orange-50 dark:bg-brand-orange-950/70 px-2.5 py-0.5 rounded-full border border-brand-orange-200 dark:border-brand-orange-800/80">
                         {mod.tag}
                       </span>
                     </div>
-                    <p className="text-xs text-slate-600 mt-1 leading-relaxed font-sans">
+                    <p className="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed font-sans">
                       {mod.detail}
                     </p>
                   </div>

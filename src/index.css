@@ -3,10 +3,21 @@
 @tailwind utilities;
 
 @layer base {
+  html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   body {
     background-color: #FAFAFC;
     color: #0F172A;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  html.dark body {
+    background-color: #090D16;
+    color: #F8FAFC;
   }
 }
 
@@ -18,8 +29,18 @@
     linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
 }
 
+html.dark .bg-light-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
 .bg-orange-subtle-glow {
   background: radial-gradient(circle at 50% 30%, rgba(249, 115, 22, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+}
+
+html.dark .bg-orange-subtle-glow {
+  background: radial-gradient(circle at 50% 30%, rgba(249, 115, 22, 0.16) 0%, rgba(9, 13, 22, 0) 70%);
 }
 
 /* Clean custom scrollbar */
@@ -34,5 +55,15 @@
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
+  background: #EA580C;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #0F172A;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
   background: #EA580C;
 }

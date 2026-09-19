@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { ScrollProgress } from '../ui/ScrollProgress';
+import { AIChatbot } from '../chat/AIChatbot';
 
 export const Layout: React.FC = () => {
   const { pathname, hash } = useLocation();
@@ -25,13 +26,14 @@ export const Layout: React.FC = () => {
   }, [pathname, hash]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-brand-orange-500 selection:text-white relative">
+    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#090D16] text-slate-900 dark:text-white selection:bg-brand-orange-500 selection:text-white relative">
       <ScrollProgress />
       <Navbar />
       <main className="flex-1">
         <Outlet />
       </main>
       <Footer />
+      <AIChatbot />
     </div>
   );
 };

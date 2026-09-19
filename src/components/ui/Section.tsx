@@ -24,10 +24,10 @@ export const Section: React.FC<SectionProps> = ({
   borderBottom = false,
 }) => {
   const variantStyles = {
-    white: 'bg-white text-slate-900',
-    slate: 'bg-slate-50 text-slate-900',
-    'subtle-grid': 'bg-white bg-light-grid text-slate-900',
-    'orange-glow': 'bg-white bg-orange-subtle-glow text-slate-900',
+    white: 'bg-white dark:bg-[#090D16] text-slate-900 dark:text-slate-100',
+    slate: 'bg-slate-50 dark:bg-[#0C111D] text-slate-900 dark:text-slate-100',
+    'subtle-grid': 'bg-white dark:bg-[#090D16] bg-light-grid text-slate-900 dark:text-slate-100',
+    'orange-glow': 'bg-white dark:bg-[#090D16] bg-orange-subtle-glow text-slate-900 dark:text-slate-100',
     'dark-band': 'bg-slate-950 text-white',
   };
 
@@ -47,9 +47,9 @@ export const Section: React.FC<SectionProps> = ({
   return (
     <section
       id={id}
-      className={`w-full relative ${variantStyles[variant]} ${spacingStyles[spacing]} ${
-        borderTop ? 'border-t border-slate-200/80' : ''
-      } ${borderBottom ? 'border-b border-slate-200/80' : ''} ${className}`}
+      className={`w-full relative transition-colors duration-200 ${variantStyles[variant]} ${spacingStyles[spacing]} ${
+        borderTop ? 'border-t border-slate-200/80 dark:border-slate-800/80' : ''
+      } ${borderBottom ? 'border-b border-slate-200/80 dark:border-slate-800/80' : ''} ${className}`}
     >
       <div
         className={`mx-auto px-4 sm:px-6 lg:px-8 relative z-10 ${containerWidths[containerSize]} ${containerClassName}`}

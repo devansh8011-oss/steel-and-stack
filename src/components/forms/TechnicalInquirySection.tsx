@@ -163,10 +163,10 @@ export const TechnicalInquirySection: React.FC = () => {
         <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 block mb-1">
           Initiate Engagement
         </span>
-        <h2 className="text-3xl sm:text-4xl font-bold text-slate-950 font-display tracking-tight">
+        <h2 className="text-3xl sm:text-4xl font-bold text-slate-950 dark:text-white font-display tracking-tight">
           Let's build something exceptional.
         </h2>
-        <p className="text-sm text-slate-500 font-mono mt-1.5">
+        <p className="text-sm text-slate-500 dark:text-slate-400 font-mono mt-1.5">
           Direct communication with senior engineers. Fixed timelines, zero sales fluff.
         </p>
       </div>
@@ -174,21 +174,21 @@ export const TechnicalInquirySection: React.FC = () => {
       {/* 2 Side-by-Side Rounded Cards */}
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch relative z-10 px-4">
         {/* Left Card: Engineering & Technical Support */}
-        <div className="bg-white border border-slate-200/90 rounded-2xl sm:rounded-[28px] p-5 sm:p-10 shadow-[0_10px_35px_-5px_rgba(0,0,0,0.04)] flex flex-col justify-between">
+        <div className="bg-white dark:bg-[#0D1322] border border-slate-200/90 dark:border-slate-800 rounded-2xl sm:rounded-[28px] p-5 sm:p-10 shadow-[0_10px_35px_-5px_rgba(0,0,0,0.04)] flex flex-col justify-between">
           <div className="space-y-6">
             <div>
-              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight font-display">
+              <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight font-display">
                 Direct Project Scoping
               </h3>
-              <p className="text-sm text-slate-600 mt-3 leading-relaxed font-sans">
+              <p className="text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed font-sans">
                 Tell us about your objectives. We will review your requirements and provide an itemized sprint roadmap and fixed price within 24 hours.
               </p>
             </div>
 
             <div className="space-y-4 pt-2">
               {/* Direct Email Block */}
-              <div className="bg-slate-50/70 border border-slate-200/70 rounded-2xl p-4 flex items-center gap-4 transition-all hover:border-slate-300">
-                <div className="w-12 h-12 rounded-xl bg-orange-50 border border-orange-200/70 flex items-center justify-center text-brand-orange-500 flex-shrink-0">
+              <div className="bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200/70 dark:border-slate-800/70 rounded-2xl p-4 flex items-center gap-4 transition-all hover:border-slate-300 dark:hover:border-slate-700">
+                <div className="w-12 h-12 rounded-xl bg-orange-50 dark:bg-orange-950/40 border border-orange-200/70 dark:border-orange-800/60 flex items-center justify-center text-brand-orange-500 flex-shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div className="min-w-0 flex-1">
@@ -205,15 +205,15 @@ export const TechnicalInquirySection: React.FC = () => {
               </div>
 
               {/* WhatsApp Quick Chat */}
-              <div className="bg-slate-50/70 border border-slate-200/70 rounded-2xl p-4 flex items-center gap-4 transition-all hover:border-slate-300">
-                <div className="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-200/70 flex items-center justify-center text-emerald-600 flex-shrink-0">
+              <div className="bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200/70 dark:border-slate-800/70 rounded-2xl p-4 flex items-center gap-4 transition-all hover:border-slate-300 dark:hover:border-slate-700">
+                <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/70 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 flex-shrink-0">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
                   <span className="text-[10px] font-mono font-bold tracking-widest text-slate-400 uppercase block">
                     RESPONSE COMMITMENT
                   </span>
-                  <span className="text-sm sm:text-base font-mono font-bold text-slate-900 block">
+                  <span className="text-sm sm:text-base font-mono font-bold text-slate-900 dark:text-white block">
                     Within 24 Hours Guaranteed
                   </span>
                 </div>
@@ -222,30 +222,30 @@ export const TechnicalInquirySection: React.FC = () => {
           </div>
 
           {/* Bottom Security / Scope Badge */}
-          <div className="pt-8 mt-6 border-t border-slate-100 flex items-center gap-2 text-xs font-mono text-slate-500">
-            <ShieldCheck className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+          <div className="pt-8 mt-6 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2 text-xs font-mono text-slate-500 dark:text-slate-400">
+            <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
             <span>100% IP Handover • NDA Protected • Pan-India &amp; Global</span>
           </div>
         </div>
 
         {/* Right Card: Technical Inquiry Form */}
-        <div className="bg-white border border-slate-200/90 rounded-2xl sm:rounded-[28px] p-5 sm:p-10 shadow-[0_10px_35px_-5px_rgba(0,0,0,0.04)] flex flex-col justify-between">
+        <div className="bg-white dark:bg-[#0D1322] border border-slate-200/90 dark:border-slate-800 rounded-2xl sm:rounded-[28px] p-5 sm:p-10 shadow-[0_10px_35px_-5px_rgba(0,0,0,0.04)] flex flex-col justify-between">
           {state.success ? (
             <div className="my-auto py-8 text-center space-y-4">
-              <div className="w-14 h-14 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center mx-auto shadow-sm">
+              <div className="w-14 h-14 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto shadow-sm">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h4 className="text-2xl font-black text-slate-900 font-display">
+              <h4 className="text-2xl font-black text-slate-900 dark:text-white font-display">
                 Message Transmitted
               </h4>
-              <p className="text-sm text-slate-600 max-w-sm mx-auto font-sans leading-relaxed">
+              <p className="text-sm text-slate-600 dark:text-slate-300 max-w-sm mx-auto font-sans leading-relaxed">
                 {state.message}
               </p>
               <div className="pt-4">
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="py-2.5 px-6 rounded-full border border-slate-300 hover:border-brand-orange-500 hover:text-brand-orange-600 text-xs font-mono font-bold uppercase tracking-wider text-slate-800 transition-colors shadow-xs"
+                  className="py-2.5 px-6 rounded-full border border-slate-300 dark:border-slate-700 hover:border-brand-orange-500 hover:text-brand-orange-600 text-xs font-mono font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200 transition-colors shadow-xs"
                 >
                   Send Another Inquiry
                 </button>
@@ -268,7 +268,7 @@ export const TechnicalInquirySection: React.FC = () => {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-[11px] font-mono font-bold text-slate-800 uppercase tracking-widest mb-1.5"
+                    className="block text-[11px] font-mono font-bold text-slate-800 dark:text-slate-200 uppercase tracking-widest mb-1.5"
                   >
                     YOUR NAME
                   </label>
@@ -278,7 +278,7 @@ export const TechnicalInquirySection: React.FC = () => {
                     type="text"
                     required
                     placeholder="e.g., Alex Mercer"
-                    className="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-brand-orange-500 focus:ring-1 focus:ring-brand-orange-500 transition-all font-sans"
+                    className="w-full px-4 py-3.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-[#090D16] text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-brand-orange-500 focus:ring-1 focus:ring-brand-orange-500 transition-all font-sans"
                   />
                   {state.errors?.name && (
                     <p className="text-xs text-rose-600 mt-1 font-mono">{state.errors.name}</p>
@@ -289,7 +289,7 @@ export const TechnicalInquirySection: React.FC = () => {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-[11px] font-mono font-bold text-slate-800 uppercase tracking-widest mb-1.5"
+                    className="block text-[11px] font-mono font-bold text-slate-800 dark:text-slate-200 uppercase tracking-widest mb-1.5"
                   >
                     WORK EMAIL
                   </label>
@@ -299,7 +299,7 @@ export const TechnicalInquirySection: React.FC = () => {
                     type="email"
                     required
                     placeholder="alex@company.com"
-                    className="w-full px-4 py-3.5 rounded-xl border border-slate-200 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-brand-orange-500 focus:ring-1 focus:ring-brand-orange-500 transition-all font-sans"
+                    className="w-full px-4 py-3.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-[#090D16] text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-brand-orange-500 focus:ring-1 focus:ring-brand-orange-500 transition-all font-sans"
                   />
                   {state.errors?.email && (
                     <p className="text-xs text-rose-600 mt-1 font-mono">{state.errors.email}</p>
@@ -310,7 +310,7 @@ export const TechnicalInquirySection: React.FC = () => {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-[11px] font-mono font-bold text-slate-800 uppercase tracking-widest mb-1.5"
+                    className="block text-[11px] font-mono font-bold text-slate-800 dark:text-slate-200 uppercase tracking-widest mb-1.5"
                   >
                     PROJECT REQUIREMENTS / BRIEF
                   </label>
@@ -320,7 +320,7 @@ export const TechnicalInquirySection: React.FC = () => {
                     required
                     rows={4}
                     placeholder="Describe your software, PCB design, or IoT requirements..."
-                    className="w-full px-4 py-3.5 rounded-xl border-2 border-brand-orange-400/90 bg-white text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-brand-orange-500 focus:ring-2 focus:ring-brand-orange-500/20 transition-all font-sans resize-none"
+                    className="w-full px-4 py-3.5 rounded-xl border-2 border-brand-orange-400/90 dark:border-brand-orange-500/80 bg-white dark:bg-[#090D16] text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-brand-orange-500 focus:ring-2 focus:ring-brand-orange-500/20 transition-all font-sans resize-none"
                   />
                   {state.errors?.message && (
                     <p className="text-xs text-rose-600 mt-1 font-mono">{state.errors.message}</p>
@@ -329,7 +329,7 @@ export const TechnicalInquirySection: React.FC = () => {
               </div>
 
               {state.message && !state.success && (
-                <div className="p-3 bg-rose-50 border border-rose-200 rounded-xl text-xs text-rose-700 font-mono">
+                <div className="p-3 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 rounded-xl text-xs text-rose-700 dark:text-rose-400 font-mono">
                   {state.message}
                 </div>
               )}

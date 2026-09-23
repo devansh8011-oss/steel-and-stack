@@ -14,6 +14,7 @@ import { Avatar } from '../ui/components-primitives-avatar';
 
 export const AIChatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showTeaser, setShowTeaser] = useState(true);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
@@ -114,7 +115,55 @@ export const AIChatbot: React.FC = () => {
   return (
     <>
       {/* Floating Action Button on Bottom Right */}
-      <div className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40">
+      <div className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end">
+        {/* Floating Cortex Teaser Message Bubble */}
+        <AnimatePresence>
+          {!isOpen && showTeaser && (
+            <motion.div
+              initial={{ opacity: 0, y: 12, scale: 0.9 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 8, scale: 0.9 }}
+              transition={{ duration: 0.25 }}
+              onClick={() => setIsOpen(true)}
+              className="mb-2.5 max-w-[260px] sm:max-w-[285px] bg-white dark:bg-[#0D1322] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-3 shadow-[0_12px_35px_-5px_rgba(15,23,42,0.18)] dark:shadow-[0_12px_35px_-5px_rgba(0,0,0,0.55)] relative cursor-pointer group hover:border-brand-orange-400 dark:hover:border-brand-orange-500/50 transition-all select-none"
+            >
+              {/* Dismiss Button */}
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowTeaser(false);
+                }}
+                className="absolute -top-1.5 -left-1.5 w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center text-[10px] transition-colors shadow-xs"
+                title="Dismiss message"
+                aria-label="Dismiss message"
+              >
+                <X className="w-3 h-3" />
+              </button>
+
+              <div className="flex items-start gap-2.5">
+                <div className="flex-shrink-0 mt-0.5">
+                  <Avatar color="orange" size="sm" shape="circle" blinking={true} />
+                </div>
+                <div className="flex-1 min-w-0 text-left">
+                  <div className="flex items-center gap-1.5">
+                    <span className="font-mono text-[10px] font-black uppercase tracking-wider text-brand-orange-600 dark:text-brand-orange-400">
+                      CORTEX AI
+                    </span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  </div>
+                  <p className="text-[11px] font-sans text-slate-800 dark:text-slate-200 font-medium leading-snug mt-0.5 group-hover:text-brand-orange-600 dark:group-hover:text-brand-orange-400 transition-colors">
+                    Chat with <strong className="text-slate-950 dark:text-white font-bold">Cortex</strong> to discuss websites, automation &amp; IoT hardware →
+                  </p>
+                </div>
+              </div>
+
+              {/* Downward Speech Bubble Pointer Arrow */}
+              <div className="absolute -bottom-1.5 right-5 sm:right-6 w-3 h-3 bg-white dark:bg-[#0D1322] border-r border-b border-slate-200/90 dark:border-slate-800 rotate-45" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         {!isOpen && (
           <button
             onClick={() => setIsOpen(true)}
@@ -153,13 +202,10 @@ export const AIChatbot: React.FC = () => {
                 <div className="min-w-0">
                   <div className="flex items-center gap-1.5">
                     <h3 className="text-xs font-mono font-bold text-slate-900 dark:text-white uppercase tracking-wider truncate">
-                      Cortex // Steel &amp; Stack AI
+                      CORTEX AI
                     </h3>
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse flex-shrink-0" />
                   </div>
-                  <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400 block truncate">
-                    Fast LLaMA 3.3 • Groq Powered
-                  </span>
                 </div>
               </div>
 

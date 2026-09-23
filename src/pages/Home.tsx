@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Section } from '../components/ui/Section';
 import { MetaTags } from '../components/seo/MetaTags';
-import { PerspectiveCard } from '../components/ui/PerspectiveCard';
+import { InteractiveCard } from '../components/ui/InteractiveCard';
 import { IsometricBoard } from '../components/ui/IsometricBoard';
 import { IsometricBrowser } from '../components/ui/IsometricBrowser';
 import { ServicesProcessSection } from '../components/ui/ServicesProcessSection';
@@ -219,145 +219,139 @@ export const Home: React.FC = () => {
           {/* Capabilities Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             {/* Track 01: Web Platforms */}
-            <PerspectiveCard>
-              <div className="h-full bg-slate-50 dark:bg-[#0D1322] border border-slate-200/90 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-subtle-card hover:border-brand-orange-400 flex flex-col justify-between transition-all">
-                <div className="space-y-4">
-                  <div className="w-12 h-12 rounded-2xl bg-slate-900 text-brand-orange-400 flex items-center justify-center">
-                    <Globe className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-mono font-bold text-brand-orange-600 uppercase tracking-widest">
-                      Track 01 • Web Flagships
-                    </span>
-                    <h3 className="text-xl font-black text-slate-950 dark:text-white font-display mt-0.5">
-                      High-Converting Web Platforms
-                    </h3>
-                  </div>
-                  <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
-                    Corporate flagships, portfolio showcases, and landing funnels built to position your brand at the highest tier and convert visitors into qualified pipeline.
-                  </p>
-                  <ul className="space-y-2 font-mono text-[11px] text-slate-700 dark:text-slate-300 pt-2 border-t border-slate-200 dark:border-slate-800">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                      <span>Sub-0.8s Core Web Vitals (<strong className="text-emerald-600 dark:text-emerald-400">0.00 CLS</strong>)</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                      <span>Mobile-first responsive design tokens</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                      <span>Automated SEO schema &amp; Open Graph</span>
-                    </li>
-                  </ul>
+            <InteractiveCard cardClassName="bg-slate-50 dark:bg-[#0D1322] p-5 sm:p-7 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-slate-900 text-brand-orange-400 flex items-center justify-center">
+                  <Globe className="w-6 h-6" />
                 </div>
-
-                <div className="pt-6 mt-4 border-t border-slate-200 dark:border-slate-800">
-                  <button
-                    onClick={() => openAIChat("I'd like to scope a High-Converting Web Platform project. What is the process, sprint timeline, and deliverables?")}
-                    type="button"
-                    className="w-full py-3 px-4 bg-white dark:bg-slate-900 hover:bg-brand-orange-50 dark:hover:bg-brand-orange-950/30 border border-slate-300 dark:border-slate-700 hover:border-brand-orange-400 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100 transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
-                  >
-                    <span>Scope Web Platform</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-brand-orange-500" />
-                  </button>
+                <div>
+                  <span className="text-[10px] font-mono font-bold text-brand-orange-600 uppercase tracking-widest">
+                    Track 01 • Web Flagships
+                  </span>
+                  <h3 className="text-xl font-black text-slate-950 dark:text-white font-display mt-0.5">
+                    High-Converting Web Platforms
+                  </h3>
                 </div>
+                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
+                  Corporate flagships, portfolio showcases, and landing funnels built to position your brand at the highest tier and convert visitors into qualified pipeline.
+                </p>
+                <ul className="space-y-2 font-mono text-[11px] text-slate-700 dark:text-slate-300 pt-2 border-t border-slate-200 dark:border-slate-800">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
+                    <span>Sub-0.8s Core Web Vitals (<strong className="text-emerald-600 dark:text-emerald-400">0.00 CLS</strong>)</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
+                    <span>Mobile-first responsive design tokens</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
+                    <span>Automated SEO schema &amp; Open Graph</span>
+                  </li>
+                </ul>
               </div>
-            </PerspectiveCard>
+
+              <div className="pt-6 mt-4 border-t border-slate-200 dark:border-slate-800">
+                <button
+                  onClick={() => openAIChat("I'd like to scope a High-Converting Web Platform project. What is the process, sprint timeline, and deliverables?")}
+                  type="button"
+                  className="w-full py-3 px-4 bg-white dark:bg-slate-900 hover:bg-brand-orange-50 dark:hover:bg-brand-orange-950/30 border border-slate-300 dark:border-slate-700 hover:border-brand-orange-400 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100 transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                >
+                  <span>Scope Web Platform</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-brand-orange-500" />
+                </button>
+              </div>
+            </InteractiveCard>
 
             {/* Track 02: SaaS & Web Apps */}
-            <PerspectiveCard>
-              <div className="h-full bg-slate-50 dark:bg-[#0D1322] border border-slate-200/90 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-subtle-card hover:border-brand-orange-400 flex flex-col justify-between transition-all">
-                <div className="space-y-4">
-                  <div className="w-12 h-12 rounded-2xl bg-slate-900 text-brand-orange-400 flex items-center justify-center">
-                    <Zap className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-mono font-bold text-brand-orange-600 uppercase tracking-widest">
-                      Track 02 • Digital Products
-                    </span>
-                    <h3 className="text-xl font-black text-slate-950 dark:text-white font-display mt-0.5">
-                      Custom Web Apps &amp; SaaS MVPs
-                    </h3>
-                  </div>
-                  <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
-                    Authenticated portals, internal dashboards, and interactive SaaS applications engineered with modern React 19 architecture and API backends.
-                  </p>
-                  <ul className="space-y-2 font-mono text-[11px] text-slate-700 dark:text-slate-300 pt-2 border-t border-slate-200 dark:border-slate-800">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                      <span>React 19 Actions engine with zero reload lag</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                      <span>PostgreSQL, Supabase &amp; Stripe integration</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                      <span>100% strict TypeScript type coverage</span>
-                    </li>
-                  </ul>
+            <InteractiveCard cardClassName="bg-slate-50 dark:bg-[#0D1322] p-5 sm:p-7 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-slate-900 text-brand-orange-400 flex items-center justify-center">
+                  <Zap className="w-6 h-6" />
                 </div>
-
-                <div className="pt-6 mt-4 border-t border-slate-200 dark:border-slate-800">
-                  <button
-                    onClick={() => openAIChat("I'd like to scope a Custom SaaS MVP / Web App project. What is the process, sprint timeline, and deliverables?")}
-                    type="button"
-                    className="w-full py-3 px-4 bg-white dark:bg-slate-900 hover:bg-brand-orange-50 dark:hover:bg-brand-orange-950/30 border border-slate-300 dark:border-slate-700 hover:border-brand-orange-400 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100 transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
-                  >
-                    <span>Scope SaaS MVP</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-brand-orange-500" />
-                  </button>
+                <div>
+                  <span className="text-[10px] font-mono font-bold text-brand-orange-600 uppercase tracking-widest">
+                    Track 02 • Digital Products
+                  </span>
+                  <h3 className="text-xl font-black text-slate-950 dark:text-white font-display mt-0.5">
+                    Custom Web Apps &amp; SaaS MVPs
+                  </h3>
                 </div>
+                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
+                  Authenticated portals, internal dashboards, and interactive SaaS applications engineered with modern React 19 architecture and API backends.
+                </p>
+                <ul className="space-y-2 font-mono text-[11px] text-slate-700 dark:text-slate-300 pt-2 border-t border-slate-200 dark:border-slate-800">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
+                    <span>React 19 Actions engine with zero reload lag</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
+                    <span>PostgreSQL, Supabase &amp; Stripe integration</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
+                    <span>100% strict TypeScript type coverage</span>
+                  </li>
+                </ul>
               </div>
-            </PerspectiveCard>
+
+              <div className="pt-6 mt-4 border-t border-slate-200 dark:border-slate-800">
+                <button
+                  onClick={() => openAIChat("I'd like to scope a Custom SaaS MVP / Web App project. What is the process, sprint timeline, and deliverables?")}
+                  type="button"
+                  className="w-full py-3 px-4 bg-white dark:bg-slate-900 hover:bg-brand-orange-50 dark:hover:bg-brand-orange-950/30 border border-slate-300 dark:border-slate-700 hover:border-brand-orange-400 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100 transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                >
+                  <span>Scope SaaS MVP</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-brand-orange-500" />
+                </button>
+              </div>
+            </InteractiveCard>
 
             {/* Track 03: Hardware & IoT Lab */}
-            <PerspectiveCard>
-              <div className="h-full bg-slate-50 dark:bg-[#0D1322] border border-slate-200/90 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-subtle-card hover:border-brand-orange-400 flex flex-col justify-between transition-all">
-                <div className="space-y-4">
-                  <div className="w-12 h-12 rounded-2xl bg-slate-900 text-brand-orange-400 flex items-center justify-center">
-                    <Cpu className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-mono font-bold text-brand-orange-600 uppercase tracking-widest">
-                      Track 03 • Physical Computing
-                    </span>
-                    <h3 className="text-xl font-black text-slate-950 dark:text-white font-display mt-0.5">
-                      Connected IoT &amp; Hardware Lab
-                    </h3>
-                  </div>
-                  <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
-                    For companies building physical prototypes, IoT sensor gateways, or robotic actuation. Bench-tested circuits, C++ firmware, and cloud telemetry.
-                  </p>
-                  <ul className="space-y-2 font-mono text-[11px] text-slate-700 dark:text-slate-300 pt-2 border-t border-slate-200 dark:border-slate-800">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                      <span>ESP32 Wi-Fi/BLE &amp; Raspberry Pi Linux AI</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                      <span>KiCad schematics &amp; itemized vendor BOMs</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                      <span>Pan-India insured courier shipment</span>
-                    </li>
-                  </ul>
+            <InteractiveCard cardClassName="bg-slate-50 dark:bg-[#0D1322] p-5 sm:p-7 flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-slate-900 text-brand-orange-400 flex items-center justify-center">
+                  <Cpu className="w-6 h-6" />
                 </div>
-
-                <div className="pt-6 mt-4 border-t border-slate-200 dark:border-slate-800">
-                  <button
-                    onClick={() => openAIChat("I'd like to scope a Connected IoT & Hardware Lab project. What is the process, sprint timeline, and deliverables?")}
-                    type="button"
-                    className="w-full py-3 px-4 bg-white dark:bg-slate-900 hover:bg-brand-orange-50 dark:hover:bg-brand-orange-950/30 border border-slate-300 dark:border-slate-700 hover:border-brand-orange-400 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100 transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
-                  >
-                    <span>Scope Hardware Lab</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-brand-orange-500" />
-                  </button>
+                <div>
+                  <span className="text-[10px] font-mono font-bold text-brand-orange-600 uppercase tracking-widest">
+                    Track 03 • Physical Computing
+                  </span>
+                  <h3 className="text-xl font-black text-slate-950 dark:text-white font-display mt-0.5">
+                    Connected IoT &amp; Hardware Lab
+                  </h3>
                 </div>
+                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
+                  For companies building physical prototypes, IoT sensor gateways, or robotic actuation. Bench-tested circuits, C++ firmware, and cloud telemetry.
+                </p>
+                <ul className="space-y-2 font-mono text-[11px] text-slate-700 dark:text-slate-300 pt-2 border-t border-slate-200 dark:border-slate-800">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
+                    <span>ESP32 Wi-Fi/BLE &amp; Raspberry Pi Linux AI</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
+                    <span>KiCad schematics &amp; itemized vendor BOMs</span>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
+                    <span>Pan-India insured courier shipment</span>
+                  </li>
+                </ul>
               </div>
-            </PerspectiveCard>
+
+              <div className="pt-6 mt-4 border-t border-slate-200 dark:border-slate-800">
+                <button
+                  onClick={() => openAIChat("I'd like to scope a Connected IoT & Hardware Lab project. What is the process, sprint timeline, and deliverables?")}
+                  type="button"
+                  className="w-full py-3 px-4 bg-white dark:bg-slate-900 hover:bg-brand-orange-50 dark:hover:bg-brand-orange-950/30 border border-slate-300 dark:border-slate-700 hover:border-brand-orange-400 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100 transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                >
+                  <span>Scope Hardware Lab</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-brand-orange-500" />
+                </button>
+              </div>
+            </InteractiveCard>
           </div>
 
           {/* Hardware Architecture Deep-Dive */}

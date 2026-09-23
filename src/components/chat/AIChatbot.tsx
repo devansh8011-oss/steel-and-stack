@@ -4,17 +4,16 @@ import {
   X,
   Send,
   Sparkles,
-  Bot,
   RotateCcw,
   Mail,
   ArrowRight,
   User,
 } from 'lucide-react';
 import { sendChatMessage, sanitizeChatOutput, ChatMessage } from '../../services/groqService';
+import { Avatar } from '../ui/components-primitives-avatar';
 
 export const AIChatbot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showTeaser, setShowTeaser] = useState(true);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
@@ -114,76 +113,24 @@ export const AIChatbot: React.FC = () => {
 
   return (
     <>
-      {/* Floating Circular Action Button + Cortex Speech Bubble */}
-      <div className="fixed bottom-5 right-5 z-40 flex flex-col items-end">
-        {/* Floating Cortex Teaser Message Bubble */}
-        <AnimatePresence>
-          {!isOpen && showTeaser && (
-            <motion.div
-              initial={{ opacity: 0, y: 12, scale: 0.9 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 8, scale: 0.9 }}
-              transition={{ duration: 0.25 }}
-              onClick={() => setIsOpen(true)}
-              className="mb-2.5 max-w-[260px] sm:max-w-[285px] bg-white dark:bg-[#0D1322] border border-slate-200/90 dark:border-slate-800 rounded-2xl p-3 shadow-[0_12px_35px_-5px_rgba(15,23,42,0.18)] dark:shadow-[0_12px_35px_-5px_rgba(0,0,0,0.55)] relative cursor-pointer group hover:border-brand-orange-400 dark:hover:border-brand-orange-500/50 transition-all"
-            >
-              {/* Dismiss Button */}
-              <button
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setShowTeaser(false);
-                }}
-                className="absolute -top-1.5 -left-1.5 w-5 h-5 rounded-full bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center text-[10px] transition-colors shadow-xs"
-                title="Dismiss message"
-                aria-label="Dismiss message"
-              >
-                <X className="w-3 h-3" />
-              </button>
-
-              <div className="flex items-start gap-2.5">
-                <div className="w-7 h-7 rounded-xl bg-brand-orange-50 dark:bg-brand-orange-950/60 border border-brand-orange-200 dark:border-brand-orange-800 text-brand-orange-600 dark:text-brand-orange-400 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Sparkles className="w-3.5 h-3.5" />
-                </div>
-                <div className="flex-1 min-w-0 text-left">
-                  <div className="flex items-center gap-1.5">
-                    <span className="font-mono text-[10px] font-black uppercase tracking-wider text-brand-orange-600 dark:text-brand-orange-400">
-                      CORTEX AI
-                    </span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  </div>
-                  <p className="text-[11px] font-sans text-slate-800 dark:text-slate-200 font-medium leading-snug mt-0.5 group-hover:text-brand-orange-600 dark:group-hover:text-brand-orange-400 transition-colors">
-                    Chat with <strong className="text-slate-950 dark:text-white font-bold">Cortex</strong> to discuss websites, automation &amp; IoT hardware →
-                  </p>
-                </div>
-              </div>
-
-              {/* Downward Speech Bubble Pointer Arrow */}
-              <div className="absolute -bottom-1.5 right-5 sm:right-6 w-3 h-3 bg-white dark:bg-[#0D1322] border-r border-b border-slate-200/90 dark:border-slate-800 rotate-45" />
-            </motion.div>
-          )}
-        </AnimatePresence>
-
+      {/* Floating Action Button on Bottom Right */}
+      <div className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-40">
         {!isOpen && (
-          <motion.button
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.92 }}
+          <button
             onClick={() => setIsOpen(true)}
             type="button"
-            className="group relative w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-tr from-brand-orange-600 via-brand-orange-500 to-amber-500 flex items-center justify-center shadow-[0_10px_25px_-5px_rgba(234,88,12,0.55),0_0_15px_rgba(234,88,12,0.25)] hover:shadow-[0_14px_30px_-5px_rgba(234,88,12,0.7),0_0_22px_rgba(234,88,12,0.4)] transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-orange-500/50"
+            className="group relative flex items-center justify-center cursor-pointer focus:outline-none rounded-full"
             aria-label="Open Cortex AI Assistant"
             title="Chat with Cortex to discuss websites, automation & hardware"
           >
-            {/* Center Sparkle Icon */}
-            <Sparkles className="w-6 h-6 sm:w-7 sm:h-7 text-white stroke-[2.2] group-hover:rotate-12 transition-transform duration-300 drop-shadow-xs" />
+            {/* Interactive Animated Eye Avatar (size md for sleek non-obtrusive footprint) */}
+            <Avatar color="orange" size="md" shape="circle" blinking={true} />
 
-            {/* Overlapping Top-Right Green Online Status Badge (Matching Image Reference) */}
-            <div className="absolute -top-0.5 -right-0.5 sm:-top-1 sm:-right-1 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-[#10B981] border-[2.5px] border-slate-900 shadow-xs flex items-center justify-center">
+            {/* Overlapping Top-Right Green Online Status Badge */}
+            <div className="absolute -top-0.5 -right-0.5 w-3.5 h-3.5 rounded-full bg-[#10B981] border-[2.5px] border-slate-900 shadow-xs flex items-center justify-center pointer-events-none z-20">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-200 animate-pulse" />
             </div>
-          </motion.button>
+          </button>
         )}
       </div>
 
@@ -200,8 +147,8 @@ export const AIChatbot: React.FC = () => {
             {/* Chat Top Header */}
             <div className="px-4 py-3.5 bg-slate-100/90 dark:bg-[#0D1322] border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
               <div className="flex items-center gap-2.5 min-w-0">
-                <div className="w-9 h-9 rounded-2xl bg-brand-orange-500 flex items-center justify-center text-white shadow-xs flex-shrink-0">
-                  <Bot className="w-5 h-5" />
+                <div className="flex-shrink-0">
+                  <Avatar color="orange" size="sm" shape="circle" blinking={true} />
                 </div>
                 <div className="min-w-0">
                   <div className="flex items-center gap-1.5">
@@ -247,8 +194,8 @@ export const AIChatbot: React.FC = () => {
                     className={`flex items-start gap-2 ${isUser ? 'justify-end' : 'justify-start'}`}
                   >
                     {!isUser && (
-                      <div className="w-6 h-6 rounded-lg bg-brand-orange-50 dark:bg-brand-orange-950/60 border border-brand-orange-300 dark:border-brand-orange-800 flex items-center justify-center text-brand-orange-600 flex-shrink-0 mt-0.5">
-                        <Sparkles className="w-3 h-3" />
+                      <div className="flex-shrink-0 mt-0.5">
+                        <Avatar color="orange" size="sm" shape="circle" blinking={false} />
                       </div>
                     )}
                     <div

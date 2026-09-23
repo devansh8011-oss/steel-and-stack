@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { PerspectiveCard } from './PerspectiveCard';
+import { InteractiveCard } from './InteractiveCard';
 import {
   Globe,
   Zap,
@@ -135,48 +135,46 @@ export const ServicesProcessSection: React.FC = () => {
         {SERVICES_TRACKS.map((track) => {
           const Icon = track.icon;
           return (
-            <PerspectiveCard key={track.id} className="h-full w-full">
-              <div className="h-full bg-white dark:bg-[#0D1424] border border-slate-200 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-5 sm:p-7 shadow-subtle-card dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] hover:border-brand-orange-400 dark:hover:border-brand-orange-500/60 hover:shadow-hover-card transition-all flex flex-col justify-between">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-brand-orange-50 dark:bg-brand-orange-950/60 border border-brand-orange-200 dark:border-brand-orange-800/70 flex items-center justify-center text-brand-orange-600 dark:text-brand-orange-400 shadow-orange-sm">
-                      <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
-                    </div>
-                    <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800/90 px-2.5 py-1 rounded-full">
-                      {track.discipline}
-                    </span>
+            <InteractiveCard key={track.id} cardClassName="bg-white dark:bg-[#0D1424] p-5 sm:p-7 shadow-subtle-card dark:shadow-[0_4px_20px_rgba(0,0,0,0.4)] flex flex-col justify-between">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-brand-orange-50 dark:bg-brand-orange-950/60 border border-brand-orange-200 dark:border-brand-orange-800/70 flex items-center justify-center text-brand-orange-600 dark:text-brand-orange-400 shadow-orange-sm">
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-black text-slate-950 dark:text-white font-display">
-                      {track.title}
-                    </h3>
-                    <p className="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed font-sans">
-                      {track.description}
-                    </p>
-                  </div>
-
-                  {/* Skill Badges */}
-                  <div className="flex flex-wrap gap-1.5 pt-1">
-                    {track.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-[10px] font-mono font-bold text-slate-800 dark:text-slate-200 bg-slate-50 dark:bg-[#080C16] border border-slate-200 dark:border-slate-800 px-2.5 py-0.5 rounded-full"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+                  <span className="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800/90 px-2.5 py-1 rounded-full">
+                    {track.discipline}
+                  </span>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
-                  <div className="flex items-center gap-2 text-[10px] sm:text-[11px] font-mono text-brand-orange-600 dark:text-brand-orange-400 font-bold">
-                    <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0" />
-                    <span className="truncate">{track.deliverables}</span>
-                  </div>
+                <div>
+                  <h3 className="text-lg sm:text-xl font-black text-slate-950 dark:text-white font-display">
+                    {track.title}
+                  </h3>
+                  <p className="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed font-sans">
+                    {track.description}
+                  </p>
+                </div>
+
+                {/* Skill Badges */}
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {track.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[10px] font-mono font-bold text-slate-800 dark:text-slate-200 bg-slate-50 dark:bg-[#080C16] border border-slate-200 dark:border-slate-800 px-2.5 py-0.5 rounded-full"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
-            </PerspectiveCard>
+
+              <div className="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800 space-y-3">
+                <div className="flex items-center gap-2 text-[10px] sm:text-[11px] font-mono text-brand-orange-600 dark:text-brand-orange-400 font-bold">
+                  <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0" />
+                  <span className="truncate">{track.deliverables}</span>
+                </div>
+              </div>
+            </InteractiveCard>
           );
         })}
       </div>

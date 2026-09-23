@@ -29,7 +29,7 @@ export const Layout: React.FC = () => {
     <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-[#090D16] text-slate-900 dark:text-white selection:bg-brand-orange-500 selection:text-white relative">
       <ScrollProgress />
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 pb-12 sm:pb-0">
         <Outlet />
       </main>
       <Footer />

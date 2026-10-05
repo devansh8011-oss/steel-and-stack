@@ -130,8 +130,145 @@ function resendApiPlugin() {
   };
 }
 
+// Custom plugin to securely handle Cortex AI chat requests during dev & preview
+function groqChatApiPlugin() {
+  return {
+    name: 'vite-groq-chat-api',
+    configureServer(server: any) {
+      server.middlewares.use('/api/chat', async (req: IncomingMessage, res: ServerResponse) => {
+        if (req.method !== 'POST') {
+          res.statusCode = 405;
+          res.setHeader('Content-Type', 'application/json');
+          res.end(JSON.stringify({ error: 'Method Not Allowed' }));
+          return;
+        }
+
+        const env = loadEnv(process.env.NODE_ENV || 'development', process.cwd(), '');
+        const apiKey = (env.GROQ_API_KEY || env.VITE_GROQ_API_KEY || process.env.GROQ_API_KEY)?.trim();
+
+        if (!apiKey) {
+          res.statusCode = 503;
+          res.setHeader('Content-Type', 'application/json');
+          res.end(JSON.stringify({ error: 'Missing GROQ_API_KEY in server environment' }));
+          return;
+        }
+
+        let body = '';
+        req.on('data', (chunk) => {
+          body += chunk.toString();
+        });
+
+        req.on('end', async () => {
+          try {
+            const data = JSON.parse(body);
+            const { messages } = data;
+
+            if (!Array.isArray(messages) || messages.length === 0) {
+              res.statusCode = 400;
+              res.setHeader('Content-Type', 'application/json');
+              res.end(JSON.stringify({ error: 'Messages array is required' }));
+              return;
+            }
+
+            const SYSTEM_PROMPT = `You are Cortex, the Steel & Stack AI Engineering Assistant, representing Steel & Stack—an elite engineering studio founded by Devansh Grover.
+Your mission is to inform prospective clients about Steel & Stack's capabilities, engineering philosophy, and sprint roadmap.
+
+ABOUT STEEL & STACK:
+- Founder & Lead Engineer: Devansh Grover
+- Official Tagline: "Engineering the Future of Tech"
+- Website: https://steelandstack.vercel.app
+- Direct Email: devansh8011@gmail.com
+- Direct Phone & WhatsApp: +91 73031 77088
+- Delivery Scope: Serving ambitious companies across Pan-India & Worldwide
+
+CORE CAPABILITIES & DISCIPLINES:
+1. High-Converting Web Platforms (React 19, sub-second LCP, 100/100 Lighthouse)
+2. Custom Web Applications & SaaS MVPs (PostgreSQL, Supabase, role-based auth, zero lock-in)
+3. Connected IoT & Hardware Lab (ESP32-S3, FreeRTOS C++, TMC2209 kinematics, LiDAR SLAM, custom PCBs)
+
+COMMUNICATION & SANITIZATION GUIDELINES:
+- CRITICAL: NEVER use asterisks or stars anywhere in your responses (no bold, italic, or bullet asterisks).
+- Keep answers concise, authoritative, professional, and technical yet accessible.
+- MANDATORY CLOSING DIRECTIVE: At the end of EVERY response, explicitly invite the user to contact Devansh Grover directly at devansh8011@gmail.com or visit the contact section on the website to scope their project with our senior engineers.`;
+
+            const recentMessages = messages.slice(-8).map((m: any) => ({
+              role: m.role === 'assistant' ? 'assistant' : 'user',
+              content: String(m.content || '').slice(0, 3000),
+            }));
+
+            const candidateModels = [
+              env.GROQ_MODEL || env.VITE_GROQ_MODEL || '',
+              'openai/gpt-oss-20b',
+              'groq/compound-mini',
+              'openai/gpt-oss-120b',
+              'qwen/qwen3.8-27b',
+              'llama-3.3-70b-versatile',
+              'llama-3.1-8b-instant',
+            ].filter(Boolean);
+
+            const uniqueModels = Array.from(new Set(candidateModels));
+            let reply = '';
+            let lastError = '';
+
+            for (const model of uniqueModels) {
+              try {
+                const groqResponse = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+                  method: 'POST',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${apiKey}`,
+                  },
+                  body: JSON.stringify({
+                    model,
+                    messages: [
+                      { role: 'system', content: SYSTEM_PROMPT },
+                      ...recentMessages,
+                    ],
+                    temperature: 0.6,
+                    max_tokens: 500,
+                  }),
+                });
+
+                if (groqResponse.ok) {
+                  const groqData = await groqResponse.json();
+                  reply = groqData.choices?.[0]?.message?.content?.trim() || '';
+                  if (reply) break;
+                } else {
+                  const errData = await groqResponse.json().catch(() => ({}));
+                  lastError = errData?.error?.message || `Groq responded with ${groqResponse.status}`;
+                }
+              } catch (err: any) {
+                lastError = err?.message || 'Error calling Groq';
+              }
+            }
+
+            if (!reply) {
+              res.statusCode = 502;
+              res.setHeader('Content-Type', 'application/json');
+              res.end(JSON.stringify({ error: lastError || 'Failed to get AI response' }));
+              return;
+            }
+
+            if (!reply.toLowerCase().includes('devansh8011@gmail.com') && !reply.toLowerCase().includes('contact section')) {
+              reply += `\n\nFor direct consulting with our senior engineers, feel free to contact us at devansh8011@gmail.com or via the contact section on our website!`;
+            }
+
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ reply }));
+          } catch (err: any) {
+            res.statusCode = 500;
+            res.setHeader('Content-Type', 'application/json');
+            res.end(JSON.stringify({ error: err?.message || 'Internal server error' }));
+          }
+        });
+      });
+    },
+  };
+}
+
 export default defineConfig({
-  plugins: [react(), resendApiPlugin()],
+  plugins: [react(), resendApiPlugin(), groqChatApiPlugin()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

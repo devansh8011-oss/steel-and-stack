@@ -86,97 +86,35 @@ function getLocalFallbackResponse(userPrompt: string): string {
   return `At Steel & Stack, we engineer high-performance web platforms, SaaS applications, and connected IoT hardware under the tagline "Engineering the Future of Tech". Founded by Devansh Grover, we deliver turnkey solutions with fixed 24-48h scoping, sub-second speeds, and 100% code ownership.\n\nTo consult with our senior engineers or request a project brief, please reach out directly at devansh8011@gmail.com or explore the contact section on our website.`;
 }
 
-// Prioritized fast and capable models available on Groq
-const DEFAULT_CANDIDATE_MODELS = [
-  'openai/gpt-oss-20b',
-  'groq/compound-mini',
-  'openai/gpt-oss-120b',
-  'qwen/qwen3.8-27b',
-  'llama-3.3-70b-versatile',
-  'llama-3.1-8b-instant',
-];
-
-// In-memory cache of the working model for the current session to avoid redundant roundtrips
-let cachedWorkingModel: string | null = null;
-
 export async function sendChatMessage(messages: ChatMessage[]): Promise<string> {
-  const apiKey = import.meta.env.VITE_GROQ_API_KEY?.trim();
-  const configuredModel = import.meta.env.VITE_GROQ_MODEL?.trim();
+  const lastUserMessage = [...messages].reverse().find((m) => m.role === 'user')?.content || '';
 
-  // If no API key is provided, use the smart local business knowledge base
-  if (!apiKey || apiKey === 'your_groq_api_key_here' || apiKey.length < 10) {
-    const lastUserMessage = [...messages].reverse().find((m) => m.role === 'user')?.content || '';
-    await new Promise((res) => setTimeout(res, 450));
-    return sanitizeChatOutput(getLocalFallbackResponse(lastUserMessage));
-  }
+  try {
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        messages,
+      }),
+    });
 
-  // Build unique prioritized list of models to try
-  const modelsToTry: string[] = [];
-  if (configuredModel) {
-    modelsToTry.push(configuredModel);
-  }
-  if (cachedWorkingModel && !modelsToTry.includes(cachedWorkingModel)) {
-    modelsToTry.push(cachedWorkingModel);
-  }
-  for (const m of DEFAULT_CANDIDATE_MODELS) {
-    if (!modelsToTry.includes(m)) {
-      modelsToTry.push(m);
-    }
-  }
-
-  const basePayload = {
-    messages: [
-      { role: 'system', content: SYSTEM_PROMPT },
-      ...messages.slice(-8), // Keep context concise for ultra-fast token turnaround
-    ],
-    temperature: 0.6,
-    max_tokens: 500,
-  };
-
-  let lastErrorMessage = '';
-
-  for (const model of modelsToTry) {
-    try {
-      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${apiKey}`,
-        },
-        body: JSON.stringify({
-          ...basePayload,
-          model,
-        }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        let reply = data.choices?.[0]?.message?.content?.trim() || '';
-
-        // Cache working model for subsequent requests
-        cachedWorkingModel = model;
-
-        // Guarantee the contact requirement is strictly present
-        if (!reply.toLowerCase().includes('devansh8011@gmail.com') && !reply.toLowerCase().includes('contact section')) {
-          reply += `\n\nFor direct consulting with our senior engineers, feel free to contact us at devansh8011@gmail.com or via the contact section on our website!`;
-        }
-
-        return sanitizeChatOutput(reply);
+    if (response.ok) {
+      const data = await response.json();
+      if (data?.reply && typeof data.reply === 'string') {
+        return sanitizeChatOutput(data.reply);
       }
-
-      // Handle non-200 responses (e.g. 404 model_not_found, 400, 429)
-      const errData = await response.json().catch(() => ({}));
-      lastErrorMessage = errData.error?.message || `HTTP ${response.status} ${response.statusText}`;
-      console.warn(`Groq model "${model}" failed (${response.status}): ${lastErrorMessage}. Trying next model...`);
-    } catch (modelError: any) {
-      lastErrorMessage = modelError?.message || 'Network error';
-      console.warn(`Network error querying Groq model "${model}":`, modelError);
+    } else {
+      console.warn(`Secure /api/chat returned status ${response.status}. Falling back to knowledge base.`);
     }
+  } catch (err) {
+    console.warn('Network error calling /api/chat. Falling back to knowledge base:', err);
   }
 
-  // If all candidate models fail, gracefully fall back to local knowledge base
-  console.warn(`All Groq candidate models failed. Last error: ${lastErrorMessage}. Falling back to knowledge base.`);
-  const lastUserMsg = messages[messages.length - 1]?.content || '';
-  return sanitizeChatOutput(getLocalFallbackResponse(lastUserMsg));
+  // Graceful fallback to smart business knowledge base if server is offline or not configured
+  await new Promise((res) => setTimeout(res, 400));
+  return sanitizeChatOutput(getLocalFallbackResponse(lastUserMessage));
 }
+
 

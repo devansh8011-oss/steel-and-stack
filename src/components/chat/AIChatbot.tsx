@@ -110,8 +110,6 @@ export const AIChatbot: React.FC = () => {
     }
   };
 
-  const hasApiKey = Boolean(import.meta.env.VITE_GROQ_API_KEY?.trim());
-
   return (
     <>
       {/* Floating Action Button on Bottom Right */}
@@ -336,11 +334,6 @@ export const AIChatbot: React.FC = () => {
                     devansh8011@gmail.com
                   </a>
                 </span>
-                {!hasApiKey && (
-                  <span className="text-amber-500" title="Add VITE_GROQ_API_KEY in .env">
-                    • Knowledge mode
-                  </span>
-                )}
               </div>
             </div>
           </motion.div>

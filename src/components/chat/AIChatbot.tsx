@@ -77,7 +77,7 @@ export const AIChatbot: React.FC = () => {
         {
           role: 'assistant',
           content:
-            "I ran into a temporary connection issue. Please feel free to email our engineers directly at devansh8011@gmail.com or submit your inquiry in our contact section below!",
+            "I ran into a temporary connection issue. Please feel free to email our engineers directly at contact@steelandstack.com or submit your inquiry in our contact section below!",
         },
       ]);
     } finally {
@@ -255,11 +255,11 @@ export const AIChatbot: React.FC = () => {
                       {!isUser && idx > 0 && (
                         <div className="mt-3 pt-2.5 border-t border-slate-200/60 dark:border-slate-800/80 flex flex-wrap gap-1.5">
                           <a
-                            href="mailto:devansh8011@gmail.com"
+                            href="mailto:contact@steelandstack.com"
                             className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-brand-orange-50 dark:bg-brand-orange-950/60 text-brand-orange-700 dark:text-brand-orange-300 border border-brand-orange-200 dark:border-brand-orange-800/80 font-mono text-[10px] font-bold hover:border-brand-orange-400 transition-colors"
                           >
                             <Mail className="w-3 h-3" />
-                            <span>devansh8011@gmail.com</span>
+                            <span>contact@steelandstack.com</span>
                           </a>
                           <button
                             type="button"
@@ -328,10 +328,10 @@ export const AIChatbot: React.FC = () => {
                 <span>
                   Consult senior engineers:{' '}
                   <a
-                    href="mailto:devansh8011@gmail.com"
+                    href="mailto:contact@steelandstack.com"
                     className="text-brand-orange-600 font-bold hover:underline"
                   >
-                    devansh8011@gmail.com
+                    contact@steelandstack.com
                   </a>
                 </span>
               </div>

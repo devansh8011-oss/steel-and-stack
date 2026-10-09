@@ -111,7 +111,7 @@ async function submitInquiryAction(
     } else {
       return {
         success: false,
-        message: result?.error || 'Failed to transmit message. Please email devansh8011@gmail.com directly.',
+        message: result?.error || 'Failed to transmit message. Please email contact@steelandstack.com directly.',
       };
     }
   } catch (err: any) {

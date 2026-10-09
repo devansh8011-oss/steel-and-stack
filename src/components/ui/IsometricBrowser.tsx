@@ -132,7 +132,7 @@ export const IsometricBrowser: React.FC = () => {
               </div>
               <div className="text-slate-300 flex justify-between pt-0.5">
                 <span>Direct Lead Routing:</span>
-                <span className="text-white dark:text-amber-200 font-bold truncate ml-2">devansh8011@gmail.com</span>
+                <span className="text-white dark:text-amber-200 font-bold truncate ml-2">contact@steelandstack.com</span>
               </div>
               <div className="text-emerald-400 flex items-center gap-1.5 pt-0.5 truncate">
                 <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-400 flex-shrink-0" />

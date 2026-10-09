@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
   subTagline: "Digital Engineering Studio • Pan-India & Global Delivery",
   description:
     "We design and build high-converting web platforms, scalable web applications, and connected IoT hardware for ambitious companies. Delivered with fixed sprint timelines, sub-second speeds, and 100% IP ownership.",
-  email: "devansh8011@gmail.com",
+  email: "contact@steelandstack.com",
   phone: "+91 73031 77088",
   phoneDisplay: "+91 73031 77088",
   phoneHref: "tel:+917303177088",

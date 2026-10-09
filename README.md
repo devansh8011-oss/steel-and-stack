@@ -12,7 +12,7 @@ A high-performance, conversion-focused website for **Steel & Stack**, an India-b
 - **Tailwind CSS**: Custom crisp industrial design system configured for a bright, professional light theme.
 - **Framer Motion**: Satisfying, sanitized micro-interactions, continuous running laser perimeter, and transitions.
 - **Lucide React**: Clean technical iconography.
-- **Resend API Integration**: Direct email delivery to `devansh8011@gmail.com`.
+- **Resend API Integration**: Direct email delivery to `contact@steelandstack.com`.
 
 ---
 
@@ -41,14 +41,14 @@ The optimized production bundle will be output to `dist/`.
 
 ## 📬 Email Delivery Setup (Resend Integration)
 
-The site is configured to deliver quote inquiries directly to `devansh8011@gmail.com` using **Resend**.
+The site is configured to deliver quote inquiries directly to `contact@steelandstack.com` using **Resend**.
 
 ### 1. Environment Variables (`.env`)
 The API key is securely stored in `.env` (ignored by Git):
 ```env
 RESEND_API_KEY=your_resend_api_key_here
 VITE_RESEND_API_KEY=your_resend_api_key_here
-NOTIFICATION_EMAIL=devansh8011@gmail.com
+NOTIFICATION_EMAIL=contact@steelandstack.com
 FROM_EMAIL=onboarding@resend.dev
 ```
 
@@ -109,6 +109,6 @@ steel-and-stack/
 - **Palette**: Steel greys and charcoal (`#0f172a`, `#334155`) with metallic blue-grey accents (`#2563eb`).
 - **Typography**: Wide-tracked headings (`tracking-widest`, `tracking-super-wide`) echoing the `STEEL & STACK` monogram aesthetic.
 - **Contact Details**:
-  - Email: [devansh8011@gmail.com](mailto:devansh8011@gmail.com)
+  - Email: [contact@steelandstack.com](mailto:contact@steelandstack.com)
   - Phone: +91 73031 77088
   - Coverage: Serving all 28 Indian States & UTs online.

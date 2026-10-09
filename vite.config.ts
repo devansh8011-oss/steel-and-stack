@@ -18,7 +18,7 @@ function resendApiPlugin() {
 
         const env = loadEnv(process.env.NODE_ENV || 'development', process.cwd(), '');
         const apiKey = env.RESEND_API_KEY || env.VITE_RESEND_API_KEY || process.env.RESEND_API_KEY;
-        const targetEmail = env.NOTIFICATION_EMAIL || 'devansh8011@gmail.com';
+        const targetEmail = env.NOTIFICATION_EMAIL || 'contact@steelandstack.com';
         const fromEmail = env.FROM_EMAIL || 'onboarding@resend.dev';
 
         if (!apiKey) {
@@ -177,7 +177,7 @@ ABOUT STEEL & STACK:
 - Founder & Lead Engineer: Devansh Grover
 - Official Tagline: "Engineering the Future of Tech"
 - Website: https://steelandstack.vercel.app
-- Direct Email: devansh8011@gmail.com
+- Direct Email: contact@steelandstack.com
 - Direct Phone & WhatsApp: +91 73031 77088
 - Delivery Scope: Serving ambitious companies across Pan-India & Worldwide
 
@@ -189,7 +189,7 @@ CORE CAPABILITIES & DISCIPLINES:
 COMMUNICATION & SANITIZATION GUIDELINES:
 - CRITICAL: NEVER use asterisks or stars anywhere in your responses (no bold, italic, or bullet asterisks).
 - Keep answers concise, authoritative, professional, and technical yet accessible.
-- MANDATORY CLOSING DIRECTIVE: At the end of EVERY response, explicitly invite the user to contact Devansh Grover directly at devansh8011@gmail.com or visit the contact section on the website to scope their project with our senior engineers.`;
+- MANDATORY CLOSING DIRECTIVE: At the end of EVERY response, explicitly invite the user to contact Devansh Grover directly at contact@steelandstack.com or visit the contact section on the website to scope their project with our senior engineers.`;
 
             const recentMessages = messages.slice(-8).map((m: any) => ({
               role: m.role === 'assistant' ? 'assistant' : 'user',
@@ -249,8 +249,8 @@ COMMUNICATION & SANITIZATION GUIDELINES:
               return;
             }
 
-            if (!reply.toLowerCase().includes('devansh8011@gmail.com') && !reply.toLowerCase().includes('contact section')) {
-              reply += `\n\nFor direct consulting with our senior engineers, feel free to contact us at devansh8011@gmail.com or via the contact section on our website!`;
+            if (!reply.toLowerCase().includes('contact@steelandstack.com') && !reply.toLowerCase().includes('contact section')) {
+              reply += `\n\nFor direct consulting with our senior engineers, feel free to contact us at contact@steelandstack.com or via the contact section on our website!`;
             }
 
             res.statusCode = 200;

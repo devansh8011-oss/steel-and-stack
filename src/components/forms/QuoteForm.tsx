@@ -163,14 +163,14 @@ async function submitQuoteAction(
         success: false,
         message:
           result?.error ||
-          'Unable to deliver request. Please email us directly at devansh8011@gmail.com or WhatsApp +91 73031 77088.',
+          'Unable to deliver request. Please email us directly at contact@steelandstack.com or WhatsApp +91 73031 77088.',
       };
     }
   } catch {
     return {
       success: false,
       message:
-        'Network error while submitting. Please reach out directly to devansh8011@gmail.com or WhatsApp +91 73031 77088.',
+        'Network error while submitting. Please reach out directly to contact@steelandstack.com or WhatsApp +91 73031 77088.',
     };
   }
 }

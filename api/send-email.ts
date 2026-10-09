@@ -5,7 +5,7 @@ export default async function handler(req: any, res: any) {
   }
 
   const apiKey = process.env.RESEND_API_KEY || process.env.VITE_RESEND_API_KEY;
-  const targetEmail = process.env.NOTIFICATION_EMAIL || 'devansh8011@gmail.com';
+  const targetEmail = process.env.NOTIFICATION_EMAIL || 'contact@steelandstack.com';
   const fromEmail = process.env.FROM_EMAIL || 'onboarding@resend.dev';
 
   if (!apiKey) {

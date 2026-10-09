@@ -19,7 +19,7 @@ function resendApiPlugin() {
         const env = loadEnv(process.env.NODE_ENV || 'development', process.cwd(), '');
         const apiKey = env.RESEND_API_KEY || env.VITE_RESEND_API_KEY || process.env.RESEND_API_KEY;
         const targetEmail = env.NOTIFICATION_EMAIL || 'contact@steelandstack.com';
-        const fromEmail = env.FROM_EMAIL || 'onboarding@resend.dev';
+        const fromEmail = env.FROM_EMAIL || 'contact@steelandstack.com';
 
         if (!apiKey) {
           res.statusCode = 500;

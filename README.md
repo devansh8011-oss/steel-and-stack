@@ -49,7 +49,7 @@ The API key is securely stored in `.env` (ignored by Git):
 RESEND_API_KEY=your_resend_api_key_here
 VITE_RESEND_API_KEY=your_resend_api_key_here
 NOTIFICATION_EMAIL=contact@steelandstack.com
-FROM_EMAIL=onboarding@resend.dev
+FROM_EMAIL=contact@steelandstack.com
 ```
 
 ### 2. How it works:

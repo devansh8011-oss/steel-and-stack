@@ -52,12 +52,12 @@ function SubmitButton() {
               d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
             />
           </svg>
-          <span>TRANSMITTING SPECIFICATIONS...</span>
+          <span>SENDING YOUR REQUEST...</span>
         </>
       ) : (
         <>
           <Send className="w-4 h-4" />
-          <span>TRANSMIT QUOTE REQUEST</span>
+          <span>GET YOUR FREE QUOTE</span>
         </>
       )}
     </button>
@@ -137,7 +137,7 @@ async function submitQuoteAction(
       return {
         success: true,
         message:
-          'Your project specifications have been transmitted straight to Devansh. Our engineering team is reviewing your requirements and will reach out with an itemized BOM, timeline, and quote within 24 hours.',
+          'Your project details have been sent straight to Devansh. Our team is reviewing what you need and will reach out with a clear plan and fixed quote within 24 hours.',
         submittedData: { name, email, projectType, budget },
       };
     } else {
@@ -153,7 +153,7 @@ async function submitQuoteAction(
           return {
             success: true,
             message:
-              'Thank you! Your quote request has been transmitted straight to our engineering team. We will get back to you within 24 hours.',
+              'Thank you! Your quote request has been transmitted straight to our team. We will get back to you within 24 hours.',
             submittedData: { name, email, projectType, budget },
           };
         }
@@ -179,7 +179,7 @@ interface QuoteFormProps {
   defaultType?: string;
 }
 
-export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultType = 'Custom Robotics' }) => {
+export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultType = 'Smart Hardware' }) => {
   const [selectedType, setSelectedType] = useState<string>(defaultType);
   const [state, formAction] = useActionState(submitQuoteAction, initialState);
 
@@ -190,7 +190,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultType = 'Custom Robo
           <CheckCircle className="w-8 h-8" />
         </div>
         <span className="text-xs uppercase tracking-super-wide text-brand-orange-600 font-mono font-bold block mb-1">
-          Specification Received
+          Inquiry Received
         </span>
         <h3 className="text-2xl font-black text-slate-900 font-display mb-2">
           Thank you{state.submittedData?.name ? `, ${state.submittedData.name}` : ''}!
@@ -201,7 +201,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultType = 'Custom Robo
 
         <div className="bg-slate-50 rounded-xl p-5 max-w-sm mx-auto text-left text-xs font-mono border border-slate-200 mb-6 space-y-2">
           <div className="flex justify-between text-slate-600">
-            <span>Discipline:</span>
+            <span>Project Type:</span>
             <span className="font-bold text-slate-900">{state.submittedData?.projectType}</span>
           </div>
           <div className="flex justify-between text-slate-600">
@@ -227,10 +227,10 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultType = 'Custom Robo
   }
 
   const projectTypes = [
-    { id: 'Custom Robotics', label: 'Custom Robotics', icon: <Cpu className="w-4 h-4" /> },
-    { id: 'Website Development', label: 'Web Platform', icon: <Globe className="w-4 h-4" /> },
-    { id: 'Hardware + Web Dashboard', label: 'Hardware + Web', icon: <Layers className="w-4 h-4" /> },
-    { id: 'Custom Prototyping', label: 'Other Prototype', icon: <Wrench className="w-4 h-4" /> },
+    { id: 'Smart Hardware', label: 'Smart Hardware', icon: <Cpu className="w-4 h-4" /> },
+    { id: 'Business Website', label: 'Business Website', icon: <Globe className="w-4 h-4" /> },
+    { id: 'Web Application', label: 'Web Application', icon: <Layers className="w-4 h-4" /> },
+    { id: 'Custom Project', label: 'Custom Project', icon: <Wrench className="w-4 h-4" /> },
   ];
 
   return (
@@ -238,10 +238,10 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultType = 'Custom Robo
       <div className="mb-6 pb-4 border-b border-slate-100 flex items-center justify-between">
         <div>
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 block mb-1">
-            Online Quote Terminal
+            Instant Project Quote
           </span>
           <h2 className="text-xl sm:text-2xl font-black text-slate-950 tracking-tight font-display">
-            Configure Your Project Request
+            Tell Us What You Want to Build
           </h2>
         </div>
         <div className="hidden sm:flex items-center gap-1.5 text-xs font-mono text-slate-600 bg-slate-100/80 px-3 py-1.5 rounded-full border border-slate-200">
@@ -267,7 +267,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultType = 'Custom Robo
         {/* Interactive Discipline Selector */}
         <div className="space-y-2">
           <label className="text-xs font-mono font-bold tracking-wider text-slate-800 uppercase block">
-            Select Discipline / Scope <span className="text-brand-orange-600">*</span>
+            What Type of Project Is This? <span className="text-brand-orange-600">*</span>
           </label>
           <input type="hidden" name="projectType" value={selectedType} />
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
@@ -299,7 +299,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultType = 'Custom Robo
         {/* Name and Email */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <FormField
-            label="Client / Organization Name"
+            label="Your Full Name"
             id="name"
             required
             error={state.errors?.name}
@@ -376,7 +376,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultType = 'Custom Robo
 
         {/* Message */}
         <FormField
-          label="Project Requirements & Specifications"
+          label="Tell Us About Your Project"
           id="message"
           required
           error={state.errors?.message}
@@ -386,7 +386,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultType = 'Custom Robo
             name="message"
             rows={4}
             required
-            placeholder="Outline your hardware requirements (motors, sensors, power) or website goals..."
+            placeholder="Tell us what you'd like to build, any features you need, and your target timeline..."
             className={`w-full px-4 py-3 text-sm bg-slate-50/60 border rounded-xl text-slate-900 placeholder:text-slate-400 focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-orange-500/20 focus:border-brand-orange-500 transition-all font-mono ${
               state.errors?.message ? 'border-red-400' : 'border-slate-300'
             }`}
@@ -397,7 +397,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ defaultType = 'Custom Robo
         <div className="text-[11px] font-mono text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-1 pt-1">
           <span className="flex items-center gap-1.5">
             <ShieldCheck className="w-3.5 h-3.5 text-brand-orange-500" />
-            <span>Encrypted transmission to: <strong className="text-slate-800">{SITE_CONFIG.email}</strong></span>
+            <span>Directly delivered to: <strong className="text-slate-800">{SITE_CONFIG.email}</strong></span>
           </span>
           <span className="text-brand-orange-600 font-bold">Guaranteed 24h Turnaround</span>
         </div>

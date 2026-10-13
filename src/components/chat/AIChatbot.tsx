@@ -21,7 +21,7 @@ export const AIChatbot: React.FC = () => {
     {
       role: 'assistant',
       content:
-        "Hello! I am Cortex, the Steel & Stack AI Engineering Assistant. We engineer high-converting web platforms (React 19), custom software & automation, and connected IoT hardware with sub-second speeds and 100% code ownership.\n\nHow can I help you today? You can ask about our tracks, sprint pricing, or technical stack!",
+        "Hello! I am Cortex, the Steel & Stack assistant. We build lightning-fast websites, custom business software, and smart connected hardware with 100% complete ownership in your hands.\n\nHow can I help you today? Feel free to ask about our services, timelines, pricing, or how we work!",
     },
   ]);
 
@@ -97,7 +97,7 @@ export const AIChatbot: React.FC = () => {
       {
         role: 'assistant',
         content:
-          "Chat reset! What project or technical challenge can we help you explore today?",
+          "Chat reset! What project can we help you explore today?",
       },
     ]);
   };
@@ -151,7 +151,7 @@ export const AIChatbot: React.FC = () => {
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                   </div>
                   <p className="text-[11px] font-sans text-slate-800 dark:text-slate-200 font-medium leading-snug mt-0.5 group-hover:text-brand-orange-600 dark:group-hover:text-brand-orange-400 transition-colors">
-                    Chat with <strong className="text-slate-950 dark:text-white font-bold">Cortex</strong> to discuss websites, automation &amp; IoT hardware →
+                    Chat with <strong className="text-slate-950 dark:text-white font-bold">Cortex</strong> to discuss websites, custom software &amp; smart devices →
                   </p>
                 </div>
               </div>

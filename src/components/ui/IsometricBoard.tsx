@@ -16,24 +16,24 @@ export const IsometricBoard: React.FC = () => {
   const nodes: Record<string, NodeSpec> = {
     mcu: {
       id: 'mcu',
-      name: 'ESP32-S3 Dual-Core Compute',
-      category: 'Primary Architecture',
-      specs: '240 MHz Tensilica Xtensa • FreeRTOS Sub-millisecond Scheduling • 8MB Flash',
-      status: '240 MHz Nominal',
+      name: 'Smart Processing Brain',
+      category: 'Core Processor',
+      specs: 'Fast Dual-Core Processor • Instant Response • Reliable Automation',
+      status: 'Running Smoothly',
     },
     wireless: {
       id: 'wireless',
-      name: 'Wi-Fi 802.11 & BLE 5.0 Radio',
-      category: 'Telemetry Gateway',
-      specs: '2.4 GHz Low-Latency MQTT / WebSockets Uplink • 150 Mbps Throughput',
-      status: 'Connected • 12ms',
+      name: 'Wireless Wi-Fi & Bluetooth',
+      category: 'Wireless Control',
+      specs: 'Instant Mobile Phone & Cloud Sync • Long Range • Zero Wire Clutter',
+      status: 'Online & Paired',
     },
     io: {
       id: 'io',
-      name: 'Actuation & Sensor Fusion Bus',
-      category: 'Hardware Control',
-      specs: '16-Channel High-Precision PWM • I2C 400kHz • TMC Silent Motor Drivers',
-      status: '100% Calibrated',
+      name: 'Sensors & Precision Motors',
+      category: 'Physical Motion',
+      specs: 'Whisper-Quiet Motors • High Accuracy Sensors • Tested Circuit Protection',
+      status: 'Fully Calibrated',
     },
   };
 
@@ -56,7 +56,7 @@ export const IsometricBoard: React.FC = () => {
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-400/90 shadow-[0_0_8px_rgba(52,211,153,0.6)]" />
               <span className="text-[10px] sm:text-[11px] font-mono tracking-wider sm:tracking-widest text-slate-300 font-bold uppercase">
-                DEV-BOARD // REV 3.0
+                SMART DEVICE PROTOTYPE
               </span>
             </div>
 
@@ -71,7 +71,7 @@ export const IsometricBoard: React.FC = () => {
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
-                Core MCU
+                Smart Brain
               </button>
               <button
                 type="button"
@@ -82,7 +82,7 @@ export const IsometricBoard: React.FC = () => {
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
-                Wireless
+                Wi-Fi &amp; Bluetooth
               </button>
               <button
                 type="button"
@@ -93,7 +93,7 @@ export const IsometricBoard: React.FC = () => {
                     : 'text-slate-400 hover:text-slate-200'
                 }`}
               >
-                I/O &amp; Motors
+                Sensors &amp; Motors
               </button>
             </div>
           </div>
@@ -161,7 +161,7 @@ export const IsometricBoard: React.FC = () => {
               </div>
 
               <span className="text-[11px] font-mono font-black text-white tracking-wider">
-                ESP32-S3
+                SMART CORE
               </span>
               <span className="text-[8px] font-mono text-slate-400 mt-0.5">
                 {current.status}
@@ -172,7 +172,7 @@ export const IsometricBoard: React.FC = () => {
           {/* Minimalist Bottom Bar */}
           <div className="flex items-center justify-between z-10 pt-2 border-t border-slate-800/80 text-[10px] font-mono text-slate-400">
             <div className="flex items-center gap-2 truncate">
-              <span className="text-slate-500">SPEC:</span>
+              <span className="text-slate-500">MODULE:</span>
               <span className="text-brand-orange-400 font-bold truncate">{current.name}</span>
             </div>
             <div className="flex items-center gap-1.5 text-emerald-400 flex-shrink-0">

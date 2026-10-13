@@ -9,8 +9,8 @@ export const Contact: React.FC = () => {
   return (
     <>
       <MetaTags
-        title="Contact & Technical Support | Steel & Stack"
-        description="Reach out directly to Steel & Stack. We respond to all technical inquiries and project briefs within 24 hours."
+        title="Contact Us &amp; Get a Quote | Steel &amp; Stack"
+        description="Reach out directly to Steel & Stack. We respond to all project inquiries with a clear plan and fixed quote within 24 hours."
       />
 
       {/* Hero / Form Section */}

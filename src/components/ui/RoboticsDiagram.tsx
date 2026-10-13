@@ -94,9 +94,9 @@ export const RoboticsDiagram: React.FC = () => {
   const modules: Record<string, ModuleData> = {
     lidar: {
       id: 'lidar',
-      label: '360° LiDAR & Vision SLAM',
-      detail: 'Time-of-flight distance measurement up to 12m with 8,000 samples/sec for 2D/3D real-time spatial mapping.',
-      specs: '12m Range • 15Hz Scan Rate • 8000 pts/s',
+      label: 'Smart 360° Spatial Radar',
+      detail: 'Scans surroundings in real time up to 12 meters away to automatically detect obstacles, map rooms, and prevent collisions.',
+      specs: '12m Range • 360° Real-Time Scan • Obstacle Avoidance',
       icon: Eye,
       tag: 'Obstacle Detection',
       filename: 'lidar_slam.cpp',
@@ -116,11 +116,11 @@ export const RoboticsDiagram: React.FC = () => {
     },
     mcu: {
       id: 'mcu',
-      label: 'Dual-Core Controller',
-      detail: 'ESP32 / Arduino RP2040 managing high-speed kinematics, deterministic PID velocity loops, and fail-safe watchdogs.',
-      specs: '240 MHz Dual-Core • FreeRTOS Real-Time Tasks',
+      label: 'Brain & Control Computer',
+      detail: 'Processes sensor data instantly, runs automated control routines, and keeps the device operating smoothly with built-in fail-safes.',
+      specs: 'Dual-Core Processor • Real-Time Multitasking',
       icon: Cpu,
-      tag: 'Compute Core',
+      tag: 'Central Brain',
       filename: 'kinematics_rtos.cpp',
       codeLines: [
         { num: 1, text: '// Dual-Core 240MHz FreeRTOS Control Task' },
@@ -139,11 +139,11 @@ export const RoboticsDiagram: React.FC = () => {
     },
     motors: {
       id: 'motors',
-      label: 'TMC Silent Motor Drives & Kinematics',
-      detail: 'Ultra-quiet 1/256 microstepping stepper or encoder-geared DC motors with closed-loop torque feedback.',
-      specs: 'TMC2209 Drivers • Differential Drive 4WD',
+      label: 'Whisper-Quiet Precision Motors',
+      detail: 'Silent motor controllers that deliver smooth, accurate physical movement with automatic jam and stall detection.',
+      specs: 'Silent Drivers • Smooth & Accurate Motion',
       icon: Zap,
-      tag: 'Motion Actuation',
+      tag: 'Smooth Movement',
       filename: 'tmc2209_stepper.cpp',
       codeLines: [
         { num: 1, text: '// TMC2209 SilentStepStick Differential Drive' },
@@ -160,11 +160,11 @@ export const RoboticsDiagram: React.FC = () => {
     },
     imu: {
       id: 'imu',
-      label: '9-DoF IMU & Orientation Fusion',
-      detail: 'Kalman-filtered accelerometer and gyroscope for terrain tilt compensation and drift-free dead reckoning.',
-      specs: 'BNO085 Sensor Hub • 100Hz Quaternions',
+      label: 'Tilt, Balance & Motion Sensors',
+      detail: 'Smart motion sensors that measure exact tilt, direction, and balance so the device stays upright and tracks movement accurately.',
+      specs: 'Balance Sensors • Real-Time Direction Tracking',
       icon: Compass,
-      tag: 'Spatial Sensing',
+      tag: 'Balance & Orientation',
       filename: 'imu_fusion.cpp',
       codeLines: [
         { num: 1, text: '// 9-Axis Sensor Fusion with Extended Kalman Filter' },
@@ -237,6 +237,12 @@ export const RoboticsDiagram: React.FC = () => {
             {Object.values(modules).map((mod) => {
               const isActive = activeModule === mod.id;
               const Icon = mod.icon;
+              const tabLabels: Record<string, string> = {
+                lidar: 'RADAR',
+                mcu: 'BRAIN',
+                motors: 'MOTORS',
+                imu: 'BALANCE',
+              };
               return (
                 <button
                   key={mod.id}
@@ -249,7 +255,7 @@ export const RoboticsDiagram: React.FC = () => {
                   }`}
                 >
                   <Icon className="w-3 h-3" />
-                  <span>{mod.id.toUpperCase()}</span>
+                  <span>{tabLabels[mod.id] || mod.id.toUpperCase()}</span>
                 </button>
               );
             })}
@@ -291,11 +297,11 @@ export const RoboticsDiagram: React.FC = () => {
           <div className="flex flex-wrap items-center justify-between px-4 sm:px-5 py-2.5 bg-[#0E1528] dark:bg-[#0A0F1F] border-t border-slate-800/90 font-mono text-[10px] sm:text-[11px] text-slate-300 gap-2">
             <div className="flex items-center gap-2 truncate">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0 shadow-[0_0_6px_rgba(52,211,153,0.8)]" />
-              <span className="text-slate-400 font-bold">SPEC:</span>
+              <span className="text-slate-400 font-bold">OVERVIEW:</span>
               <span className="text-slate-200 truncate">{current.specs}</span>
             </div>
             <div className="flex items-center gap-1.5 text-emerald-400 font-bold flex-shrink-0">
-              <span>● COMPILED C++</span>
+              <span>● PRODUCTION CODE</span>
             </div>
           </div>
         </div>
@@ -304,10 +310,10 @@ export const RoboticsDiagram: React.FC = () => {
         <div className="w-full lg:w-1/2 space-y-3">
           <div className="mb-2">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 dark:text-brand-orange-400 block">
-              Autonomous Architecture
+              Hardware Engineering
             </span>
             <h3 className="text-xl sm:text-2xl font-black text-slate-950 dark:text-white font-display">
-              Sub-System Kinematics &amp; Control
+              Key Hardware Modules Explained
             </h3>
           </div>
 

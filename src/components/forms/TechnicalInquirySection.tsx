@@ -41,11 +41,11 @@ function SubmitButton({ pending }: { pending: boolean }) {
               d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
             />
           </svg>
-          <span>Submitting Project Brief...</span>
+          <span>Sending Your Inquiry...</span>
         </>
       ) : (
         <>
-          <span>Submit Project Brief</span>
+          <span>Send Project Inquiry</span>
           <Send className="w-4 h-4 ml-1" />
         </>
       )}
@@ -74,11 +74,11 @@ async function submitInquiryAction(
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!email || !emailRegex.test(email)) {
-    errors.email = 'Please provide a valid work email address.';
+    errors.email = 'Please provide a valid email address.';
   }
 
   if (!message || message.length < 5) {
-    errors.message = 'Please describe your project requirements.';
+    errors.message = 'Please tell us a little about your project.';
   }
 
   if (Object.keys(errors).length > 0) {
@@ -95,7 +95,7 @@ async function submitInquiryAction(
         name,
         email,
         phone: 'Direct Inquiry Form',
-        projectType: 'Engineering & Technical Support Brief',
+        projectType: 'Website / Software / Hardware Project',
         budget: 'Open for evaluation',
         message,
       }),
@@ -106,18 +106,18 @@ async function submitInquiryAction(
     if (response.ok && result?.success) {
       return {
         success: true,
-        message: 'Your inquiry has been delivered directly to our engineering team. We will review your specifications and respond within 24 hours.',
+        message: 'Thank you! Your message has been received. Our team will review your project and get back to you within 24 hours.',
       };
     } else {
       return {
         success: false,
-        message: result?.error || 'Failed to transmit message. Please email contact@steelandstack.com directly.',
+        message: result?.error || 'Failed to send message. Please email contact@steelandstack.com directly.',
       };
     }
   } catch (err: any) {
     return {
       success: false,
-      message: err?.message || 'Network error transmitting message.',
+      message: err?.message || 'Network error sending message.',
     };
   }
 }
@@ -161,13 +161,13 @@ export const TechnicalInquirySection: React.FC = () => {
       {/* Top Title */}
       <div className="text-center mb-8 relative z-10">
         <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 block mb-1">
-          Initiate Engagement
+          Get In Touch
         </span>
         <h2 className="text-3xl sm:text-4xl font-bold text-slate-950 dark:text-white font-display tracking-tight">
-          Let's build something exceptional.
+          Let's build something great together.
         </h2>
         <p className="text-sm text-slate-500 dark:text-slate-400 font-mono mt-1.5">
-          Direct communication with senior engineers. Fixed timelines, zero sales fluff.
+          Direct communication with our builders. Clear timelines, transparent pricing, and zero sales fluff.
         </p>
       </div>
 
@@ -178,10 +178,10 @@ export const TechnicalInquirySection: React.FC = () => {
           <div className="space-y-6">
             <div>
               <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight font-display">
-                Direct Project Scoping
+                Tell Us About Your Project
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed font-sans">
-                Tell us about your objectives. We will review your requirements and provide an itemized sprint roadmap and fixed price within 24 hours.
+                Have an idea for a new business website, custom web application, or smart connected hardware? Tell us what you need and we will send you a clear plan and fixed quote within 24 hours.
               </p>
             </div>
 
@@ -211,7 +211,7 @@ export const TechnicalInquirySection: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-[10px] font-mono font-bold tracking-widest text-slate-400 uppercase block">
-                    RESPONSE COMMITMENT
+                    RESPONSE TIME
                   </span>
                   <span className="text-sm sm:text-base font-mono font-bold text-slate-900 dark:text-white block">
                     Within 24 Hours Guaranteed
@@ -224,7 +224,7 @@ export const TechnicalInquirySection: React.FC = () => {
           {/* Bottom Security / Scope Badge */}
           <div className="pt-8 mt-6 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2 text-xs font-mono text-slate-500 dark:text-slate-400">
             <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
-            <span>100% IP Handover • NDA Protected • Pan-India &amp; Global</span>
+            <span>100% Complete Ownership • NDA Protected • Pan-India &amp; Global</span>
           </div>
         </div>
 
@@ -236,7 +236,7 @@ export const TechnicalInquirySection: React.FC = () => {
                 <CheckCircle2 className="w-8 h-8" />
               </div>
               <h4 className="text-2xl font-black text-slate-900 dark:text-white font-display">
-                Message Transmitted
+                Message Sent Successfully
               </h4>
               <p className="text-sm text-slate-600 dark:text-slate-300 max-w-sm mx-auto font-sans leading-relaxed">
                 {state.message}
@@ -291,7 +291,7 @@ export const TechnicalInquirySection: React.FC = () => {
                     htmlFor="email"
                     className="block text-[11px] font-mono font-bold text-slate-800 dark:text-slate-200 uppercase tracking-widest mb-1.5"
                   >
-                    WORK EMAIL
+                    YOUR EMAIL
                   </label>
                   <input
                     id="email"
@@ -312,14 +312,14 @@ export const TechnicalInquirySection: React.FC = () => {
                     htmlFor="message"
                     className="block text-[11px] font-mono font-bold text-slate-800 dark:text-slate-200 uppercase tracking-widest mb-1.5"
                   >
-                    PROJECT REQUIREMENTS / BRIEF
+                    WHAT DO YOU NEED BUILT?
                   </label>
                   <textarea
                     id="message"
                     name="message"
                     required
                     rows={4}
-                    placeholder="Describe your software, PCB design, or IoT requirements..."
+                    placeholder="Tell us what you'd like to build (e.g. a modern business website, an internal customer portal, or smart hardware)..."
                     className="w-full px-4 py-3.5 rounded-xl border-2 border-brand-orange-400/90 dark:border-brand-orange-500/80 bg-white dark:bg-[#090D16] text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-brand-orange-500 focus:ring-2 focus:ring-brand-orange-500/20 transition-all font-sans resize-none"
                   />
                   {state.errors?.message && (

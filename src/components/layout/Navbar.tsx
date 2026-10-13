@@ -121,7 +121,7 @@ export const Navbar: React.FC = () => {
             <Button
               onClick={(e) => {
                 e.preventDefault();
-                openAIChat("I want to start a new project with Steel & Stack. Can you help me define my requirements and get an engineer consultation?");
+                openAIChat("Hi! I'd like to talk about starting a project with Steel & Stack. Can you tell me how to get started?");
               }}
               variant="primary"
               size="sm"
@@ -138,7 +138,7 @@ export const Navbar: React.FC = () => {
             <Button
               onClick={(e) => {
                 e.preventDefault();
-                openAIChat("I want to start a new project with Steel & Stack. Can you help me define my requirements and get an engineer consultation?");
+                openAIChat("Hi! I'd like to talk about starting a project with Steel & Stack. Can you tell me how to get started?");
               }}
               variant="primary"
               size="sm"
@@ -203,7 +203,7 @@ export const Navbar: React.FC = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   setIsOpen(false);
-                  openAIChat("I want to start a new project with Steel & Stack. Can you help me define my requirements and get an engineer consultation?");
+                  openAIChat("Hi! I'd like to talk about starting a project with Steel & Stack. Can you tell me how to get started?");
                 }}
                 variant="primary"
                 size="md"

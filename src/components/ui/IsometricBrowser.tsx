@@ -90,14 +90,14 @@ export const IsometricBrowser: React.FC = () => {
                 <div className="w-5 h-5 rounded-md bg-brand-orange-500 flex items-center justify-center text-[10px] font-black text-white shadow-xs dark:shadow-[0_0_10px_rgba(249,115,22,0.4)]">
                   S
                 </div>
-                <span className="text-xs font-mono font-bold text-slate-900 dark:text-white tracking-wider">
+                <span className="text-xs font-mono font-bold text-slate-950 dark:text-white tracking-wider">
                   STEEL &amp; STACK
                 </span>
               </div>
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse dark:shadow-[0_0_6px_rgba(16,185,129,0.7)]" />
                 <span className="text-[9px] font-mono text-brand-orange-700 dark:text-brand-orange-400 font-bold bg-brand-orange-100/60 dark:bg-brand-orange-950/70 px-2 py-0.5 rounded-full border border-brand-orange-200 dark:border-brand-orange-800/80">
-                  REACT 19 ENGINE
+                  MODERN &amp; FAST
                 </span>
               </div>
             </div>
@@ -105,46 +105,46 @@ export const IsometricBrowser: React.FC = () => {
             {/* Live Core Web Vitals Benchmark Grid */}
             <div className="grid grid-cols-3 gap-1.5 sm:gap-3 py-1.5 sm:py-2 font-mono">
               <div className="bg-white dark:bg-[#0D1426] p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl border border-slate-200/90 dark:border-slate-800/90 text-center shadow-xs dark:shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
-                <span className="text-slate-500 dark:text-slate-400 block text-[8px] sm:text-[9px] font-medium uppercase">LCP Speed</span>
+                <span className="text-slate-500 dark:text-slate-400 block text-[8px] sm:text-[9px] font-medium uppercase">Page Load</span>
                 <strong className="text-emerald-600 dark:text-emerald-400 font-bold text-xs sm:text-sm dark:drop-shadow-[0_0_8px_rgba(52,211,153,0.35)]">0.62s</strong>
-                <span className="text-[7px] sm:text-[8px] text-slate-400 dark:text-slate-500 block mt-0.5">&lt; 0.8s Target</span>
+                <span className="text-[7px] sm:text-[8px] text-slate-400 dark:text-slate-500 block mt-0.5">Instant Load</span>
               </div>
               <div className="bg-white dark:bg-[#0D1426] p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl border border-slate-200/90 dark:border-slate-800/90 text-center shadow-xs dark:shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
-                <span className="text-slate-500 dark:text-slate-400 block text-[8px] sm:text-[9px] font-medium uppercase">Input (INP)</span>
+                <span className="text-slate-500 dark:text-slate-400 block text-[8px] sm:text-[9px] font-medium uppercase">Touch &amp; Click</span>
                 <strong className="text-emerald-600 dark:text-emerald-400 font-bold text-xs sm:text-sm dark:drop-shadow-[0_0_8px_rgba(52,211,153,0.35)]">12ms</strong>
-                <span className="text-[7px] sm:text-[8px] text-slate-400 dark:text-slate-500 block mt-0.5">Zero Lag</span>
+                <span className="text-[7px] sm:text-[8px] text-slate-400 dark:text-slate-500 block mt-0.5">Instant Smooth</span>
               </div>
               <div className="bg-white dark:bg-[#0D1426] p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl border border-slate-200/90 dark:border-slate-800/90 text-center shadow-xs dark:shadow-[0_4px_12px_rgba(0,0,0,0.3)]">
-                <span className="text-slate-500 dark:text-slate-400 block text-[8px] sm:text-[9px] font-medium uppercase">Lighthouse</span>
+                <span className="text-slate-500 dark:text-slate-400 block text-[8px] sm:text-[9px] font-medium uppercase">Google Score</span>
                 <strong className="text-brand-orange-600 dark:text-brand-orange-400 font-bold text-xs sm:text-sm dark:drop-shadow-[0_0_8px_rgba(249,115,22,0.4)]">100/100</strong>
-                <span className="text-[7px] sm:text-[8px] text-slate-400 dark:text-slate-500 block mt-0.5">Top Tier</span>
+                <span className="text-[7px] sm:text-[8px] text-slate-400 dark:text-slate-500 block mt-0.5">Top 1% Tier</span>
               </div>
             </div>
 
             {/* Executive Pipeline Simulation Block */}
             <div className="bg-slate-900 dark:bg-[#04060E] text-slate-200 p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl font-mono text-[9px] sm:text-[10px] leading-relaxed border border-slate-800 dark:border-slate-800/90 shadow-inner dark:shadow-[0_0_20px_rgba(234,88,12,0.06)] space-y-1 sm:space-y-1.5">
               <div className="flex items-center justify-between text-slate-400 text-[8px] sm:text-[9px] border-b border-slate-800 pb-1">
-                <span className="uppercase tracking-wider font-semibold text-brand-orange-400">Live Funnel Health</span>
+                <span className="uppercase tracking-wider font-semibold text-brand-orange-400">Customer Experience</span>
                 <span className="text-emerald-400 flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse dark:shadow-[0_0_6px_rgba(52,211,153,0.8)]" />
                   100% Operational
                 </span>
               </div>
               <div className="text-slate-300 flex justify-between pt-0.5">
-                <span>Direct Lead Routing:</span>
+                <span>Customer Inquiries:</span>
                 <span className="text-white dark:text-amber-200 font-bold truncate ml-2">contact@steelandstack.com</span>
               </div>
               <div className="text-emerald-400 flex items-center gap-1.5 pt-0.5 truncate">
                 <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-400 flex-shrink-0" />
-                <span className="truncate">Instant response &lt; 2.5s</span>
+                <span className="truncate">Form submits in under 1 second</span>
               </div>
             </div>
 
             {/* Footer Status Bar */}
             <div className="pt-2 flex items-center justify-between border-t border-slate-200 dark:border-slate-800/80 text-[8px] sm:text-[9px] font-mono text-slate-600 dark:text-slate-400">
-              <span className="truncate">Mobile-First • Zero Shift</span>
+              <span className="truncate">Mobile &amp; Desktop • 100% Responsive</span>
               <span className="bg-brand-orange-500 text-white px-2 py-0.5 rounded-full font-bold text-[7px] sm:text-[8px] uppercase tracking-wider flex-shrink-0 dark:shadow-[0_0_8px_rgba(249,115,22,0.4)]">
-                Turnkey Ready
+                Ready to Launch
               </span>
             </div>
           </div>

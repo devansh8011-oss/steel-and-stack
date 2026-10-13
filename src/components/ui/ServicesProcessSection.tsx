@@ -28,32 +28,32 @@ interface ServiceTrack {
 const SERVICES_TRACKS: ServiceTrack[] = [
   {
     id: 'web-platforms',
-    discipline: 'Track 01 • Web Flagships',
-    title: 'High-Converting Web Platforms',
+    discipline: 'Track 01 • Business Websites',
+    title: 'Modern Business Websites',
     description:
-      'Corporate flagships, portfolio showcases, and landing funnels engineered with React 19, sub-second speeds, and conversion-focused design.',
-    tags: ['React 19', 'Tailwind CSS', 'Next.js / Vite', 'Lighthouse 100', 'SEO Schema'],
-    deliverables: 'Sub-0.8s LCP • 0.00 CLS • Mobile-First Responsive',
+      'Showcase websites, company portals, and marketing pages built to look stunning, open instantly on phones, and turn visitors into paying customers.',
+    tags: ['Mobile-First Design', 'Instant Load Speeds', 'Google SEO Ready', 'Clean Code', 'Contact & Lead Capture'],
+    deliverables: 'Loads Under 1s • Looks Great on All Phones • 100% Owned by You',
     icon: Globe,
   },
   {
     id: 'saas-apps',
-    discipline: 'Track 02 • Digital Products',
-    title: 'Custom Web Apps & SaaS MVPs',
+    discipline: 'Track 02 • Custom Software',
+    title: 'Web Applications & Customer Portals',
     description:
-      'Authenticated client portals, internal operations dashboards, and interactive SaaS platforms built for rapid launch and scale.',
-    tags: ['Fullstack Auth', 'PostgreSQL', 'Supabase', 'Stripe Payments', 'REST / GraphQL'],
-    deliverables: 'Strict TypeScript • API Integrations • Role-Based RBAC',
+      'Private customer dashboards, employee tools, and online booking or payment systems tailored specifically to automate your business.',
+    tags: ['User Accounts & Logins', 'Online Payments (Stripe)', 'Custom Dashboards', 'Database Setup', 'Email Notifications'],
+    deliverables: 'Secure User Logins • Live Payment Processing • Easy Administration',
     icon: Zap,
   },
   {
     id: 'hardware-iot',
-    discipline: 'Track 03 • Physical Computing',
-    title: 'Connected IoT & Hardware Lab',
+    discipline: 'Track 03 • Smart Hardware',
+    title: 'Smart Connected Hardware & Devices',
     description:
-      'Custom electronics, ESP32 / Arduino firmware, Raspberry Pi Linux telemetry, and physical sensor/motor actuation systems.',
-    tags: ['ESP32-S3', 'FreeRTOS C++', 'KiCad Schematics', 'BLE / Wi-Fi', 'Motor Kinematics'],
-    deliverables: 'Tested PCB Schematics • Production Firmware • Insured Courier',
+      'Custom electronics, smart sensors, wireless remote controls, and working prototypes built and tested for real-world use.',
+    tags: ['Wireless Wi-Fi & Bluetooth', 'Smart Sensors', 'Motor Controls', 'Working Prototypes', 'Clear Setup Guides'],
+    deliverables: 'Working Tested Device • Step-by-Step Setup Video • Insured Courier Delivery',
     icon: Cpu,
   },
 ];
@@ -61,50 +61,50 @@ const SERVICES_TRACKS: ServiceTrack[] = [
 const PROCESS_STEPS = [
   {
     step: '01',
-    title: 'Discovery & Fixed Scope',
+    title: 'Discovery & Clear Plan',
     timeframe: '24 - 48 Hours',
-    summary: 'Requirement analysis, architectural roadmap, and itemized fixed-price proposal.',
-    deliverable: 'Structured technical proposal & committed sprint schedule',
+    summary: 'We listen to your vision, outline what is needed, and give you a transparent, fixed-price quote with zero hidden surprises.',
+    deliverable: 'Clear project roadmap & upfront fixed pricing',
     checklist: [
-      'Tech stack & third-party integration feasibility assessment',
-      'Target performance benchmarks (<0.8s LCP, zero layout shift)',
-      'Transparent, fixed-price quotation with zero hidden change-orders',
+      'Thorough discussion of your goals, target audience, and feature wish-list',
+      'Clear milestone timeline with guaranteed delivery dates',
+      'Fixed, transparent quote with absolutely no hidden fees or extra charges',
     ],
   },
   {
     step: '02',
-    title: 'Agile Sprint & Live Staging',
-    timeframe: 'Sprint Phase',
-    summary: 'Milestone execution with live password-protected preview URLs and weekly progress demos.',
-    deliverable: 'Functional staging environments + clean git commits',
+    title: 'Weekly Building & Live Demos',
+    timeframe: 'Active Build',
+    summary: 'Watch your product come to life with weekly video walkthroughs and live private preview links you can test anytime.',
+    deliverable: 'Working preview link you can test on your phone and laptop',
     checklist: [
-      'Modern React 19 architecture with strict TypeScript compilation',
-      'Regular staging previews for continuous client alignment',
-      'Clean modular component tokens with comprehensive documentation',
+      'Modern, rock-solid engineering designed to last for years',
+      'Private preview links so you can test every button and page yourself',
+      'Weekly video walkthroughs keeping you completely up to date',
     ],
   },
   {
     step: '03',
-    title: 'Speed, SEO & Security QA',
-    timeframe: 'Quality Phase',
-    summary: 'Multi-device responsive validation, Core Web Vitals optimization, and security audits.',
-    deliverable: 'Lighthouse 95+ audit report & cross-browser verification',
+    title: 'Speed, Mobile & Security Testing',
+    timeframe: 'Review & Polish',
+    summary: 'Rigorous testing across iPhones, Androids, Macs, and PCs to guarantee instant loading, flawless layouts, and tight security.',
+    deliverable: 'Speed verification report & polished mobile-ready experience',
     checklist: [
-      'Sub-second page speed optimization across mobile and desktop',
-      'Honeypot and regex spam protection for lead capture forms',
-      'WCAG contrast accessibility and semantic SEO schema tags',
+      'Optimized for instant page loading so customers never bounce',
+      'Built-in spam protection on forms to block bots and junk emails',
+      'Search-engine friendly structure so Google can easily index your business',
     ],
   },
   {
     step: '04',
-    title: 'Turnkey Launch & 100% IP Handover',
-    timeframe: 'Launch Phase',
-    summary: 'Production deployment, domain DNS routing, and complete IP repository transfer.',
-    deliverable: 'Full GitHub repository ownership + production URL live',
+    title: 'Official Launch & 100% Handover',
+    timeframe: 'Launch Day',
+    summary: 'We connect your domain, take your project live to the world, and hand over every single key, file, and line of code to you.',
+    deliverable: 'Live website on your domain + 100% complete ownership transferred',
     checklist: [
-      'Zero-downtime deployment on Vercel / Cloudflare with custom domain SSL',
-      '100% IP ownership transfer: full source code, assets, and design files',
-      'Post-launch remote monitoring and operational handover documentation',
+      'Smooth, hassle-free launch on your domain with secure SSL padlock',
+      '100% ownership handed over: all code, designs, and files are yours',
+      'Simple walkthrough guide and post-launch support to help you get started',
     ],
   },
 ];
@@ -119,14 +119,14 @@ export const ServicesProcessSection: React.FC = () => {
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange-50 dark:bg-brand-orange-950/60 border border-brand-orange-200 dark:border-brand-orange-800/60">
           <Sparkles className="w-3.5 h-3.5 text-brand-orange-600 dark:text-brand-orange-400" />
           <span className="text-[11px] sm:text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 dark:text-brand-orange-400">
-            Web Architecture &amp; Studio Pipeline
+            What We Build &amp; How We Work
           </span>
         </div>
         <h2 className="text-2xl sm:text-5xl font-black text-slate-950 dark:text-white tracking-tight font-display">
-          Website Engineering &amp; Build Pipeline
+          Websites, Custom Software &amp; Smart Hardware
         </h2>
         <p className="text-xs sm:text-base text-slate-600 dark:text-slate-300 font-sans leading-relaxed">
-          From high-converting responsive web platforms and custom SaaS portals to connected physical IoT hardware. Transparently engineered with sub-second speeds.
+          From modern responsive business websites and custom client portals to smart connected devices. Built transparently with direct communication.
         </p>
       </div>
 
@@ -184,10 +184,10 @@ export const ServicesProcessSection: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 dark:text-brand-orange-400 block">
-              Execution Methodology
+              Clear Roadmap
             </span>
             <h3 className="text-lg sm:text-2xl font-black text-slate-950 dark:text-white font-display">
-              The 4-Step Milestone Sprint
+              How We Work: 4 Clear Steps
             </h3>
           </div>
 
@@ -197,7 +197,7 @@ export const ServicesProcessSection: React.FC = () => {
             onClick={() => setIsExpanded(!isExpanded)}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 rounded-full bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-brand-orange-400 text-slate-900 dark:text-slate-100 font-mono text-xs font-bold uppercase tracking-wider shadow-sm transition-all cursor-pointer"
           >
-            <span>{isExpanded ? 'Minimize Detailed Specs' : 'View Full Process & Specs'}</span>
+            <span>{isExpanded ? 'Minimize Detailed Breakdown' : 'View Detailed Breakdown'}</span>
             {isExpanded ? (
               <ChevronUp className="w-4 h-4 text-brand-orange-500" />
             ) : (
@@ -256,16 +256,16 @@ export const ServicesProcessSection: React.FC = () => {
                   <div className="flex items-center gap-2">
                     <span className="w-2.5 h-2.5 rounded-full bg-brand-orange-500 animate-pulse" />
                     <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-400">
-                      Deep-Dive Architectural Breakdown
+                      Complete Project Lifecycle
                     </span>
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-black text-white font-display">
-                    Standard Operating Verification Protocol
+                    What You Can Expect at Every Step
                   </h3>
                 </div>
                 <div className="flex items-center gap-2 text-xs font-mono text-slate-400 bg-slate-900 px-4 py-2 rounded-full border border-slate-800">
                   <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                  <span>100% Client IP Ownership Handover</span>
+                  <span>100% Ownership Transferred To You</span>
                 </div>
               </div>
 
@@ -310,14 +310,14 @@ export const ServicesProcessSection: React.FC = () => {
               {/* Action Callout inside Expanded View */}
               <div className="pt-4 flex flex-wrap items-center justify-between gap-4 border-t border-slate-800">
                 <p className="text-xs font-mono text-slate-400">
-                  Need custom components or specialized pinouts? We tailor every single BOM to your specifications.
+                  Have a unique idea or specific business requirements? We customize every deliverable to fit your exact goals.
                 </p>
                 <button
                   type="button"
-                  onClick={() => openAIChat("I want to specify a custom engineering project with Steel & Stack. Can we go over technical specifications and timelines?")}
+                  onClick={() => openAIChat("Hi, I'd like to discuss a project with Steel & Stack. Can you help me understand what options fit my business?")}
                   className="inline-flex items-center gap-2 py-3 px-6 rounded-full bg-brand-orange-500 hover:bg-brand-orange-600 text-white font-mono text-xs font-bold uppercase tracking-widest shadow-orange-md transition-all cursor-pointer"
                 >
-                  <span>Specify Your Project</span>
+                  <span>Discuss Your Project</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>

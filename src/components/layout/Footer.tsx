@@ -7,7 +7,7 @@ export const Footer: React.FC = () => {
         <p>© 2026 Steel &amp; Stack Studio. All rights reserved.</p>
         <div className="flex items-center gap-2">
           <span className="text-brand-orange-600 dark:text-brand-orange-400 font-bold tracking-wide">
-            Engineering the Future of Tech
+            Websites, Custom Software &amp; Smart Devices
           </span>
           <span className="text-slate-300 dark:text-slate-700 font-bold">•</span>
         </div>

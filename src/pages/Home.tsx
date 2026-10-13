@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Section } from '../components/ui/Section';
 import { MetaTags } from '../components/seo/MetaTags';
 import { InteractiveCard } from '../components/ui/InteractiveCard';
-import { IsometricBoard } from '../components/ui/IsometricBoard';
-import { IsometricBrowser } from '../components/ui/IsometricBrowser';
+import { TrustedBy } from '../components/ui/TrustedBy';
+import { PricingSection } from '../components/ui/PricingSection';
+import { TestimonialsSection } from '../components/ui/TestimonialsSection';
 import { ServicesProcessSection } from '../components/ui/ServicesProcessSection';
 import { RoboticsDiagram } from '../components/ui/RoboticsDiagram';
 import { TechnicalInquirySection } from '../components/forms/TechnicalInquirySection';
@@ -19,17 +20,14 @@ import {
   Wrench,
   CheckCircle2,
   ChevronDown,
-  Microchip,
 } from 'lucide-react';
 
 export const Home: React.FC = () => {
-  const [heroMode, setHeroMode] = useState<'hardware' | 'web'>('web');
-
   return (
     <>
       <MetaTags
-        title="Steel & Stack | High-Performance Web Platforms & Connected Tech"
-        description="Modern web platforms, custom websites, and connected technology engineered with React 19, sub-second speeds, and conversion-focused design."
+        title="Steel & Stack | Fast Websites, Custom Software & Smart Hardware"
+        description="We build fast, modern websites, custom business software, and smart hardware prototypes. 100% code ownership, fixed pricing, and rapid delivery across India."
       />
 
       {/* 1. HERO SECTION WITH 3D INTERACTIVE VISUALIZER */}
@@ -52,7 +50,7 @@ export const Home: React.FC = () => {
             >
               <span className="w-2 h-2 rounded-full bg-brand-orange-500 animate-pulse flex-shrink-0" />
               <span className="text-[10px] sm:text-xs font-mono font-bold tracking-wider sm:tracking-widest text-slate-800 dark:text-slate-200 uppercase leading-snug">
-                Web Platforms &amp; Digital Studio <span className="text-slate-300 dark:text-slate-600">•</span> Operating Pan-India
+                Websites, Custom Software &amp; Smart Devices <span className="text-slate-300 dark:text-slate-600">•</span> Operating Pan-India
               </span>
             </motion.div>
 
@@ -65,7 +63,7 @@ export const Home: React.FC = () => {
             >
               <h1 className="text-3xl sm:text-6xl lg:text-7xl font-black tracking-tight text-slate-950 dark:text-white leading-[1.14] font-display flex flex-col items-center">
                 <span>
-                  Websites <span className="text-brand-orange-600">&amp;</span> Platforms
+                  Websites <span className="text-brand-orange-600">&amp;</span> Digital Products
                 </span>
                 {/* Luminous Animated Laser Beam Running All Around the Tagline */}
                 <div className="relative inline-flex items-center justify-center mt-2 sm:mt-3 p-[2px] sm:p-[2.5px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_0_35px_rgba(249,115,22,0.22)] max-w-[95vw]">
@@ -98,7 +96,7 @@ export const Home: React.FC = () => {
               className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 pt-1 w-full max-w-xs sm:max-w-none mx-auto"
             >
               <button
-                onClick={() => openAIChat("I would like to start a project with Steel & Stack. What details do you need to get started and what is the sprint process?")}
+                onClick={() => openAIChat("I would like to start a project with Steel & Stack. What details do you need to get started and what is the process?")}
                 type="button"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3 px-7 bg-brand-orange-500 hover:bg-brand-orange-600 text-white font-mono font-extrabold text-xs sm:text-sm uppercase tracking-widest rounded-full shadow-orange-md hover:shadow-orange-lg hover:-translate-y-0.5 transition-all cursor-pointer"
               >
@@ -109,7 +107,7 @@ export const Home: React.FC = () => {
                 href="#capabilities"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3 px-6 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-mono font-bold text-xs sm:text-sm uppercase tracking-widest rounded-full shadow-xs hover:border-brand-orange-400 transition-all"
               >
-                <span>Explore Capabilities</span>
+                <span>See What We Build</span>
                 <ChevronDown className="w-4 h-4 text-brand-orange-500" />
               </a>
             </motion.div>
@@ -123,77 +121,47 @@ export const Home: React.FC = () => {
             >
               <div className="bg-white/95 dark:bg-[#0D1424]/95 border border-slate-200/90 dark:border-slate-800 hover:border-brand-orange-400 dark:hover:border-brand-orange-500/50 px-3 py-2 sm:py-2.5 rounded-xl shadow-xs dark:shadow-[0_4px_16px_rgba(0,0,0,0.3)] transition-all">
                 <span className="text-[9px] font-mono font-bold text-brand-orange-600 dark:text-brand-orange-400 uppercase tracking-widest block truncate">
-                  Core Web Vitals
+                  Page Speed
                 </span>
                 <strong className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white block font-display mt-0.5">
-                  &lt; 0.8s LCP
+                  Under 1 Second
                 </strong>
-                <span className="text-[10px] text-slate-500 dark:text-slate-400 block truncate">Sub-second speeds</span>
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 block truncate">Instant phone &amp; laptop load</span>
               </div>
               <div className="bg-white/95 dark:bg-[#0D1424]/95 border border-slate-200/90 dark:border-slate-800 hover:border-brand-orange-400 dark:hover:border-brand-orange-500/50 px-3 py-2 sm:py-2.5 rounded-xl shadow-xs dark:shadow-[0_4px_16px_rgba(0,0,0,0.3)] transition-all">
                 <span className="text-[9px] font-mono font-bold text-brand-orange-600 dark:text-brand-orange-400 uppercase tracking-widest block truncate">
-                  Code Ownership
+                  Your Ownership
                 </span>
                 <strong className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white block font-display mt-0.5">
-                  100% Transfer
+                  100% Complete
                 </strong>
-                <span className="text-[10px] text-slate-500 dark:text-slate-400 block truncate">Zero vendor lock-in</span>
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 block truncate">Zero monthly agency fees</span>
               </div>
               <div className="bg-white/95 dark:bg-[#0D1424]/95 border border-slate-200/90 dark:border-slate-800 hover:border-brand-orange-400 dark:hover:border-brand-orange-500/50 px-3 py-2 sm:py-2.5 rounded-xl shadow-xs dark:shadow-[0_4px_16px_rgba(0,0,0,0.3)] transition-all">
                 <span className="text-[9px] font-mono font-bold text-brand-orange-600 dark:text-brand-orange-400 uppercase tracking-widest block truncate">
-                  Sprint Scoping
+                  Clear Pricing
                 </span>
                 <strong className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white block font-display mt-0.5">
                   24 - 48 Hours
                 </strong>
-                <span className="text-[10px] text-slate-500 dark:text-slate-400 block truncate">Fixed-price roadmap</span>
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 block truncate">Fixed quote, zero surprises</span>
               </div>
               <div className="bg-white/95 dark:bg-[#0D1424]/95 border border-slate-200/90 dark:border-slate-800 hover:border-brand-orange-400 dark:hover:border-brand-orange-500/50 px-3 py-2 sm:py-2.5 rounded-xl shadow-xs dark:shadow-[0_4px_16px_rgba(0,0,0,0.3)] transition-all">
                 <span className="text-[9px] font-mono font-bold text-brand-orange-600 dark:text-brand-orange-400 uppercase tracking-widest block truncate">
-                  Delivery Scope
+                  Reach &amp; Support
                 </span>
                 <strong className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white block font-display mt-0.5">
                   Pan-India &amp; Global
                 </strong>
-                <span className="text-[10px] text-slate-500 dark:text-slate-400 block truncate">Remote deployment</span>
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 block truncate">Direct engineer collaboration</span>
               </div>
             </motion.div>
-
-            {/* 3D Visualizer Mode Switcher */}
-            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 w-full max-w-xs sm:max-w-none mx-auto">
-              <button
-                onClick={() => setHeroMode('web')}
-                type="button"
-                className={`px-5 sm:px-7 py-2.5 sm:py-3 rounded-full font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer ${
-                  heroMode === 'web'
-                    ? 'bg-slate-950 dark:bg-gradient-to-r dark:from-brand-orange-500 dark:to-amber-500 text-white shadow-md dark:shadow-[0_0_24px_rgba(249,115,22,0.4)] border border-slate-900 dark:border-brand-orange-400/50'
-                    : 'bg-white dark:bg-[#0B101E] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/70 hover:border-slate-300 dark:hover:border-slate-700'
-                }`}
-              >
-                <Globe className={`w-4 h-4 flex-shrink-0 ${heroMode === 'web' ? 'text-brand-orange-400 dark:text-white' : 'text-brand-orange-500'}`} />
-                <span>Web Platform Studio</span>
-              </button>
-              <button
-                onClick={() => setHeroMode('hardware')}
-                type="button"
-                className={`px-5 sm:px-7 py-2.5 sm:py-3 rounded-full font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer ${
-                  heroMode === 'hardware'
-                    ? 'bg-slate-950 dark:bg-gradient-to-r dark:from-brand-orange-500 dark:to-amber-500 text-white shadow-md dark:shadow-[0_0_24px_rgba(249,115,22,0.4)] border border-slate-900 dark:border-brand-orange-400/50'
-                    : 'bg-white dark:bg-[#0B101E] text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/70 hover:border-slate-300 dark:hover:border-slate-700'
-                }`}
-              >
-                <Microchip className={`w-4 h-4 flex-shrink-0 ${heroMode === 'hardware' ? 'text-brand-orange-400 dark:text-white' : 'text-brand-orange-500'}`} />
-                <span>Connected Hardware Lab</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Interactive Front Canvas in Hero */}
-          <div className="mt-6 flex justify-center">
-            {heroMode === 'hardware' ? <IsometricBoard /> : <IsometricBrowser />}
           </div>
         </div>
       </Section>
+
+      {/* TRUSTED BY ORGANISATIONS & INSTITUTES */}
+      <TrustedBy />
 
       {/* 2. CAPABILITIES & BUSINESS SOLUTIONS */}
       <Section
@@ -206,13 +174,13 @@ export const Home: React.FC = () => {
         <div className="max-w-6xl mx-auto space-y-10 sm:space-y-14">
           <div className="text-center max-w-2xl mx-auto">
             <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 block mb-1">
-              Core Disciplines
+              What We Build
             </span>
             <h2 className="text-2xl sm:text-4xl font-black text-slate-950 dark:text-white tracking-tight font-display">
-              Engineered Solutions for Modern Companies
+              Simple, Powerful Solutions for Growing Businesses
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 font-mono">
-              Three focused engineering tracks designed to launch fast, convert visitors, and scale reliably.
+              Three clear ways we help founders, business owners, and creators turn ideas into high-quality products.
             </p>
           </div>
 
@@ -226,38 +194,38 @@ export const Home: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-[10px] font-mono font-bold text-brand-orange-600 uppercase tracking-widest">
-                    Track 01 • Web Flagships
+                    Track 01 • Business Websites
                   </span>
                   <h3 className="text-xl font-black text-slate-950 dark:text-white font-display mt-0.5">
-                    High-Converting Web Platforms
+                    Fast, High-Converting Websites
                   </h3>
                 </div>
                 <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
-                  Corporate flagships, portfolio showcases, and landing funnels built to position your brand at the highest tier and convert visitors into qualified pipeline.
+                  Clean company websites, product showcases, and landing pages designed to build trust, look stunning on mobile, and convert visitors into paying clients.
                 </p>
                 <ul className="space-y-2 font-mono text-[11px] text-slate-700 dark:text-slate-300 pt-2 border-t border-slate-200 dark:border-slate-800">
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                    <span>Sub-0.8s Core Web Vitals (<strong className="text-emerald-600 dark:text-emerald-400">0.00 CLS</strong>)</span>
+                    <span>Loads in under 1 second (<strong className="text-emerald-600 dark:text-emerald-400">zero bounce</strong>)</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                    <span>Mobile-first responsive design tokens</span>
+                    <span>Looks gorgeous on phones, tablets &amp; desktops</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                    <span>Automated SEO schema &amp; Open Graph</span>
+                    <span>Built-in Google SEO setup so customers find you</span>
                   </li>
                 </ul>
               </div>
 
               <div className="pt-6 mt-4 border-t border-slate-200 dark:border-slate-800">
                 <button
-                  onClick={() => openAIChat("I'd like to scope a High-Converting Web Platform project. What is the process, sprint timeline, and deliverables?")}
+                  onClick={() => openAIChat("I'd like to discuss a new website project. What is the process, timeline, and deliverables?")}
                   type="button"
                   className="w-full py-3 px-4 bg-white dark:bg-slate-900 hover:bg-brand-orange-50 dark:hover:bg-brand-orange-950/30 border border-slate-300 dark:border-slate-700 hover:border-brand-orange-400 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100 transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                 >
-                  <span>Scope Web Platform</span>
+                  <span>Discuss Your Website</span>
                   <ArrowRight className="w-3.5 h-3.5 text-brand-orange-500" />
                 </button>
               </div>
@@ -271,38 +239,38 @@ export const Home: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-[10px] font-mono font-bold text-brand-orange-600 uppercase tracking-widest">
-                    Track 02 • Digital Products
+                    Track 02 • Custom Software
                   </span>
                   <h3 className="text-xl font-black text-slate-950 dark:text-white font-display mt-0.5">
-                    Custom Web Apps &amp; SaaS MVPs
+                    Custom Web Portals &amp; Tools
                   </h3>
                 </div>
                 <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
-                  Authenticated portals, internal dashboards, and interactive SaaS applications engineered with modern React 19 architecture and API backends.
+                  Client accounts, internal management portals, and digital dashboards that automate repetitive work and save your team dozens of hours every week.
                 </p>
                 <ul className="space-y-2 font-mono text-[11px] text-slate-700 dark:text-slate-300 pt-2 border-t border-slate-200 dark:border-slate-800">
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                    <span>React 19 Actions engine with zero reload lag</span>
+                    <span>Custom software tailored to your exact workflow</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                    <span>PostgreSQL, Supabase &amp; Stripe integration</span>
+                    <span>Online payments, automated receipts &amp; email alerts</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                    <span>100% strict TypeScript type coverage</span>
+                    <span>Secure password-protected logins for clients &amp; staff</span>
                   </li>
                 </ul>
               </div>
 
               <div className="pt-6 mt-4 border-t border-slate-200 dark:border-slate-800">
                 <button
-                  onClick={() => openAIChat("I'd like to scope a Custom SaaS MVP / Web App project. What is the process, sprint timeline, and deliverables?")}
+                  onClick={() => openAIChat("I'd like to discuss building a Custom Web App / Client Portal. What is the process and timeline?")}
                   type="button"
                   className="w-full py-3 px-4 bg-white dark:bg-slate-900 hover:bg-brand-orange-50 dark:hover:bg-brand-orange-950/30 border border-slate-300 dark:border-slate-700 hover:border-brand-orange-400 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100 transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                 >
-                  <span>Scope SaaS MVP</span>
+                  <span>Discuss Your Web App</span>
                   <ArrowRight className="w-3.5 h-3.5 text-brand-orange-500" />
                 </button>
               </div>
@@ -316,38 +284,38 @@ export const Home: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-[10px] font-mono font-bold text-brand-orange-600 uppercase tracking-widest">
-                    Track 03 • Physical Computing
+                    Track 03 • Smart Hardware
                   </span>
                   <h3 className="text-xl font-black text-slate-950 dark:text-white font-display mt-0.5">
-                    Connected IoT &amp; Hardware Lab
+                    Smart Hardware &amp; Prototypes
                   </h3>
                 </div>
                 <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
-                  For companies building physical prototypes, IoT sensor gateways, or robotic actuation. Bench-tested circuits, C++ firmware, and cloud telemetry.
+                  Have an idea for a physical gadget, smart device, or automated machine? We design the electronics, program the controls, and build working prototypes.
                 </p>
                 <ul className="space-y-2 font-mono text-[11px] text-slate-700 dark:text-slate-300 pt-2 border-t border-slate-200 dark:border-slate-800">
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                    <span>ESP32 Wi-Fi/BLE &amp; Raspberry Pi Linux AI</span>
+                    <span>Wireless controls via smartphone, Wi-Fi &amp; Bluetooth</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                    <span>KiCad schematics &amp; itemized vendor BOMs</span>
+                    <span>Tested circuit boards, quiet motors &amp; precision sensors</span>
                   </li>
                   <li className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                    <span>Pan-India insured courier shipment</span>
+                    <span>Insured courier shipping anywhere across India</span>
                   </li>
                 </ul>
               </div>
 
               <div className="pt-6 mt-4 border-t border-slate-200 dark:border-slate-800">
                 <button
-                  onClick={() => openAIChat("I'd like to scope a Connected IoT & Hardware Lab project. What is the process, sprint timeline, and deliverables?")}
+                  onClick={() => openAIChat("I'd like to discuss a Smart Hardware / Physical Prototype idea. What is the process and timeline?")}
                   type="button"
                   className="w-full py-3 px-4 bg-white dark:bg-slate-900 hover:bg-brand-orange-50 dark:hover:bg-brand-orange-950/30 border border-slate-300 dark:border-slate-700 hover:border-brand-orange-400 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100 transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                 >
-                  <span>Scope Hardware Lab</span>
+                  <span>Discuss Your Hardware Idea</span>
                   <ArrowRight className="w-3.5 h-3.5 text-brand-orange-500" />
                 </button>
               </div>
@@ -358,13 +326,13 @@ export const Home: React.FC = () => {
           <div className="mt-10 sm:mt-14">
             <div className="text-center max-w-2xl mx-auto mb-6">
               <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 block mb-1">
-                Hardware Lab Preview
+                Behind the Scenes
               </span>
               <h2 className="text-2xl sm:text-4xl font-black text-slate-950 dark:text-white tracking-tight font-display">
-                Real Firmware. Real Architecture.
+                Real Working Hardware You Can Test
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 font-mono">
-                Every hardware project ships with production C++ firmware — reviewable, transferable, and fully yours.
+                Every hardware project ships with complete circuit files, easy software setup, and full ownership in your hands.
               </p>
             </div>
             <RoboticsDiagram />
@@ -401,7 +369,7 @@ export const Home: React.FC = () => {
               Why Ambitious Businesses Choose Us
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 font-mono">
-              Direct senior engineer collaboration. Zero agency markup. Full code and schematic ownership.
+              Work directly with the people building your project. No confusing middlemen, no hidden fees, and complete ownership.
             </p>
           </div>
 
@@ -411,10 +379,10 @@ export const Home: React.FC = () => {
                 <Wrench className="w-5 h-5" />
               </div>
               <h4 className="text-sm font-bold font-mono text-slate-950 dark:text-white uppercase tracking-wider">
-                Direct Engineering
+                Direct Collaboration
               </h4>
               <p className="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
-                No middle managers, account reps, or junior handoffs. You collaborate directly with senior builders.
+                No middle managers or endless games of telephone. You speak directly with the experts actually building your product.
               </p>
             </div>
 
@@ -423,10 +391,10 @@ export const Home: React.FC = () => {
                 <Zap className="w-5 h-5" />
               </div>
               <h4 className="text-sm font-bold font-mono text-slate-950 dark:text-white uppercase tracking-wider">
-                Sub-Second Speed
+                Instant Speeds
               </h4>
               <p className="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
-                Core Web Vitals &lt; 0.8s, zero layout shift, and clean code that Google rewards with higher conversion.
+                Websites that open instantly on any phone or laptop. Customers never wait, and Google rewards you with higher search ranking.
               </p>
             </div>
 
@@ -435,10 +403,10 @@ export const Home: React.FC = () => {
                 <ShieldCheck className="w-5 h-5" />
               </div>
               <h4 className="text-sm font-bold font-mono text-slate-950 dark:text-white uppercase tracking-wider">
-                100% IP Ownership
+                100% Ownership
               </h4>
               <p className="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
-                You receive full source code, deployment scripts, design tokens, and BOMs. Zero proprietary lock-in.
+                You own every line of code, design file, and asset from day one. Zero recurring agency hostage fees or proprietary lock-in.
               </p>
             </div>
 
@@ -447,17 +415,43 @@ export const Home: React.FC = () => {
                 <Truck className="w-5 h-5" />
               </div>
               <h4 className="text-sm font-bold font-mono text-slate-950 dark:text-white uppercase tracking-wider">
-                Strict Sprints
+                On-Time Delivery
               </h4>
               <p className="text-xs text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
-                Committed milestones, weekly video logs, and transparent staging URLs that keep your launch on schedule.
+                Clear deadlines, weekly video walkthroughs, and live preview links so you always know exactly what is happening.
               </p>
             </div>
           </div>
         </div>
       </Section>
 
-      {/* 5. DIRECT PROJECT INGESTION & SCOPING TERMINAL */}
+      {/* 5. PRICING SECTION */}
+      <Section
+        id="pricing"
+        variant="slate"
+        spacing="normal"
+        borderBottom
+        className="relative"
+      >
+        <div className="max-w-6xl mx-auto">
+          <PricingSection />
+        </div>
+      </Section>
+
+      {/* 6. CLIENT REVIEWS & TESTIMONIALS */}
+      <Section
+        id="reviews"
+        variant="white"
+        spacing="normal"
+        borderBottom
+        className="relative"
+      >
+        <div className="max-w-6xl mx-auto">
+          <TestimonialsSection />
+        </div>
+      </Section>
+
+      {/* 7. DIRECT PROJECT INGESTION & SCOPING TERMINAL */}
       <Section
         id="contact"
         variant="slate"

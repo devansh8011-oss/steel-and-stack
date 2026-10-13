@@ -25,8 +25,8 @@ export const Services: React.FC = () => {
   return (
     <>
       <MetaTags
-        title="Engineering Services & Architecture | Steel & Stack"
-        description="Comprehensive engineering disciplines: Custom Arduino, ESP32, and Raspberry Pi robotics builds alongside high-performance responsive web platforms."
+        title="Services & Capabilities | Steel & Stack"
+        description="Modern business websites, custom software, and smart connected devices built with speed, care, and 100% complete ownership."
       />
 
       {/* Page Header */}
@@ -38,13 +38,13 @@ export const Services: React.FC = () => {
       >
         <div className="max-w-3xl mx-auto text-center space-y-4 relative z-10">
           <Badge variant="orange" size="sm">
-            Studio Disciplines
+            What We Build
           </Badge>
           <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-950 dark:text-white font-display">
-            Web Platforms <span className="text-brand-orange-500">&amp;</span> Digital Engineering
+            Websites, Custom Software <span className="text-brand-orange-500">&amp;</span> Smart Hardware
           </h1>
           <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto font-sans leading-relaxed">
-            {SITE_CONFIG.tagline}. We engineer high-converting web platforms, scalable SaaS products, and connected IoT hardware with zero compromise on code quality or performance. Delivered across India and worldwide.
+            {SITE_CONFIG.tagline}. We build lightning-fast business websites, custom web applications, and smart connected devices with zero middlemen and complete ownership in your hands. Delivered across India and worldwide.
           </p>
         </div>
       </Section>
@@ -57,10 +57,10 @@ export const Services: React.FC = () => {
       >
         <div className="text-center max-w-xl mx-auto mb-10">
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 dark:text-brand-orange-400 block mb-1">
-            Standard Operating Procedure
+            Our Delivery Roadmap
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-white font-display">
-            How Every Build Progresses
+            How Every Project Progresses
           </h2>
         </div>
 
@@ -76,7 +76,7 @@ export const Services: React.FC = () => {
                     {step.step}
                   </span>
                   <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                    Phase 0{idx + 1}
+                    Step 0{idx + 1}
                   </span>
                 </div>
                 <h3 className="text-base font-bold font-mono text-slate-950 dark:text-white tracking-tight">
@@ -87,7 +87,7 @@ export const Services: React.FC = () => {
                 </p>
               </div>
               <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center gap-1.5 text-[11px] font-mono font-bold text-brand-orange-600 dark:text-brand-orange-400">
-                <span>Phase {step.step} Verified</span>
+                <span>Step {step.step} Verified</span>
                 <CheckCircle2 className="w-3.5 h-3.5" />
               </div>
             </div>
@@ -96,7 +96,7 @@ export const Services: React.FC = () => {
 
         <div className="mt-8 text-center">
           <Button
-            onClick={() => openAIChat("I want to learn more about the 4-phase build process and start at Step 01 with Steel & Stack.")}
+            onClick={() => openAIChat("Hi! I'd like to learn more about the 4-step process and discuss my project with Steel & Stack.")}
             variant="primary"
             size="sm"
             icon={<ArrowRight className="w-3.5 h-3.5" />}
@@ -122,14 +122,14 @@ export const Services: React.FC = () => {
               </div>
               <div>
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 dark:text-brand-orange-400 block mb-1">
-                  Discipline 01
+                  Service 01
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-white tracking-tight font-display">
-                  Custom Robotics &amp; Embedded Systems
+                  Smart Hardware &amp; Connected Devices
                 </h2>
               </div>
               <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                We design, solder, program, calibrate, and package custom robotics hardware tailored to your exact mechanical, electronic, and operational constraints.
+                We design, build, test, and deliver custom electronic devices, smart sensors, and working hardware prototypes tailored to your exact business needs.
               </p>
 
               <div className="space-y-2.5 pt-2 font-mono text-xs text-slate-700 dark:text-slate-300">
@@ -139,19 +139,19 @@ export const Services: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2.5">
                   <Wrench className="w-4 h-4 text-brand-orange-500 flex-shrink-0" />
-                  <span>Rigorous bench testing, calibration &amp; video proof</span>
+                  <span>Real bench testing, calibration &amp; video proof</span>
                 </div>
               </div>
 
               <div className="pt-4">
                 <Button
-                  onClick={() => openAIChat("I would like to request a quote for custom robotics hardware and embedded systems from Steel & Stack.")}
+                  onClick={() => openAIChat("I would like to request a quote for smart hardware and connected devices from Steel & Stack.")}
                   variant="primary"
                   size="md"
                   icon={<ArrowRight className="w-4 h-4" />}
                   className="w-full sm:w-auto"
                 >
-                  Request Robotics Quote
+                  Request Hardware Quote
                 </Button>
               </div>
             </div>
@@ -163,14 +163,14 @@ export const Services: React.FC = () => {
                   <div className="flex items-center gap-2.5 mb-3 text-brand-orange-600 dark:text-brand-orange-400">
                     <Zap className="w-4 h-4" />
                     <h4 className="text-sm font-mono font-bold text-slate-900 dark:text-white uppercase tracking-wider">
-                      Microcontrollers &amp; Boards
+                      Controllers &amp; Brain
                     </h4>
                   </div>
                   <ul className="text-xs font-mono text-slate-600 dark:text-slate-300 space-y-2">
-                    <li>• ESP32 dual-core &amp; ESP32-CAM video telemetry</li>
-                    <li>• Arduino Uno, Mega, Nano, RP2040 setups</li>
-                    <li>• Raspberry Pi 4/5 &amp; Zero 2 W Linux systems</li>
-                    <li>• Power regulation, battery BMS &amp; buck converters</li>
+                    <li>• Smart microcontrollers &amp; dual-core processing chips</li>
+                    <li>• Arduino &amp; Raspberry Pi computing setups</li>
+                    <li>• Reliable rechargeable battery &amp; power circuits</li>
+                    <li>• Neat, tested circuit designs without loose wiring</li>
                   </ul>
                 </div>
 
@@ -178,14 +178,14 @@ export const Services: React.FC = () => {
                   <div className="flex items-center gap-2.5 mb-3 text-brand-orange-600 dark:text-brand-orange-400">
                     <Activity className="w-4 h-4" />
                     <h4 className="text-sm font-mono font-bold text-slate-900 dark:text-white uppercase tracking-wider">
-                      Sensors &amp; Actuation
+                      Sensors &amp; Motion
                     </h4>
                   </div>
                   <ul className="text-xs font-mono text-slate-600 dark:text-slate-300 space-y-2">
-                    <li>• ToF LiDAR, ultrasonic &amp; infrared obstacle sensors</li>
-                    <li>• 6-DoF/9-DoF IMU motion stabilization &amp; compass</li>
-                    <li>• Stepper motors (A4988/TMC2209), Servos &amp; ESCs</li>
-                    <li>• Thermal, gas, pressure &amp; environmental sensing</li>
+                    <li>• Obstacle radar &amp; distance measurement sensors</li>
+                    <li>• Smooth tilt, balance &amp; motion tracking</li>
+                    <li>• Whisper-quiet precision motors &amp; drivers</li>
+                    <li>• Temperature, light &amp; environmental sensing</li>
                   </ul>
                 </div>
 
@@ -193,14 +193,14 @@ export const Services: React.FC = () => {
                   <div className="flex items-center gap-2.5 mb-3 text-brand-orange-600 dark:text-brand-orange-400">
                     <Eye className="w-4 h-4" />
                     <h4 className="text-sm font-mono font-bold text-slate-900 dark:text-white uppercase tracking-wider">
-                      Computer Vision &amp; Edge AI
+                      Smart Cameras &amp; Automation
                     </h4>
                   </div>
                   <ul className="text-xs font-mono text-slate-600 dark:text-slate-300 space-y-2">
-                    <li>• RPi Camera &amp; OpenCV image processing models</li>
-                    <li>• Object tracking, contour analysis &amp; sorting</li>
-                    <li>• Barcode/QR reading &amp; automated optical triggers</li>
-                    <li>• Real-time video streams over local network</li>
+                    <li>• Mini camera modules with live video streaming</li>
+                    <li>• Automated barcode &amp; QR code scanning</li>
+                    <li>• Object &amp; movement detection triggers</li>
+                    <li>• Local private network video connections</li>
                   </ul>
                 </div>
 
@@ -208,14 +208,14 @@ export const Services: React.FC = () => {
                   <div className="flex items-center gap-2.5 mb-3 text-brand-orange-600 dark:text-brand-orange-400">
                     <Wifi className="w-4 h-4" />
                     <h4 className="text-sm font-mono font-bold text-slate-900 dark:text-white uppercase tracking-wider">
-                      Telemetry &amp; Remote Control
+                      Wireless &amp; Remote Control
                     </h4>
                   </div>
                   <ul className="text-xs font-mono text-slate-600 dark:text-slate-300 space-y-2">
-                    <li>• MQTT, WebSocket, and HTTP telemetry logging</li>
-                    <li>• BLE smartphone companion remote controller</li>
-                    <li>• Long-range LoRa radio communication links</li>
-                    <li>• Real-time web telemetry dashboard integration</li>
+                    <li>• Wi-Fi &amp; Bluetooth wireless phone control</li>
+                    <li>• Real-time updates sent straight to your phone</li>
+                    <li>• Long-range wireless remotes</li>
+                    <li>• Connectable to web dashboards &amp; databases</li>
                   </ul>
                 </div>
               </div>
@@ -223,24 +223,24 @@ export const Services: React.FC = () => {
               {/* Handover Guarantee */}
               <div className="bg-white dark:bg-[#0D1424] p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
                 <h4 className="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 dark:text-brand-orange-400 mb-3">
-                  Delivered with Every Robotics Build:
+                  Delivered with Every Hardware Build:
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono text-slate-700 dark:text-slate-300">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500" />
-                    <span>Assembled, soldered, bench-tested hardware unit</span>
+                    <span>Complete assembled, tested physical device</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500" />
-                    <span>Documented C++ / Python firmware source code</span>
+                    <span>Clean, fully-documented program files</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500" />
-                    <span>High-resolution wiring schematic &amp; pinout map</span>
+                    <span>Easy-to-read circuit map and wiring guide</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500" />
-                    <span>Remote calibration &amp; startup support online</span>
+                    <span>Step-by-step setup walkthrough video</span>
                   </div>
                 </div>
               </div>
@@ -265,30 +265,30 @@ export const Services: React.FC = () => {
               </div>
               <div>
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 dark:text-brand-orange-400 block mb-1">
-                  Discipline 02
+                  Service 02
                 </span>
                 <h2 className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-white tracking-tight font-display">
-                  Professional Website Engineering
+                  Modern Business Websites &amp; Apps
                 </h2>
               </div>
               <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-                Modern, lightning-fast web experiences engineered to convert casual traffic into verified leads and commercial inquiries.
+                Lightning-fast, beautiful websites and web tools designed to make your business look world-class and turn visitors into paying clients.
               </p>
 
               <div className="space-y-2.5 pt-2 font-mono text-xs text-slate-700 dark:text-slate-300">
                 <div className="flex items-center gap-2.5">
                   <Zap className="w-4 h-4 text-brand-orange-500 flex-shrink-0" />
-                  <span>Sub-second page loads &amp; 95+ Core Web Vitals score</span>
+                  <span>Opens instantly in under 1 second on all phones</span>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <Search className="w-4 h-4 text-brand-orange-500 flex-shrink-0" />
-                  <span>Built-in search engine optimization &amp; Open Graph tags</span>
+                  <span>Optimized for Google search ranking &amp; social sharing</span>
                 </div>
               </div>
 
               <div className="pt-4">
                 <Button
-                  onClick={() => openAIChat("I would like to request a quote for website development and web platform engineering from Steel & Stack.")}
+                  onClick={() => openAIChat("I would like to request a quote for website development and web applications from Steel & Stack.")}
                   variant="primary"
                   size="md"
                   icon={<ArrowRight className="w-4 h-4" />}
@@ -306,14 +306,14 @@ export const Services: React.FC = () => {
                   <div className="flex items-center gap-2.5 mb-3 text-brand-orange-600 dark:text-brand-orange-400">
                     <Code2 className="w-4 h-4" />
                     <h4 className="text-sm font-mono font-bold text-slate-900 dark:text-white uppercase tracking-wider">
-                      Modern Architecture
+                      Modern &amp; Fast
                     </h4>
                   </div>
                   <ul className="text-xs font-mono text-slate-600 dark:text-slate-300 space-y-2">
-                    <li>• React 19, TypeScript &amp; Vite build speed</li>
-                    <li>• Tailwind CSS for lean, maintainable styling</li>
-                    <li>• Framer Motion tasteful micro-interactions</li>
-                    <li>• Clean component-driven modularity</li>
+                    <li>• Loads in the blink of an eye on any device</li>
+                    <li>• Clean, modern design tailored to your brand</li>
+                    <li>• Smooth, elegant animations and interactions</li>
+                    <li>• Built to last without breaking or slowing down</li>
                   </ul>
                 </div>
 
@@ -321,14 +321,14 @@ export const Services: React.FC = () => {
                   <div className="flex items-center gap-2.5 mb-3 text-brand-orange-600 dark:text-brand-orange-400">
                     <Smartphone className="w-4 h-4" />
                     <h4 className="text-sm font-mono font-bold text-slate-900 dark:text-white uppercase tracking-wider">
-                      Responsive &amp; Mobile-First
+                      Mobile-First Design
                     </h4>
                   </div>
                   <ul className="text-xs font-mono text-slate-600 dark:text-slate-300 space-y-2">
-                    <li>• Pixel-perfect on smartphones, tablets &amp; laptops</li>
-                    <li>• Touch-friendly drawers and accessible controls</li>
-                    <li>• High-density retina image handling</li>
-                    <li>• Accessible semantic HTML structure</li>
+                    <li>• Looks stunning on smartphones, tablets &amp; laptops</li>
+                    <li>• Easy thumb navigation and readable text</li>
+                    <li>• High-resolution images that load instantly</li>
+                    <li>• Accessible and easy for all customers to use</li>
                   </ul>
                 </div>
 
@@ -336,14 +336,14 @@ export const Services: React.FC = () => {
                   <div className="flex items-center gap-2.5 mb-3 text-brand-orange-600 dark:text-brand-orange-400">
                     <Zap className="w-4 h-4" />
                     <h4 className="text-sm font-mono font-bold text-slate-900 dark:text-white uppercase tracking-wider">
-                      Lead Generation Engine
+                      Lead &amp; Customer Capture
                     </h4>
                   </div>
                   <ul className="text-xs font-mono text-slate-600 dark:text-slate-300 space-y-2">
-                    <li>• React 19 Actions quote forms with Resend API</li>
-                    <li>• Honeypot spam defense &amp; instant client validation</li>
-                    <li>• WhatsApp quick-chat &amp; direct click-to-call</li>
-                    <li>• Conversion funnels built to maximize inquiries</li>
+                    <li>• Instant contact forms that email you immediately</li>
+                    <li>• Built-in protection against spam and fake inquiries</li>
+                    <li>• Direct WhatsApp and click-to-call buttons</li>
+                    <li>• Clear calls-to-action that guide customers to contact you</li>
                   </ul>
                 </div>
 
@@ -351,14 +351,14 @@ export const Services: React.FC = () => {
                   <div className="flex items-center gap-2.5 mb-3 text-brand-orange-600 dark:text-brand-orange-400">
                     <Terminal className="w-4 h-4" />
                     <h4 className="text-sm font-mono font-bold text-slate-900 dark:text-white uppercase tracking-wider">
-                      Turnkey Deployment
+                      Hassle-Free Launch
                     </h4>
                   </div>
                   <ul className="text-xs font-mono text-slate-600 dark:text-slate-300 space-y-2">
-                    <li>• Domain setup, DNS routing &amp; automated SSL</li>
-                    <li>• Global edge CDN distribution for speed</li>
-                    <li>• Serverless API endpoints for email routing</li>
-                    <li>• Post-launch launch support and code warranty</li>
+                    <li>• We connect your custom domain name with SSL padlock</li>
+                    <li>• Fast global hosting so your site is always online</li>
+                    <li>• Automatic email forwarding for all customer inquiries</li>
+                    <li>• Post-launch support so you are never left alone</li>
                   </ul>
                 </div>
               </div>
@@ -371,19 +371,19 @@ export const Services: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs font-mono text-slate-700 dark:text-slate-300">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500" />
-                    <span>Full GitHub repository ownership &amp; source code</span>
+                    <span>100% complete ownership of all code and design files</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500" />
-                    <span>Live deployed website with SSL and DNS live</span>
+                    <span>Live working website connected to your domain</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500" />
-                    <span>Quote notification emails routing straight to you</span>
+                    <span>Instant email notifications for incoming customer leads</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500" />
-                    <span>Walkthrough documentation on updating copy easily</span>
+                    <span>Simple walkthrough guide on making updates easily</span>
                   </div>
                 </div>
               </div>

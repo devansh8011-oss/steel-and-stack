@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { SITE_CONFIG } from '../../config/site';
 import { Button } from '../ui/Button';
-import { Menu, X, ArrowRight, Phone } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { ThemeToggle } from '../ui/ThemeToggle';
 import { openAIChat } from '../../services/chatEvents';
 
@@ -115,17 +115,8 @@ export const Navbar: React.FC = () => {
             })}
           </nav>
 
-          {/* Right Action: Call, ThemeToggle & Quote CTA */}
-          <div className="hidden md:flex items-center gap-2.5 lg:gap-3">
-            <a
-              href={SITE_CONFIG.phoneHref}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:border-brand-orange-400 text-slate-800 dark:text-slate-200 font-mono text-[11px] font-bold transition-all shadow-2xs"
-              title={`Call directly (${SITE_CONFIG.phoneDisplay})`}
-            >
-              <Phone className="w-3.5 h-3.5 text-brand-orange-500" />
-              <span>{SITE_CONFIG.phoneDisplay}</span>
-            </a>
-
+          {/* Right Action: ThemeToggle & Quote CTA */}
+          <div className="hidden md:flex items-center gap-3 lg:gap-4">
             <ThemeToggle />
             <Button
               onClick={(e) => {
@@ -221,16 +212,6 @@ export const Navbar: React.FC = () => {
               >
                 Start a Project
               </Button>
-
-              <div className="pt-1">
-                <a
-                  href={SITE_CONFIG.phoneHref}
-                  className="flex items-center justify-center gap-2 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-bold hover:border-brand-orange-400 text-xs font-mono"
-                >
-                  <Phone className="w-4 h-4 text-brand-orange-500" />
-                  <span>Call {SITE_CONFIG.phoneDisplay}</span>
-                </a>
-              </div>
             </div>
           </div>
         </div>

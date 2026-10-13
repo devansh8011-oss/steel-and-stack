@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Clock, ShieldCheck, Send, CheckCircle2, Phone } from 'lucide-react';
+import { Mail, Clock, ShieldCheck, Send, CheckCircle2 } from 'lucide-react';
 import { SITE_CONFIG } from '../../config/site';
 
 interface FormState {
@@ -186,36 +186,6 @@ export const TechnicalInquirySection: React.FC = () => {
             </div>
 
             <div className="space-y-4 pt-2">
-              {/* Direct Call Block */}
-              <div className="bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200/70 dark:border-slate-800/70 rounded-2xl p-4 flex items-center justify-between gap-4 transition-all hover:border-slate-300 dark:hover:border-slate-700">
-                <div className="flex items-center gap-4 min-w-0">
-                  <div className="w-12 h-12 rounded-xl bg-orange-50 dark:bg-orange-950/40 border border-orange-200/70 dark:border-orange-800/60 flex items-center justify-center text-brand-orange-500 flex-shrink-0">
-                    <Phone className="w-5 h-5" />
-                  </div>
-                  <div className="min-w-0">
-                    <span className="text-[10px] font-mono font-bold tracking-widest text-slate-400 uppercase block">
-                      DIRECT CALL
-                    </span>
-                    <a
-                      href={SITE_CONFIG.phoneHref}
-                      className="text-sm sm:text-base font-mono font-bold text-slate-900 dark:text-white hover:text-brand-orange-600 dark:hover:text-brand-orange-400 transition-colors block"
-                    >
-                      {SITE_CONFIG.phoneDisplay}
-                    </a>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2 flex-shrink-0">
-                  <a
-                    href={SITE_CONFIG.phoneHref}
-                    className="px-4 py-2 rounded-xl bg-gradient-to-r from-brand-orange-500 to-brand-orange-600 hover:from-brand-orange-600 hover:to-brand-orange-700 text-white text-xs font-mono font-bold flex items-center gap-1.5 transition-all shadow-sm"
-                    title="Call directly"
-                  >
-                    <Phone className="w-3.5 h-3.5" />
-                    <span>Call Now</span>
-                  </a>
-                </div>
-              </div>
-
               {/* Direct Email Block */}
               <div className="bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200/70 dark:border-slate-800/70 rounded-2xl p-4 flex items-center gap-4 transition-all hover:border-slate-300 dark:hover:border-slate-700">
                 <div className="w-12 h-12 rounded-xl bg-orange-50 dark:bg-orange-950/40 border border-orange-200/70 dark:border-orange-800/60 flex items-center justify-center text-brand-orange-500 flex-shrink-0">
@@ -223,7 +193,7 @@ export const TechnicalInquirySection: React.FC = () => {
                 </div>
                 <div className="min-w-0 flex-1">
                   <span className="text-[10px] font-mono font-bold tracking-widest text-slate-400 uppercase block">
-                    DIRECT EMAIL
+                    DIRECT INQUIRIES &amp; ESTIMATES
                   </span>
                   <a
                     href={`mailto:${SITE_CONFIG.email}`}

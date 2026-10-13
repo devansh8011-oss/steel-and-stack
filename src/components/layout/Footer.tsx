@@ -1,6 +1,6 @@
 import React from 'react';
 import { SITE_CONFIG } from '../../config/site';
-import { Phone, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -13,18 +13,10 @@ export const Footer: React.FC = () => {
 
         <div className="flex flex-wrap items-center justify-center gap-5 text-xs">
           <a
-            href={SITE_CONFIG.phoneHref}
-            className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 hover:text-brand-orange-600 dark:hover:text-brand-orange-400 font-bold transition-colors"
-          >
-            <Phone className="w-3.5 h-3.5 text-brand-orange-500" />
-            <span>Call {SITE_CONFIG.phoneDisplay}</span>
-          </a>
-
-          <a
             href={`mailto:${SITE_CONFIG.email}`}
             className="flex items-center gap-1.5 text-slate-700 dark:text-slate-300 hover:text-brand-orange-600 dark:hover:text-brand-orange-400 transition-colors"
           >
-            <Mail className="w-3.5 h-3.5 text-slate-400" />
+            <Mail className="w-3.5 h-3.5 text-brand-orange-500" />
             <span>{SITE_CONFIG.email}</span>
           </a>
         </div>

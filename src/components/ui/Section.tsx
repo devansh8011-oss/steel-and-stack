@@ -24,11 +24,11 @@ export const Section: React.FC<SectionProps> = ({
   borderBottom = false,
 }) => {
   const variantStyles = {
-    white: 'bg-white dark:bg-[#090D16] text-slate-900 dark:text-slate-100',
-    slate: 'bg-slate-50 dark:bg-[#0C111D] text-slate-900 dark:text-slate-100',
-    'subtle-grid': 'bg-white dark:bg-[#090D16] bg-light-grid text-slate-900 dark:text-slate-100',
-    'orange-glow': 'bg-white dark:bg-[#090D16] bg-orange-subtle-glow text-slate-900 dark:text-slate-100',
-    'dark-band': 'bg-slate-950 text-white',
+    white: 'bg-white/70 dark:bg-[#090D16]/75 backdrop-blur-[2px] text-slate-900 dark:text-slate-100',
+    slate: 'bg-slate-50/75 dark:bg-[#0C111D]/80 backdrop-blur-[2px] text-slate-900 dark:text-slate-100',
+    'subtle-grid': 'bg-white/60 dark:bg-[#090D16]/65 backdrop-blur-[2px] bg-light-grid text-slate-900 dark:text-slate-100',
+    'orange-glow': 'bg-white/70 dark:bg-[#090D16]/75 backdrop-blur-[2px] bg-orange-subtle-glow text-slate-900 dark:text-slate-100',
+    'dark-band': 'bg-slate-950/90 backdrop-blur-[2px] text-white',
   };
 
   const spacingStyles = {

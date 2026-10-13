@@ -3,7 +3,7 @@ import { Section } from '../components/ui/Section';
 import { TechnicalInquirySection } from '../components/forms/TechnicalInquirySection';
 import { MetaTags } from '../components/seo/MetaTags';
 import { SITE_CONFIG } from '../config/site';
-import { MessageSquare, Phone, MapPin } from 'lucide-react';
+import { Phone, MapPin } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   return (
@@ -22,7 +22,7 @@ export const Contact: React.FC = () => {
         <TechnicalInquirySection />
 
         {/* Additional Studio Quick Channels */}
-        <div className="max-w-4xl mx-auto mt-12 pt-8 border-t border-slate-200/80 grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs text-center">
+        <div className="max-w-3xl mx-auto mt-12 pt-8 border-t border-slate-200/80 grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs text-center">
           <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
             <Phone className="w-4 h-4 text-brand-orange-500 mx-auto mb-1.5" />
             <span className="text-slate-500 uppercase text-[10px] block font-bold">Direct Phone</span>
@@ -32,22 +32,9 @@ export const Contact: React.FC = () => {
           </div>
 
           <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
-            <MessageSquare className="w-4 h-4 text-emerald-600 mx-auto mb-1.5" />
-            <span className="text-slate-500 uppercase text-[10px] block font-bold">WhatsApp Direct</span>
-            <a
-              href={SITE_CONFIG.whatsappHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-bold text-slate-900 hover:text-brand-orange-600"
-            >
-              Start Conversation
-            </a>
-          </div>
-
-          <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
             <MapPin className="w-4 h-4 text-brand-orange-500 mx-auto mb-1.5" />
             <span className="text-slate-500 uppercase text-[10px] block font-bold">Studio Coverage</span>
-            <strong className="text-slate-900 block font-bold">Pan-India Delivery</strong>
+            <strong className="text-slate-900 block font-bold">Pan-India &amp; Global Delivery</strong>
           </div>
         </div>
       </Section>

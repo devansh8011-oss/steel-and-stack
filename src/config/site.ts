@@ -6,10 +6,9 @@ export const SITE_CONFIG = {
   description:
     "We create beautiful, high-speed websites, custom business software, and smart hardware products. You get clear fixed pricing, fast delivery, and 100% complete ownership of your project.",
   email: "contact@steelandstack.com",
-  phone: "+91 73031 77088",
-  phoneDisplay: "+91 73031 77088",
+  phone: "+91 7303177088",
+  phoneDisplay: "+91 7303177088",
   phoneHref: "tel:+917303177088",
-  whatsappHref: "https://wa.me/917303177088",
   coverage: "Serving Ambitious Companies Pan-India & Worldwide",
   hours: "Mon – Sat: 9:00 AM – 8:00 PM IST",
   
@@ -43,7 +42,7 @@ export const SITE_CONFIG = {
         popular: false,
         features: [
           "Up to 5 pages, mobile-friendly",
-          "Contact form & WhatsApp button",
+          "Direct contact & inquiry forms",
           "Basic Google SEO setup",
           "Sub-1s instant loading speed",
           "2 rounds of revisions",

@@ -115,8 +115,17 @@ export const Navbar: React.FC = () => {
             })}
           </nav>
 
-          {/* Right Action: ThemeToggle & Quote CTA */}
-          <div className="hidden md:flex items-center gap-3 lg:gap-4">
+          {/* Right Action: Call, ThemeToggle & Quote CTA */}
+          <div className="hidden md:flex items-center gap-2.5 lg:gap-3">
+            <a
+              href={SITE_CONFIG.phoneHref}
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 hover:border-brand-orange-400 text-slate-800 dark:text-slate-200 font-mono text-[11px] font-bold transition-all shadow-2xs"
+              title={`Call directly (${SITE_CONFIG.phoneDisplay})`}
+            >
+              <Phone className="w-3.5 h-3.5 text-brand-orange-500" />
+              <span>{SITE_CONFIG.phoneDisplay}</span>
+            </a>
+
             <ThemeToggle />
             <Button
               onClick={(e) => {
@@ -126,7 +135,7 @@ export const Navbar: React.FC = () => {
               variant="primary"
               size="sm"
               icon={<ArrowRight className="w-3.5 h-3.5" />}
-              className="uppercase tracking-widest text-xs font-bold font-mono py-3 px-6 rounded-full shadow-orange-md hover:shadow-orange-lg hover:-translate-y-0.5 transition-all"
+              className="uppercase tracking-widest text-xs font-bold font-mono py-2.5 px-5 rounded-full shadow-orange-md hover:shadow-orange-lg hover:-translate-y-0.5 transition-all"
             >
               Start a Project
             </Button>
@@ -213,21 +222,13 @@ export const Navbar: React.FC = () => {
                 Start a Project
               </Button>
 
-              <div className="grid grid-cols-2 gap-2 text-xs font-mono pt-1">
+              <div className="pt-1">
                 <a
-                  href={`tel:${SITE_CONFIG.phoneHref}`}
-                  className="flex items-center justify-center gap-1.5 p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold hover:border-brand-orange-400 text-[11px]"
+                  href={SITE_CONFIG.phoneHref}
+                  className="flex items-center justify-center gap-2 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-bold hover:border-brand-orange-400 text-xs font-mono"
                 >
-                  <Phone className="w-3.5 h-3.5 text-brand-orange-500" />
-                  <span>Call Us</span>
-                </a>
-                <a
-                  href={SITE_CONFIG.whatsappHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-1.5 p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-800 dark:text-emerald-400 font-bold hover:border-emerald-400 text-[11px]"
-                >
-                  <span>WhatsApp</span>
+                  <Phone className="w-4 h-4 text-brand-orange-500" />
+                  <span>Call {SITE_CONFIG.phoneDisplay}</span>
                 </a>
               </div>
             </div>

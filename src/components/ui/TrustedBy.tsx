@@ -13,7 +13,7 @@ const iconsMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export const TrustedBy: React.FC = () => {
   return (
-    <div className="w-full py-8 sm:py-10 border-y border-slate-200/80 dark:border-slate-800/80 bg-slate-50/70 dark:bg-[#070B14]/80">
+    <div className="w-full py-8 sm:py-10 border-y border-slate-200/80 dark:border-slate-800/80 bg-slate-50/60 dark:bg-[#070B14]/65 backdrop-blur-[2px]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Left Title */}

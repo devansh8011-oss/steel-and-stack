@@ -123,14 +123,14 @@ export const SITE_CONFIG = {
     },
     {
       id: "review-3",
-      name: "Arjun Mehra",
-      role: "Director of Engineering",
+      name: "Shashank Jangid",
+      role: "Founder",
       company: "Orange Future Tech",
-      image: "/reviews/arjun.jpg",
+      image: "/reviews/shashank.jpg",
       rating: 5,
       content:
-        "We needed custom IoT telemetry and sensor prototypes for an automation pilot. Steel & Stack delivered bench-tested hardware, clean schematics, and full firmware ownership. It is rare to find a team that excels at both hardware and web.",
-      project: "Custom Hardware & Telemetry",
+        "Devansh did an outstanding job developing our website, orangefuturetech.com, and collaborating with us on the IIT Jodhpur smart ID card generation software. He grasps complex technical requirements effortlessly, brings smart, practical solutions to the table, and executes every task with impressive precision. His clear communication, proactive attitude, and focus on delivering high-quality results make him a pleasure to work with. I highly recommend Devansh for both web development and software engineering projects.",
+      project: "orangefuturetech.com & Smart ID Software",
     },
     {
       id: "review-4",

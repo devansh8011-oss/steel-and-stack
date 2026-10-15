@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Clock, ShieldCheck, Send, CheckCircle2 } from 'lucide-react';
 import { SITE_CONFIG } from '../../config/site';
+import { checkRateLimit, validateTextLimits } from '../../utils/rateLimiter';
 
 interface FormState {
   success: boolean;
@@ -66,6 +67,15 @@ async function submitInquiryAction(
   const email = (formData.get('email') as string)?.trim() || '';
   const message = (formData.get('message') as string)?.trim() || '';
 
+  // Rate limiting: 4 submissions per 10 minutes
+  const rateCheck = checkRateLimit('contact_form', 4, 600_000);
+  if (!rateCheck.allowed) {
+    return {
+      success: false,
+      message: `Submission limit: ${rateCheck.reason || 'Please wait a few minutes before submitting another inquiry.'}`,
+    };
+  }
+
   const errors: Record<string, string> = {};
 
   if (!name || name.length < 2) {
@@ -77,8 +87,16 @@ async function submitInquiryAction(
     errors.email = 'Please provide a valid email address.';
   }
 
-  if (!message || message.length < 5) {
-    errors.message = 'Please tell us a little about your project.';
+  // Word & Token limit verification (5 to 500 words)
+  const textLimits = validateTextLimits(message, {
+    minWords: 3,
+    maxWords: 500,
+    maxTokens: 750,
+    maxChars: 3000,
+  });
+
+  if (!textLimits.valid) {
+    errors.message = textLimits.error || 'Please provide a project brief between 3 and 500 words.';
   }
 
   if (Object.keys(errors).length > 0) {
@@ -322,6 +340,10 @@ export const TechnicalInquirySection: React.FC = () => {
                     placeholder="Tell us what you'd like to build (e.g. a modern business website, an internal customer portal, or smart hardware)..."
                     className="w-full px-4 py-3.5 rounded-xl border-2 border-brand-orange-400/90 dark:border-brand-orange-500/80 bg-white dark:bg-[#090D16] text-sm text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none focus:border-brand-orange-500 focus:ring-2 focus:ring-brand-orange-500/20 transition-all font-sans resize-none"
                   />
+                  <div className="flex items-center justify-between text-[10px] font-mono text-slate-400 dark:text-slate-500 mt-1.5 px-0.5">
+                    <span>Rate Limited: 4 submissions / 10m</span>
+                    <span>Max: 500 words (~750 tokens)</span>
+                  </div>
                   {state.errors?.message && (
                     <p className="text-xs text-rose-600 mt-1 font-mono">{state.errors.message}</p>
                   )}

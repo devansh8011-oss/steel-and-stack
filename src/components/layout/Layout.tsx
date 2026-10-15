@@ -5,6 +5,7 @@ import { Footer } from './Footer';
 import { ScrollProgress } from '../ui/ScrollProgress';
 import { AIChatbot } from '../chat/AIChatbot';
 import { MicroSlats } from '../ui/MicroSlats';
+import { CookieBanner } from '../ui/CookieBanner';
 import { useTheme } from '../../context/ThemeContext';
 
 export const Layout: React.FC = () => {
@@ -65,6 +66,7 @@ export const Layout: React.FC = () => {
       </main>
       <Footer />
       <AIChatbot />
+      <CookieBanner />
     </div>
   );
 };

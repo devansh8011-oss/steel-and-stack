@@ -10,6 +10,7 @@ import {
   User,
 } from 'lucide-react';
 import { sendChatMessage, sanitizeChatOutput, ChatMessage } from '../../services/groqService';
+import { checkRateLimit, validateTextLimits } from '../../utils/rateLimiter';
 import { Avatar } from '../ui/components-primitives-avatar';
 
 export const AIChatbot: React.FC = () => {
@@ -59,6 +60,38 @@ export const AIChatbot: React.FC = () => {
   const handleSend = async (textToSend?: string) => {
     const query = (textToSend || input).trim();
     if (!query || loading) return;
+
+    // Check rate limit: 6 messages per minute
+    const rateCheck = checkRateLimit('ai_chat', 6, 60_000);
+    if (!rateCheck.allowed) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: 'assistant',
+          content: `Rate limit warning: ${rateCheck.reason || 'Please wait a moment before sending another message.'}`,
+        },
+      ]);
+      return;
+    }
+
+    // Check word, character, and token limits (max 150 words / ~200 tokens per prompt)
+    const limitCheck = validateTextLimits(query, {
+      minWords: 1,
+      maxWords: 150,
+      maxTokens: 250,
+      maxChars: 900,
+    });
+
+    if (!limitCheck.valid) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: 'assistant',
+          content: `Input limit warning: ${limitCheck.error}`,
+        },
+      ]);
+      return;
+    }
 
     const userMessage: ChatMessage = { role: 'user', content: query };
     const updatedMessages = [...messages, userMessage];

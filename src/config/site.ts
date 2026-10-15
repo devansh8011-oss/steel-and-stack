@@ -112,14 +112,14 @@ export const SITE_CONFIG = {
     },
     {
       id: "review-2",
-      name: "Ananya Sen",
-      role: "Co-Founder",
+      name: "Rashika Jindal",
+      role: "Founder",
       company: "Cocoadotts",
-      image: "/reviews/ananya.jpg",
+      image: "/reviews/rashika.jpg",
       rating: 5,
       content:
-        "The AI assistant they built into our site answers customer questions 24/7 and forwards hot order inquiries straight to our WhatsApp. It literally paid for itself within two weeks of launching. Couldn't recommend them more!",
-      project: "Smart Website + AI Assistant",
+        "Working with Devansh on developing cocoadotts.com was an absolute pleasure. He is incredibly knowledgeable, professional, and patient, taking the time to truly understand my vision and bring it to life flawlessly. No matter the changes or requests, he was always accommodating and ready with the perfect solution. His dedication, clear communication, and client-first attitude make him a standout developer—I cannot recommend him highly enough!",
+      project: "cocoadotts.com Website Development",
     },
     {
       id: "review-3",

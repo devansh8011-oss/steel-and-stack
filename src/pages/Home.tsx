@@ -6,6 +6,7 @@ import { InteractiveCard } from '../components/ui/InteractiveCard';
 import { TrustedBy } from '../components/ui/TrustedBy';
 import { PricingSection } from '../components/ui/PricingSection';
 import { TestimonialsSection } from '../components/ui/TestimonialsSection';
+import { WorksSection } from '../components/ui/WorksSection';
 import { ServicesProcessSection } from '../components/ui/ServicesProcessSection';
 import { RoboticsDiagram } from '../components/ui/RoboticsDiagram';
 import { TechnicalInquirySection } from '../components/forms/TechnicalInquirySection';
@@ -425,10 +426,23 @@ export const Home: React.FC = () => {
         </div>
       </Section>
 
-      {/* 5. PRICING SECTION */}
+      {/* 5. OUR WORKS / COMMERCIAL DELIVERIES */}
+      <Section
+        id="works"
+        variant="slate"
+        spacing="normal"
+        borderBottom
+        className="relative"
+      >
+        <div className="max-w-6xl mx-auto">
+          <WorksSection />
+        </div>
+      </Section>
+
+      {/* 6. PRICING SECTION */}
       <Section
         id="pricing"
-        variant="slate"
+        variant="white"
         spacing="normal"
         borderBottom
         className="relative"
@@ -438,10 +452,10 @@ export const Home: React.FC = () => {
         </div>
       </Section>
 
-      {/* 6. CLIENT REVIEWS & TESTIMONIALS */}
+      {/* 7. CLIENT REVIEWS & TESTIMONIALS */}
       <Section
         id="reviews"
-        variant="white"
+        variant="slate"
         spacing="normal"
         borderBottom
         className="relative"
@@ -451,7 +465,7 @@ export const Home: React.FC = () => {
         </div>
       </Section>
 
-      {/* 7. DIRECT PROJECT INGESTION & SCOPING TERMINAL */}
+      {/* 8. DIRECT PROJECT INGESTION & SCOPING TERMINAL */}
       <Section
         id="contact"
         variant="slate"

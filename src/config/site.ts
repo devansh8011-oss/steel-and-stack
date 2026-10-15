@@ -13,6 +13,7 @@ export const SITE_CONFIG = {
 
   navLinks: [
     { label: "What We Build", href: "#capabilities" },
+    { label: "Our Works", href: "#works" },
     { label: "Pricing", href: "#pricing" },
     { label: "Reviews", href: "#reviews" },
     { label: "How It Works", href: "#process" },
@@ -98,17 +99,50 @@ export const SITE_CONFIG = {
     },
   },
 
+  works: [
+    {
+      id: "orange-future-tech",
+      title: "Orange Future Tech",
+      category: "Enterprise Web & AI Systems",
+      oneLiner:
+        "High-performance website and academic software suite engineered for speed, AI assistance, 360° virtual tours, and automated smart ID generation.",
+      image: "/works/orange-future-tech.png",
+      url: "https://orangefuturetech.com",
+      tags: ["AI Website", "360° VR Tours", "CardGen Suite"],
+    },
+    {
+      id: "cocoadotts",
+      title: "Cocoadotts",
+      category: "Artisanal Bakery & D2C Brand",
+      oneLiner:
+        "Charming digital storefront and artisanal dessert platform built for a boutique bakery brand, featuring seamless custom ordering and menu discovery.",
+      image: "/works/cocoadotts.png",
+      url: "https://cocoadotts.com",
+      tags: ["Bakery Brand", "Custom Cakes", "D2C Ordering"],
+    },
+    {
+      id: "shipmate-logistics",
+      title: "Shipmate Logistics",
+      category: "Freight & Supply Chain Network",
+      oneLiner:
+        "Pan-India freight network website designed for instant freight quotes, fleet management showcase, and high-conversion logistics onboarding across 650+ pin codes.",
+      image: "/works/shipmate-logistics.jpg",
+      url: "https://shipmatelogistics.in",
+      tags: ["Pan-India Freight", "Instant Quotes", "Fleet Tracking"],
+    },
+  ],
+
   reviews: [
     {
       id: "review-1",
-      name: "Rohit Verma",
-      role: "Founder & CEO",
-      company: "Shipmate Logistics",
-      image: "/reviews/rohit.jpg",
+      name: "Shashank Jangid",
+      role: "Founder",
+      company: "Orange Future Tech",
+      image: "/reviews/shashank.jpg",
       rating: 5,
       content:
-        "Steel & Stack built our platform in record time. The website opens instantly on any phone, and our customer quote inquiries jumped over 40% in the first month. Working directly with Devansh without middle-agency telephone games was super refreshing.",
-      project: "Smart Website + Logistics Portal",
+        "Devansh did an outstanding job developing our website, orangefuturetech.com, and collaborating with us on the IIT Jodhpur smart ID card generation software. He grasps complex technical requirements effortlessly, brings smart, practical solutions to the table, and executes every task with impressive precision. His clear communication, proactive attitude, and focus on delivering high-quality results make him a pleasure to work with. I highly recommend Devansh for both web development and software engineering projects.",
+      project: "orangefuturetech.com & Smart ID Software",
     },
     {
       id: "review-2",
@@ -123,14 +157,14 @@ export const SITE_CONFIG = {
     },
     {
       id: "review-3",
-      name: "Shashank Jangid",
-      role: "Founder",
-      company: "Orange Future Tech",
-      image: "/reviews/shashank.jpg",
+      name: "Rohit Verma",
+      role: "Founder & CEO",
+      company: "Shipmate Logistics",
+      image: "/reviews/rohit.jpg",
       rating: 5,
       content:
-        "Devansh did an outstanding job developing our website, orangefuturetech.com, and collaborating with us on the IIT Jodhpur smart ID card generation software. He grasps complex technical requirements effortlessly, brings smart, practical solutions to the table, and executes every task with impressive precision. His clear communication, proactive attitude, and focus on delivering high-quality results make him a pleasure to work with. I highly recommend Devansh for both web development and software engineering projects.",
-      project: "orangefuturetech.com & Smart ID Software",
+        "Steel & Stack built our platform in record time. The website opens instantly on any phone, and our customer quote inquiries jumped over 40% in the first month. Working directly with Devansh without middle-agency telephone games was super refreshing.",
+      project: "shipmatelogistics.in & Logistics Portal",
     },
     {
       id: "review-4",

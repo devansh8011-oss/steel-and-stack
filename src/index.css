@@ -67,3 +67,25 @@ html.dark ::-webkit-scrollbar-thumb {
 html.dark ::-webkit-scrollbar-thumb:hover {
   background: #EA580C;
 }
+
+/* Continuous Logo Marquee Animation - Never stops on hover per user requirement */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite !important;
+  animation-play-state: running !important;
+}
+
+.animate-marquee:hover,
+.animate-marquee-hover-pause:hover .animate-marquee {
+  animation-play-state: running !important;
+}

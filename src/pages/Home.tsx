@@ -11,19 +11,26 @@ import { ServicesProcessSection } from '../components/ui/ServicesProcessSection'
 import { RoboticsDiagram } from '../components/ui/RoboticsDiagram';
 import { TechnicalInquirySection } from '../components/forms/TechnicalInquirySection';
 import { openAIChat } from '../services/chatEvents';
+import { useTheme } from '../context/ThemeContext';
+import { TechText } from '../components/ui/TechText/TechText';
 import {
   Cpu,
   Globe,
   ArrowRight,
-  ShieldCheck,
-  Zap,
-  Truck,
-  Wrench,
-  CheckCircle2,
   ChevronDown,
+  Users,
+  Rocket,
+  Fingerprint,
+  Clock,
+  Gauge,
+  Key,
+  Zap,
 } from 'lucide-react';
 
 export const Home: React.FC = () => {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
+
   return (
     <>
       <MetaTags
@@ -31,69 +38,79 @@ export const Home: React.FC = () => {
         description="We build fast, modern websites, custom business software, and smart hardware prototypes. 100% code ownership, fixed pricing, and rapid delivery across India."
       />
 
-      {/* 1. HERO SECTION WITH 3D INTERACTIVE VISUALIZER */}
+      {/* 1. DYNAMIC HERO SECTION WITH INTERACTIVE ASCII MATRIX & TECHTEXT */}
       <Section
         variant="subtle-grid"
         spacing="normal"
-        className="pt-10 md:pt-16 pb-12 md:pb-20 border-b border-slate-200/80 relative overflow-hidden"
+        className="pt-8 sm:pt-14 pb-12 sm:pb-16 border-b border-slate-200/80 dark:border-slate-800/80 relative overflow-hidden"
       >
-        {/* Warm Ambient Glow in Brand Orange */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] sm:w-[850px] h-[350px] bg-gradient-to-tr from-brand-orange-100/70 via-amber-100/40 to-transparent dark:from-brand-orange-600/25 dark:via-amber-600/15 dark:to-transparent rounded-full blur-[130px] dark:blur-[145px] pointer-events-none -z-0" />
+        {/* Warm Ambient Glow */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] sm:w-[900px] h-[380px] bg-gradient-to-tr from-brand-orange-100/80 via-amber-100/50 to-transparent dark:from-brand-orange-600/20 dark:via-amber-600/10 dark:to-transparent rounded-full blur-[130px] dark:blur-[150px] pointer-events-none -z-0" />
 
-        <div className="max-w-6xl mx-auto relative z-10">
-          <div className="text-center max-w-4xl mx-auto space-y-6 sm:space-y-8">
-            {/* Status Pill */}
+        <div className="max-w-6xl mx-auto relative z-10 space-y-8 sm:space-y-10">
+          
+          {/* Header Block */}
+          <div className="text-center max-w-4xl mx-auto space-y-4 sm:space-y-6">
+            
+            {/* Live Operational Status Pill */}
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="inline-flex items-center gap-2 bg-white dark:bg-[#0D1322] border border-slate-200/90 dark:border-slate-800 px-3.5 sm:px-4 py-1.5 rounded-full shadow-xs max-w-full"
+              className="inline-flex items-center gap-2 bg-white/90 dark:bg-[#0D1322]/90 backdrop-blur-md border border-slate-200/90 dark:border-slate-800 px-3.5 sm:px-4 py-1.5 rounded-full shadow-xs max-w-full"
             >
               <span className="w-2 h-2 rounded-full bg-brand-orange-500 animate-pulse flex-shrink-0" />
               <span className="text-[10px] sm:text-xs font-mono font-bold tracking-wider sm:tracking-widest text-slate-800 dark:text-slate-200 uppercase leading-snug">
-                Websites, Custom Software &amp; Smart Devices <span className="text-slate-300 dark:text-slate-600">•</span> Operating Pan-India
+                Next-Gen Digital Studio <span className="text-slate-300 dark:text-slate-600">•</span> Operating Pan-India &amp; Global
               </span>
             </motion.div>
 
-            {/* Tagline & Headline */}
+            {/* Interactive Vector Tech Wordmark (Drag & Click-Kick Enabled) */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.05 }}
+              className="w-full max-w-2xl mx-auto h-[70px] sm:h-[110px] relative select-none"
+            >
+              <TechText
+                text="STEEL & STACK"
+                fontWeight={900}
+                fontSize={110}
+                letterSpacing={-0.03}
+                reveal="letter"
+                dashLength={4}
+                dashGap={2}
+                specks={14}
+                bounce={0.45}
+                clickKick={true}
+                draggable={true}
+                color={isDark ? '#F8FAFC' : '#0F172A'}
+                accentColor="#EA580C"
+                className="w-full h-full"
+              />
+            </motion.div>
+
+            {/* Tagline Headline */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="space-y-4"
+              className="space-y-3"
             >
-              <h1 className="text-3xl sm:text-6xl lg:text-7xl font-black tracking-tight text-slate-950 dark:text-white leading-[1.14] font-display flex flex-col items-center">
-                <span>
-                  Websites <span className="text-brand-orange-600">&amp;</span> Digital Products
-                </span>
-                {/* Luminous Animated Laser Beam Running All Around the Tagline */}
-                <div className="relative inline-flex items-center justify-center mt-2 sm:mt-3 p-[2px] sm:p-[2.5px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_0_35px_rgba(249,115,22,0.22)] max-w-[95vw]">
-                  {/* Rotating Conic Laser Beam Running All Around with Smooth Cadence */}
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 6, repeat: Infinity, ease: 'linear' }}
-                    className="absolute -inset-[300%] pointer-events-none opacity-85"
-                    style={{
-                      background:
-                        'conic-gradient(from 0deg, transparent 0deg, transparent 280deg, #FDBA74 325deg, #EA580C 360deg)',
-                    }}
-                  />
-                  {/* Inner Crisp Container */}
-                  <div className="relative z-10 px-3.5 sm:px-9 py-2 sm:py-3.5 rounded-[14px] sm:rounded-[22px] bg-white/95 dark:bg-[#070B14]/95 backdrop-blur-md flex items-center justify-center gap-2 sm:gap-3 text-center">
-                    <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-brand-orange-500 animate-pulse flex-shrink-0" />
-                    <span className="bg-gradient-to-r from-brand-orange-600 via-amber-500 to-brand-orange-600 bg-clip-text text-transparent font-black tracking-tight text-lg sm:text-4xl lg:text-5xl drop-shadow-xs text-center">
-                      Engineering the Future of Tech
-                    </span>
-                  </div>
-                </div>
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-950 dark:text-white leading-[1.12] font-display">
+                Engineering the <span className="bg-gradient-to-r from-brand-orange-600 via-amber-500 to-brand-orange-600 bg-clip-text text-transparent">Future of Tech</span>
               </h1>
+
+              <p className="text-xs sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed pt-1 font-sans">
+                Clean, ultra-fast commercial websites, custom client web portals, and smart connected electronics. 100% complete ownership, sub-second speeds, and direct engineer collaboration.
+              </p>
             </motion.div>
 
             {/* Action CTAs */}
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.18 }}
               className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 pt-1 w-full max-w-xs sm:max-w-none mx-auto"
             >
               <button
@@ -105,66 +122,104 @@ export const Home: React.FC = () => {
                 <ArrowRight className="w-4 h-4" />
               </button>
               <a
-                href="#capabilities"
+                href="#works"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 py-3 px-6 bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-mono font-bold text-xs sm:text-sm uppercase tracking-widest rounded-full shadow-xs hover:border-brand-orange-400 transition-all"
               >
-                <span>See What We Build</span>
+                <span>Explore Our Works</span>
                 <ChevronDown className="w-4 h-4 text-brand-orange-500" />
               </a>
             </motion.div>
+          </div>
 
-            {/* Streamlined ROI Value Metrics Strip */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.25 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-2 pt-2 max-w-3xl mx-auto text-left"
-            >
-              <div className="bg-white/95 dark:bg-[#0D1424]/95 border border-slate-200/90 dark:border-slate-800 hover:border-brand-orange-400 dark:hover:border-brand-orange-500/50 px-3 py-2 sm:py-2.5 rounded-xl shadow-xs dark:shadow-[0_4px_16px_rgba(0,0,0,0.3)] transition-all">
-                <span className="text-[9px] font-mono font-bold text-brand-orange-600 dark:text-brand-orange-400 uppercase tracking-widest block truncate">
+
+
+          {/* Elevated ROI Value Metrics Strip with Polished Icons */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.28 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto text-left"
+          >
+            {/* Metric 1: Page Speed */}
+            <div className="group bg-white dark:bg-[#0D1424] border border-slate-200/90 dark:border-slate-800 hover:border-brand-orange-400 dark:hover:border-brand-orange-500/60 p-3.5 sm:p-4 rounded-2xl shadow-subtle-card hover:shadow-hover-card transition-all flex items-start gap-3">
+              <div className="p-2 sm:p-2.5 rounded-xl bg-gradient-to-br from-amber-500/15 via-brand-orange-500/10 to-transparent border border-brand-orange-500/30 text-brand-orange-500 flex-shrink-0 group-hover:scale-105 transition-transform">
+                <Gauge className="w-4 h-4 sm:w-5 sm:h-5" />
+              </div>
+              <div className="min-w-0">
+                <span className="text-[10px] font-mono font-bold text-brand-orange-600 dark:text-brand-orange-400 uppercase tracking-wider block truncate">
                   Page Speed
                 </span>
-                <strong className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white block font-display mt-0.5">
+                <strong className="text-xs sm:text-sm font-bold text-slate-950 dark:text-white block font-display leading-tight mt-0.5">
                   Under 1 Second
                 </strong>
-                <span className="text-[10px] text-slate-500 dark:text-slate-400 block truncate">Instant phone &amp; laptop load</span>
-              </div>
-              <div className="bg-white/95 dark:bg-[#0D1424]/95 border border-slate-200/90 dark:border-slate-800 hover:border-brand-orange-400 dark:hover:border-brand-orange-500/50 px-3 py-2 sm:py-2.5 rounded-xl shadow-xs dark:shadow-[0_4px_16px_rgba(0,0,0,0.3)] transition-all">
-                <span className="text-[9px] font-mono font-bold text-brand-orange-600 dark:text-brand-orange-400 uppercase tracking-widest block truncate">
-                  Your Ownership
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 block truncate mt-0.5">
+                  Instant mobile load
                 </span>
-                <strong className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white block font-display mt-0.5">
-                  100% Complete
-                </strong>
-                <span className="text-[10px] text-slate-500 dark:text-slate-400 block truncate">Zero monthly agency fees</span>
               </div>
-              <div className="bg-white/95 dark:bg-[#0D1424]/95 border border-slate-200/90 dark:border-slate-800 hover:border-brand-orange-400 dark:hover:border-brand-orange-500/50 px-3 py-2 sm:py-2.5 rounded-xl shadow-xs dark:shadow-[0_4px_16px_rgba(0,0,0,0.3)] transition-all">
-                <span className="text-[9px] font-mono font-bold text-brand-orange-600 dark:text-brand-orange-400 uppercase tracking-widest block truncate">
+            </div>
+
+            {/* Metric 2: Ownership */}
+            <div className="group bg-white dark:bg-[#0D1424] border border-slate-200/90 dark:border-slate-800 hover:border-emerald-500/60 p-3.5 sm:p-4 rounded-2xl shadow-subtle-card hover:shadow-hover-card transition-all flex items-start gap-3">
+              <div className="p-2 sm:p-2.5 rounded-xl bg-gradient-to-br from-emerald-500/15 via-teal-500/10 to-transparent border border-emerald-500/30 text-emerald-500 flex-shrink-0 group-hover:scale-105 transition-transform">
+                <Key className="w-4 h-4 sm:w-5 sm:h-5" />
+              </div>
+              <div className="min-w-0">
+                <span className="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider block truncate">
+                  Code Ownership
+                </span>
+                <strong className="text-xs sm:text-sm font-bold text-slate-950 dark:text-white block font-display leading-tight mt-0.5">
+                  100% Yours
+                </strong>
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 block truncate mt-0.5">
+                  Zero hostage fees
+                </span>
+              </div>
+            </div>
+
+            {/* Metric 3: Clear Pricing */}
+            <div className="group bg-white dark:bg-[#0D1424] border border-slate-200/90 dark:border-slate-800 hover:border-blue-500/60 p-3.5 sm:p-4 rounded-2xl shadow-subtle-card hover:shadow-hover-card transition-all flex items-start gap-3">
+              <div className="p-2 sm:p-2.5 rounded-xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-transparent border border-blue-500/30 text-blue-500 flex-shrink-0 group-hover:scale-105 transition-transform">
+                <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
+              </div>
+              <div className="min-w-0">
+                <span className="text-[10px] font-mono font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider block truncate">
                   Clear Pricing
                 </span>
-                <strong className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white block font-display mt-0.5">
+                <strong className="text-xs sm:text-sm font-bold text-slate-950 dark:text-white block font-display leading-tight mt-0.5">
                   24 - 48 Hours
                 </strong>
-                <span className="text-[10px] text-slate-500 dark:text-slate-400 block truncate">Fixed quote, zero surprises</span>
-              </div>
-              <div className="bg-white/95 dark:bg-[#0D1424]/95 border border-slate-200/90 dark:border-slate-800 hover:border-brand-orange-400 dark:hover:border-brand-orange-500/50 px-3 py-2 sm:py-2.5 rounded-xl shadow-xs dark:shadow-[0_4px_16px_rgba(0,0,0,0.3)] transition-all">
-                <span className="text-[9px] font-mono font-bold text-brand-orange-600 dark:text-brand-orange-400 uppercase tracking-widest block truncate">
-                  Reach &amp; Support
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 block truncate mt-0.5">
+                  Fixed milestone quote
                 </span>
-                <strong className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white block font-display mt-0.5">
+              </div>
+            </div>
+
+            {/* Metric 4: Support */}
+            <div className="group bg-white dark:bg-[#0D1424] border border-slate-200/90 dark:border-slate-800 hover:border-purple-500/60 p-3.5 sm:p-4 rounded-2xl shadow-subtle-card hover:shadow-hover-card transition-all flex items-start gap-3">
+              <div className="p-2 sm:p-2.5 rounded-xl bg-gradient-to-br from-purple-500/15 via-violet-500/10 to-transparent border border-purple-500/30 text-purple-500 flex-shrink-0 group-hover:scale-105 transition-transform">
+                <Globe className="w-4 h-4 sm:w-5 sm:h-5" />
+              </div>
+              <div className="min-w-0">
+                <span className="text-[10px] font-mono font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wider block truncate">
+                  Reach &amp; Scale
+                </span>
+                <strong className="text-xs sm:text-sm font-bold text-slate-950 dark:text-white block font-display leading-tight mt-0.5">
                   Pan-India &amp; Global
                 </strong>
-                <span className="text-[10px] text-slate-500 dark:text-slate-400 block truncate">Direct engineer collaboration</span>
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 block truncate mt-0.5">
+                  Direct engineer line
+                </span>
               </div>
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
+
         </div>
       </Section>
 
-      {/* TRUSTED BY ORGANISATIONS & INSTITUTES */}
+      {/* 1. TRUSTED BY COMPANIES & INSTITUTES (Mobile-Optimized Infinite Marquee) */}
       <TrustedBy />
 
-      {/* 2. CAPABILITIES & BUSINESS SOLUTIONS */}
+      {/* 2. CAPABILITIES & BUSINESS SOLUTIONS (Matching Reference Image 3) */}
       <Section
         id="capabilities"
         variant="white"
@@ -173,15 +228,15 @@ export const Home: React.FC = () => {
         className="relative"
       >
         <div className="max-w-6xl mx-auto space-y-10 sm:space-y-14">
-          <div className="text-center max-w-2xl mx-auto">
-            <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 block mb-1">
-              What We Build
+          <div className="text-center max-w-3xl mx-auto">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 dark:bg-orange-950/40 border border-orange-200/80 dark:border-orange-800/60 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 dark:text-brand-orange-400 mb-3">
+              ✦ WHAT WE BUILD &amp; HOW WE WORK
             </span>
-            <h2 className="text-2xl sm:text-4xl font-black text-slate-950 dark:text-white tracking-tight font-display">
-              Simple, Powerful Solutions for Growing Businesses
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-slate-950 dark:text-white tracking-tight font-display">
+              Websites, Custom Software &amp; Smart Hardware
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 font-mono">
-              Three clear ways we help founders, business owners, and creators turn ideas into high-quality products.
+            <p className="text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-400 mt-2.5 font-sans max-w-2xl mx-auto leading-relaxed">
+              From modern responsive business websites and custom client portals to smart connected devices. Built transparently with direct communication.
             </p>
           </div>
 
@@ -190,34 +245,34 @@ export const Home: React.FC = () => {
             {/* Track 01: Web Platforms */}
             <InteractiveCard cardClassName="bg-slate-50 dark:bg-[#0D1322] p-5 sm:p-7 flex flex-col justify-between">
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-slate-900 text-brand-orange-400 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-orange-500/20 via-amber-500/10 to-transparent border border-brand-orange-500/30 text-brand-orange-500 flex items-center justify-center shadow-xs">
                   <Globe className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono font-bold text-brand-orange-600 uppercase tracking-widest">
-                    Track 01 • Business Websites
+                  <span className="text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">
+                    TRACK 01 • BUSINESS WEBSITES
                   </span>
                   <h3 className="text-xl font-black text-slate-950 dark:text-white font-display mt-0.5">
-                    Fast, High-Converting Websites
+                    Modern Business Websites
                   </h3>
                 </div>
                 <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
-                  Clean company websites, product showcases, and landing pages designed to build trust, look stunning on mobile, and convert visitors into paying clients.
+                  Showcase websites, company portals, and marketing pages built to look stunning, open instantly on phones, and turn visitors into paying customers.
                 </p>
-                <ul className="space-y-2 font-mono text-[11px] text-slate-700 dark:text-slate-300 pt-2 border-t border-slate-200 dark:border-slate-800">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                    <span>Loads in under 1 second (<strong className="text-emerald-600 dark:text-emerald-400">zero bounce</strong>)</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                    <span>Looks gorgeous on phones, tablets &amp; desktops</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                    <span>Built-in Google SEO setup so customers find you</span>
-                  </li>
-                </ul>
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-200 dark:border-slate-800">
+                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
+                    Mobile-First Design
+                  </span>
+                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
+                    Instant Load Speeds
+                  </span>
+                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
+                    Google SEO Ready
+                  </span>
+                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
+                    Clean Code
+                  </span>
+                </div>
               </div>
 
               <div className="pt-6 mt-4 border-t border-slate-200 dark:border-slate-800">
@@ -235,34 +290,34 @@ export const Home: React.FC = () => {
             {/* Track 02: SaaS & Web Apps */}
             <InteractiveCard cardClassName="bg-slate-50 dark:bg-[#0D1322] p-5 sm:p-7 flex flex-col justify-between">
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-slate-900 text-brand-orange-400 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500/20 via-brand-orange-500/10 to-transparent border border-amber-500/30 text-amber-500 flex items-center justify-center shadow-xs">
                   <Zap className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono font-bold text-brand-orange-600 uppercase tracking-widest">
-                    Track 02 • Custom Software
+                  <span className="text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">
+                    TRACK 02 • CUSTOM SOFTWARE
                   </span>
                   <h3 className="text-xl font-black text-slate-950 dark:text-white font-display mt-0.5">
-                    Custom Web Portals &amp; Tools
+                    Web Applications &amp; Customer Portals
                   </h3>
                 </div>
                 <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
-                  Client accounts, internal management portals, and digital dashboards that automate repetitive work and save your team dozens of hours every week.
+                  Private customer dashboards, employee tools, and online booking or payment systems tailored specifically to automate your business.
                 </p>
-                <ul className="space-y-2 font-mono text-[11px] text-slate-700 dark:text-slate-300 pt-2 border-t border-slate-200 dark:border-slate-800">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                    <span>Custom software tailored to your exact workflow</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                    <span>Online payments, automated receipts &amp; email alerts</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                    <span>Secure password-protected logins for clients &amp; staff</span>
-                  </li>
-                </ul>
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-200 dark:border-slate-800">
+                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
+                    User Accounts &amp; Logins
+                  </span>
+                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
+                    Payment Integrations
+                  </span>
+                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
+                    Automated Alerts
+                  </span>
+                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
+                    Custom Dashboards
+                  </span>
+                </div>
               </div>
 
               <div className="pt-6 mt-4 border-t border-slate-200 dark:border-slate-800">
@@ -280,34 +335,34 @@ export const Home: React.FC = () => {
             {/* Track 03: Hardware & IoT Lab */}
             <InteractiveCard cardClassName="bg-slate-50 dark:bg-[#0D1322] p-5 sm:p-7 flex flex-col justify-between">
               <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-slate-900 text-brand-orange-400 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-500/20 via-amber-500/10 to-transparent border border-orange-500/30 text-brand-orange-500 flex items-center justify-center shadow-xs">
                   <Cpu className="w-6 h-6" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-mono font-bold text-brand-orange-600 uppercase tracking-widest">
-                    Track 03 • Smart Hardware
+                  <span className="text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">
+                    TRACK 03 • SMART HARDWARE
                   </span>
                   <h3 className="text-xl font-black text-slate-950 dark:text-white font-display mt-0.5">
-                    Smart Hardware &amp; Prototypes
+                    Smart Connected Devices
                   </h3>
                 </div>
                 <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
-                  Have an idea for a physical gadget, smart device, or automated machine? We design the electronics, program the controls, and build working prototypes.
+                  Custom electronics, smart sensors, wireless remote controls, and working prototypes built and tested for real-world use.
                 </p>
-                <ul className="space-y-2 font-mono text-[11px] text-slate-700 dark:text-slate-300 pt-2 border-t border-slate-200 dark:border-slate-800">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                    <span>Wireless controls via smartphone, Wi-Fi &amp; Bluetooth</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                    <span>Tested circuit boards, quiet motors &amp; precision sensors</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-brand-orange-500 flex-shrink-0" />
-                    <span>Insured courier shipping anywhere across India</span>
-                  </li>
-                </ul>
+                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-200 dark:border-slate-800">
+                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
+                    Wireless Wi-Fi &amp; Bluetooth
+                  </span>
+                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
+                    Smart Sensors
+                  </span>
+                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
+                    Custom Circuits
+                  </span>
+                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
+                    Pan-India Delivery
+                  </span>
+                </div>
               </div>
 
               <div className="pt-6 mt-4 border-t border-slate-200 dark:border-slate-800">
@@ -376,8 +431,8 @@ export const Home: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
             <div className="bg-slate-50 dark:bg-[#0D1322] border border-slate-200/90 dark:border-slate-800 hover:border-brand-orange-400 p-5 sm:p-6 rounded-2xl sm:rounded-3xl shadow-subtle-card transition-all">
-              <div className="w-11 h-11 rounded-2xl bg-brand-orange-50 dark:bg-brand-orange-950/40 text-brand-orange-600 dark:text-brand-orange-400 flex items-center justify-center mb-4 border border-brand-orange-200 dark:border-brand-orange-800/60">
-                <Wrench className="w-5 h-5" />
+              <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-brand-orange-500/15 via-amber-500/10 to-transparent border border-brand-orange-500/30 text-brand-orange-500 flex items-center justify-center mb-4 shadow-xs">
+                <Users className="w-5 h-5" />
               </div>
               <h4 className="text-sm font-bold font-mono text-slate-950 dark:text-white uppercase tracking-wider">
                 Direct Collaboration
@@ -388,8 +443,8 @@ export const Home: React.FC = () => {
             </div>
 
             <div className="bg-slate-50 dark:bg-[#0D1322] border border-slate-200/90 dark:border-slate-800 hover:border-brand-orange-400 p-5 sm:p-6 rounded-2xl sm:rounded-3xl shadow-subtle-card transition-all">
-              <div className="w-11 h-11 rounded-2xl bg-brand-orange-50 dark:bg-brand-orange-950/40 text-brand-orange-600 dark:text-brand-orange-400 flex items-center justify-center mb-4 border border-brand-orange-200 dark:border-brand-orange-800/60">
-                <Zap className="w-5 h-5" />
+              <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-amber-500/15 via-yellow-500/10 to-transparent border border-amber-500/30 text-amber-500 flex items-center justify-center mb-4 shadow-xs">
+                <Rocket className="w-5 h-5" />
               </div>
               <h4 className="text-sm font-bold font-mono text-slate-950 dark:text-white uppercase tracking-wider">
                 Instant Speeds
@@ -400,8 +455,8 @@ export const Home: React.FC = () => {
             </div>
 
             <div className="bg-slate-50 dark:bg-[#0D1322] border border-slate-200/90 dark:border-slate-800 hover:border-brand-orange-400 p-5 sm:p-6 rounded-2xl sm:rounded-3xl shadow-subtle-card transition-all">
-              <div className="w-11 h-11 rounded-2xl bg-brand-orange-50 dark:bg-brand-orange-950/40 text-brand-orange-600 dark:text-brand-orange-400 flex items-center justify-center mb-4 border border-brand-orange-200 dark:border-brand-orange-800/60">
-                <ShieldCheck className="w-5 h-5" />
+              <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-emerald-500/15 via-teal-500/10 to-transparent border border-emerald-500/30 text-emerald-500 flex items-center justify-center mb-4 shadow-xs">
+                <Fingerprint className="w-5 h-5" />
               </div>
               <h4 className="text-sm font-bold font-mono text-slate-950 dark:text-white uppercase tracking-wider">
                 100% Ownership
@@ -412,8 +467,8 @@ export const Home: React.FC = () => {
             </div>
 
             <div className="bg-slate-50 dark:bg-[#0D1322] border border-slate-200/90 dark:border-slate-800 hover:border-brand-orange-400 p-5 sm:p-6 rounded-2xl sm:rounded-3xl shadow-subtle-card transition-all">
-              <div className="w-11 h-11 rounded-2xl bg-brand-orange-50 dark:bg-brand-orange-950/40 text-brand-orange-600 dark:text-brand-orange-400 flex items-center justify-center mb-4 border border-brand-orange-200 dark:border-brand-orange-800/60">
-                <Truck className="w-5 h-5" />
+              <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-blue-500/15 via-indigo-500/10 to-transparent border border-blue-500/30 text-blue-500 flex items-center justify-center mb-4 shadow-xs">
+                <Clock className="w-5 h-5" />
               </div>
               <h4 className="text-sm font-bold font-mono text-slate-950 dark:text-white uppercase tracking-wider">
                 On-Time Delivery

@@ -2,19 +2,16 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Section } from '../components/ui/Section';
 import { MetaTags } from '../components/seo/MetaTags';
-import { InteractiveCard } from '../components/ui/InteractiveCard';
 import { TrustedBy } from '../components/ui/TrustedBy';
 import { PricingSection } from '../components/ui/PricingSection';
 import { TestimonialsSection } from '../components/ui/TestimonialsSection';
 import { WorksSection } from '../components/ui/WorksSection';
 import { ServicesProcessSection } from '../components/ui/ServicesProcessSection';
-import { RoboticsDiagram } from '../components/ui/RoboticsDiagram';
 import { TechnicalInquirySection } from '../components/forms/TechnicalInquirySection';
 import { openAIChat } from '../services/chatEvents';
 import { useTheme } from '../context/ThemeContext';
 import { TechText } from '../components/ui/TechText/TechText';
 import {
-  Cpu,
   Globe,
   ArrowRight,
   ChevronDown,
@@ -24,7 +21,6 @@ import {
   Clock,
   Gauge,
   Key,
-  Zap,
 } from 'lucide-react';
 
 export const Home: React.FC = () => {
@@ -219,186 +215,22 @@ export const Home: React.FC = () => {
       {/* 1. TRUSTED BY COMPANIES & INSTITUTES (Mobile-Optimized Infinite Marquee) */}
       <TrustedBy />
 
-      {/* 2. CAPABILITIES & BUSINESS SOLUTIONS (Matching Reference Image 3) */}
+      {/* 2. OUR WORKS / COMMERCIAL DELIVERIES */}
       <Section
-        id="capabilities"
+        id="works"
         variant="white"
         spacing="normal"
         borderBottom
         className="relative"
       >
-        <div className="max-w-6xl mx-auto space-y-10 sm:space-y-14">
-          <div className="text-center max-w-3xl mx-auto">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 dark:bg-orange-950/40 border border-orange-200/80 dark:border-orange-800/60 text-[10px] sm:text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 dark:text-brand-orange-400 mb-3">
-              ✦ WHAT WE BUILD &amp; HOW WE WORK
-            </span>
-            <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-slate-950 dark:text-white tracking-tight font-display">
-              Websites, Custom Software &amp; Smart Hardware
-            </h2>
-            <p className="text-xs sm:text-sm md:text-base text-slate-600 dark:text-slate-400 mt-2.5 font-sans max-w-2xl mx-auto leading-relaxed">
-              From modern responsive business websites and custom client portals to smart connected devices. Built transparently with direct communication.
-            </p>
-          </div>
-
-          {/* Capabilities Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
-            {/* Track 01: Web Platforms */}
-            <InteractiveCard cardClassName="bg-slate-50 dark:bg-[#0D1322] p-5 sm:p-7 flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-orange-500/20 via-amber-500/10 to-transparent border border-brand-orange-500/30 text-brand-orange-500 flex items-center justify-center shadow-xs">
-                  <Globe className="w-6 h-6" />
-                </div>
-                <div>
-                  <span className="text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">
-                    TRACK 01 • BUSINESS WEBSITES
-                  </span>
-                  <h3 className="text-xl font-black text-slate-950 dark:text-white font-display mt-0.5">
-                    Modern Business Websites
-                  </h3>
-                </div>
-                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
-                  Showcase websites, company portals, and marketing pages built to look stunning, open instantly on phones, and turn visitors into paying customers.
-                </p>
-                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-200 dark:border-slate-800">
-                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
-                    Mobile-First Design
-                  </span>
-                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
-                    Instant Load Speeds
-                  </span>
-                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
-                    Google SEO Ready
-                  </span>
-                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
-                    Clean Code
-                  </span>
-                </div>
-              </div>
-
-              <div className="pt-6 mt-4 border-t border-slate-200 dark:border-slate-800">
-                <button
-                  onClick={() => openAIChat("I'd like to discuss a new website project. What is the process, timeline, and deliverables?")}
-                  type="button"
-                  className="w-full py-3 px-4 bg-white dark:bg-slate-900 hover:bg-brand-orange-50 dark:hover:bg-brand-orange-950/30 border border-slate-300 dark:border-slate-700 hover:border-brand-orange-400 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100 transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
-                >
-                  <span>Discuss Your Website</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-brand-orange-500" />
-                </button>
-              </div>
-            </InteractiveCard>
-
-            {/* Track 02: SaaS & Web Apps */}
-            <InteractiveCard cardClassName="bg-slate-50 dark:bg-[#0D1322] p-5 sm:p-7 flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500/20 via-brand-orange-500/10 to-transparent border border-amber-500/30 text-amber-500 flex items-center justify-center shadow-xs">
-                  <Zap className="w-6 h-6" />
-                </div>
-                <div>
-                  <span className="text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">
-                    TRACK 02 • CUSTOM SOFTWARE
-                  </span>
-                  <h3 className="text-xl font-black text-slate-950 dark:text-white font-display mt-0.5">
-                    Web Applications &amp; Customer Portals
-                  </h3>
-                </div>
-                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
-                  Private customer dashboards, employee tools, and online booking or payment systems tailored specifically to automate your business.
-                </p>
-                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-200 dark:border-slate-800">
-                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
-                    User Accounts &amp; Logins
-                  </span>
-                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
-                    Payment Integrations
-                  </span>
-                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
-                    Automated Alerts
-                  </span>
-                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
-                    Custom Dashboards
-                  </span>
-                </div>
-              </div>
-
-              <div className="pt-6 mt-4 border-t border-slate-200 dark:border-slate-800">
-                <button
-                  onClick={() => openAIChat("I'd like to discuss building a Custom Web App / Client Portal. What is the process and timeline?")}
-                  type="button"
-                  className="w-full py-3 px-4 bg-white dark:bg-slate-900 hover:bg-brand-orange-50 dark:hover:bg-brand-orange-950/30 border border-slate-300 dark:border-slate-700 hover:border-brand-orange-400 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100 transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
-                >
-                  <span>Discuss Your Web App</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-brand-orange-500" />
-                </button>
-              </div>
-            </InteractiveCard>
-
-            {/* Track 03: Hardware & IoT Lab */}
-            <InteractiveCard cardClassName="bg-slate-50 dark:bg-[#0D1322] p-5 sm:p-7 flex flex-col justify-between">
-              <div className="space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-500/20 via-amber-500/10 to-transparent border border-orange-500/30 text-brand-orange-500 flex items-center justify-center shadow-xs">
-                  <Cpu className="w-6 h-6" />
-                </div>
-                <div>
-                  <span className="text-[10px] font-mono font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">
-                    TRACK 03 • SMART HARDWARE
-                  </span>
-                  <h3 className="text-xl font-black text-slate-950 dark:text-white font-display mt-0.5">
-                    Smart Connected Devices
-                  </h3>
-                </div>
-                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
-                  Custom electronics, smart sensors, wireless remote controls, and working prototypes built and tested for real-world use.
-                </p>
-                <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-200 dark:border-slate-800">
-                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
-                    Wireless Wi-Fi &amp; Bluetooth
-                  </span>
-                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
-                    Smart Sensors
-                  </span>
-                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
-                    Custom Circuits
-                  </span>
-                  <span className="px-2.5 py-1 rounded-md text-[10px] font-mono font-semibold bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/60 text-slate-700 dark:text-slate-300">
-                    Pan-India Delivery
-                  </span>
-                </div>
-              </div>
-
-              <div className="pt-6 mt-4 border-t border-slate-200 dark:border-slate-800">
-                <button
-                  onClick={() => openAIChat("I'd like to discuss a Smart Hardware / Physical Prototype idea. What is the process and timeline?")}
-                  type="button"
-                  className="w-full py-3 px-4 bg-white dark:bg-slate-900 hover:bg-brand-orange-50 dark:hover:bg-brand-orange-950/30 border border-slate-300 dark:border-slate-700 hover:border-brand-orange-400 rounded-full text-xs font-mono font-bold uppercase tracking-wider text-slate-900 dark:text-slate-100 transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
-                >
-                  <span>Discuss Your Hardware Idea</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-brand-orange-500" />
-                </button>
-              </div>
-            </InteractiveCard>
-          </div>
-
-          {/* Hardware Architecture Deep-Dive */}
-          <div className="mt-10 sm:mt-14">
-            <div className="text-center max-w-2xl mx-auto mb-6">
-              <span className="text-xs font-mono font-bold uppercase tracking-widest text-brand-orange-600 block mb-1">
-                Behind the Scenes
-              </span>
-              <h2 className="text-2xl sm:text-4xl font-black text-slate-950 dark:text-white tracking-tight font-display">
-                Real Working Hardware You Can Test
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 font-mono">
-                Every hardware project ships with complete circuit files, easy software setup, and full ownership in your hands.
-              </p>
-            </div>
-            <RoboticsDiagram />
-          </div>
+        <div className="max-w-6xl mx-auto">
+          <WorksSection />
         </div>
       </Section>
 
       {/* 3. CONTINUOUS SCROLL SECTION: SERVICES & SPRINT PIPELINE */}
       <Section
-        id="process"
+        id="capabilities"
         variant="slate"
         spacing="normal"
         borderBottom
@@ -478,19 +310,6 @@ export const Home: React.FC = () => {
               </p>
             </div>
           </div>
-        </div>
-      </Section>
-
-      {/* 5. OUR WORKS / COMMERCIAL DELIVERIES */}
-      <Section
-        id="works"
-        variant="slate"
-        spacing="normal"
-        borderBottom
-        className="relative"
-      >
-        <div className="max-w-6xl mx-auto">
-          <WorksSection />
         </div>
       </Section>
 

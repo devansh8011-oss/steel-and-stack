@@ -11,6 +11,7 @@ import { TechnicalInquirySection } from '../components/forms/TechnicalInquirySec
 import { openAIChat } from '../services/chatEvents';
 import { useTheme } from '../context/ThemeContext';
 import { TechText } from '../components/ui/TechText/TechText';
+import Dither from '../components/ui/Dither/Dither';
 import {
   Globe,
   ArrowRight,
@@ -34,15 +35,37 @@ export const Home: React.FC = () => {
         description="We build fast, modern websites, custom business software, and smart hardware prototypes. 100% code ownership, fixed pricing, and rapid delivery across India."
       />
 
-      {/* 1. DYNAMIC HERO SECTION WITH INTERACTIVE ASCII MATRIX & TECHTEXT */}
+      {/* 1. DYNAMIC HERO SECTION WITH INTERACTIVE DITHER BACKGROUND & TECHTEXT */}
       <Section
         variant="subtle-grid"
         spacing="normal"
         className="pt-8 sm:pt-14 pb-12 sm:pb-16 border-b border-slate-200/80 dark:border-slate-800/80 relative overflow-hidden"
-      >
-        {/* Warm Ambient Glow */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] sm:w-[900px] h-[380px] bg-gradient-to-tr from-brand-orange-100/80 via-amber-100/50 to-transparent dark:from-brand-orange-600/20 dark:via-amber-600/10 dark:to-transparent rounded-full blur-[130px] dark:blur-[150px] pointer-events-none -z-0" />
+        background={
+          <div className="absolute inset-0 z-0 pointer-events-none">
+            {/* Warm Atmospheric Ambient Glow */}
+            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] sm:w-[900px] h-[380px] bg-gradient-to-tr from-brand-orange-200/50 via-amber-100/40 to-transparent dark:from-brand-orange-600/20 dark:via-amber-600/10 dark:to-transparent rounded-full blur-[130px] dark:blur-[150px] pointer-events-none" />
 
+            {/* Interactive Dither Wave Effect - Crisp & Visible in Both Light & Dark Mode */}
+            <Dither
+              waveColor={isDark ? '#F97316' : '#EA580C'}
+              backgroundColor="transparent"
+              ditherMode="bayer"
+              colorNum={5}
+              pixelSize={2.5}
+              waveSpeed={0.06}
+              waveFrequency={2.8}
+              waveAmplitude={0.32}
+              mouseEffect="ripple"
+              mouseRadius={0.35}
+              clickRipple={true}
+              className="opacity-60 dark:opacity-40"
+            />
+
+            {/* Subtle center fade so text remains 100% readable while waves remain crisp */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.35)_0%,transparent_75%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(9,13,22,0.45)_0%,transparent_75%)]" />
+          </div>
+        }
+      >
         <div className="max-w-6xl mx-auto relative z-10 space-y-8 sm:space-y-10">
           
           {/* Header Block */}

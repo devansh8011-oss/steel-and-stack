@@ -7,6 +7,7 @@ interface SectionProps {
   containerSize?: 'sm' | 'md' | 'lg' | 'full';
   className?: string;
   containerClassName?: string;
+  background?: React.ReactNode;
   children: React.ReactNode;
   borderTop?: boolean;
   borderBottom?: boolean;
@@ -19,6 +20,7 @@ export const Section: React.FC<SectionProps> = ({
   containerSize = 'lg',
   className = '',
   containerClassName = '',
+  background,
   children,
   borderTop = false,
   borderBottom = false,
@@ -51,6 +53,7 @@ export const Section: React.FC<SectionProps> = ({
         borderTop ? 'border-t border-slate-200/80 dark:border-slate-800/80' : ''
       } ${borderBottom ? 'border-b border-slate-200/80 dark:border-slate-800/80' : ''} ${className}`}
     >
+      {background}
       <div
         className={`mx-auto px-4 sm:px-6 lg:px-8 relative z-10 ${containerWidths[containerSize]} ${containerClassName}`}
       >

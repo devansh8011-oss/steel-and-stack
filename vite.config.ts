@@ -1,7 +1,23 @@
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import fs from 'fs';
 import type { IncomingMessage, ServerResponse } from 'http';
+
+// Helper to reliably read fresh values from project .env file before falling back to system env
+function getLocalEnvKey(keyName: string, fallbackEnv: Record<string, string>): string {
+  try {
+    const envFilePath = path.resolve(process.cwd(), '.env');
+    if (fs.existsSync(envFilePath)) {
+      const content = fs.readFileSync(envFilePath, 'utf-8');
+      const match = content.match(new RegExp(`^${keyName}\\s*=\\s*(.+)`, 'm'));
+      if (match && match[1]?.trim()) {
+        return match[1].trim().replace(/^['"]|['"]$/g, '');
+      }
+    }
+  } catch {}
+  return (fallbackEnv[keyName] || process.env[keyName] || '').trim();
+}
 
 // Custom plugin to handle Resend API email sending during dev & preview
 function resendApiPlugin() {
@@ -17,9 +33,9 @@ function resendApiPlugin() {
         }
 
         const env = loadEnv(process.env.NODE_ENV || 'development', process.cwd(), '');
-        const apiKey = env.RESEND_API_KEY || env.VITE_RESEND_API_KEY || process.env.RESEND_API_KEY;
-        const targetEmail = env.NOTIFICATION_EMAIL || 'contact@steelandstack.com';
-        const fromEmail = env.FROM_EMAIL || 'contact@steelandstack.com';
+        const apiKey = getLocalEnvKey('RESEND_API_KEY', env) || getLocalEnvKey('VITE_RESEND_API_KEY', env);
+        const targetEmail = getLocalEnvKey('NOTIFICATION_EMAIL', env) || 'contact@steelandstack.com';
+        const fromEmail = getLocalEnvKey('FROM_EMAIL', env) || 'contact@steelandstack.com';
 
         if (!apiKey) {
           res.statusCode = 500;
@@ -144,7 +160,7 @@ function groqChatApiPlugin() {
         }
 
         const env = loadEnv(process.env.NODE_ENV || 'development', process.cwd(), '');
-        const apiKey = (env.GROQ_API_KEY || env.VITE_GROQ_API_KEY || process.env.GROQ_API_KEY)?.trim();
+        const apiKey = getLocalEnvKey('GROQ_API_KEY', env) || getLocalEnvKey('VITE_GROQ_API_KEY', env);
 
         if (!apiKey) {
           res.statusCode = 503;
@@ -198,10 +214,9 @@ COMMUNICATION & SANITIZATION GUIDELINES:
 
             const candidateModels = [
               env.GROQ_MODEL || env.VITE_GROQ_MODEL || '',
-              'openai/gpt-oss-20b',
-              'groq/compound-mini',
-              'openai/gpt-oss-120b',
               'qwen/qwen3.8-27b',
+              'openai/gpt-oss-20b',
+              'openai/gpt-oss-120b',
               'llama-3.3-70b-versatile',
               'llama-3.1-8b-instant',
             ].filter(Boolean);

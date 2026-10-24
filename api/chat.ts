@@ -41,10 +41,9 @@ COMMUNICATION & SANITIZATION GUIDELINES:
 - MANDATORY CLOSING DIRECTIVE: At the end of EVERY response, explicitly invite the user to contact Devansh Grover directly at contact@steelandstack.com or visit the contact section on the website to scope their project with our senior engineers.`;
 
 const CANDIDATE_MODELS = [
-  'openai/gpt-oss-20b',
-  'groq/compound-mini',
-  'openai/gpt-oss-120b',
   'qwen/qwen3.8-27b',
+  'openai/gpt-oss-20b',
+  'openai/gpt-oss-120b',
   'llama-3.3-70b-versatile',
   'llama-3.1-8b-instant',
 ];

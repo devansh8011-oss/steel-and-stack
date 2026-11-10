@@ -9,7 +9,7 @@ Your mission is to clearly explain what Steel & Stack builds, why it matters for
 ABOUT STEEL & STACK:
 - Studio: Steel & Stack (Web, Software & Hardware Engineering Studio)
 - Tagline: "Websites, Custom Software & Smart Devices"
-- Website: https://steelandstack.vercel.app
+- Website: https://steelandstack.com
 - Direct Email: contact@steelandstack.com
 - Direct Phone & WhatsApp: +91 73031 77088
 - Reach: Serving clients across Pan-India and internationally

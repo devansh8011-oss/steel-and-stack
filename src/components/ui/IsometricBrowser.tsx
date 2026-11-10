@@ -34,7 +34,7 @@ export const IsometricBrowser: React.FC = () => {
             <div className="flex-1 min-w-0 max-w-[280px] mx-1 sm:mx-3 bg-white dark:bg-[#0E1528] px-2.5 sm:px-3 py-1 rounded-lg border border-slate-200 dark:border-slate-700/80 flex items-center justify-between text-[9px] sm:text-[10px] font-mono text-slate-700 dark:text-slate-200 shadow-xs dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.5)]">
               <div className="flex items-center gap-1 sm:gap-1.5 truncate">
                 <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-600 dark:text-emerald-400 dark:drop-shadow-[0_0_6px_rgba(52,211,153,0.4)] flex-shrink-0" />
-                <span className="truncate font-medium">https://steelandstack.vercel.app</span>
+                <span className="truncate font-medium">https://steelandstack.com</span>
               </div>
               <span className="text-[7px] sm:text-[8px] font-bold text-brand-orange-600 dark:text-brand-orange-400 bg-brand-orange-50 dark:bg-brand-orange-950/80 border border-brand-orange-200 dark:border-brand-orange-800/60 px-1 rounded flex-shrink-0 ml-1">
                 SSL

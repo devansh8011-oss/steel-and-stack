@@ -192,7 +192,7 @@ Your mission is to inform prospective clients about Steel & Stack's capabilities
 ABOUT STEEL & STACK:
 - Studio: Steel & Stack Engineering Studio
 - Official Tagline: "Engineering the Future of Tech"
-- Website: https://steelandstack.vercel.app
+- Website: https://steelandstack.com
 - Direct Email: contact@steelandstack.com
 - Direct Phone & WhatsApp: +91 73031 77088
 - Delivery Scope: Serving ambitious companies across Pan-India & Worldwide

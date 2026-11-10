@@ -4,7 +4,6 @@ interface TrustedBrand {
   id: string;
   name: string;
   logoLight: string;
-  logoDark?: string;
   logoAlt: string;
   logoClassName: string;
 }
@@ -15,7 +14,7 @@ const TRUSTED_BRANDS: TrustedBrand[] = [
     name: 'Shipmate Logistics',
     logoLight: '/logos/shipmate-hq.png',
     logoAlt: 'Shipmate Logistics',
-    logoClassName: 'w-full h-20 sm:h-24 max-w-[94%] object-contain rounded-xl',
+    logoClassName: 'h-24 sm:h-28 w-auto max-w-[90%] object-contain',
   },
   {
     id: 'iit-jodhpur',
@@ -35,7 +34,6 @@ const TRUSTED_BRANDS: TrustedBrand[] = [
     id: 'orange-future-tech',
     name: 'Orange Future Tech',
     logoLight: '/logos/orange-future-tech-hq.png',
-    logoDark: '/logos/orange-future-tech-hq-dark.png',
     logoAlt: 'Orange Future Tech',
     logoClassName: 'w-full h-20 sm:h-24 max-w-[92%] object-contain',
   },
@@ -44,7 +42,7 @@ const TRUSTED_BRANDS: TrustedBrand[] = [
     name: 'Cocoadotts',
     logoLight: '/logos/cocoadotts-hq.png',
     logoAlt: 'Cocoadotts',
-    logoClassName: 'h-24 sm:h-28 w-auto max-w-[92%] object-contain rounded-xl',
+    logoClassName: 'h-20 sm:h-24 w-auto max-w-[88%] object-contain',
   },
 ];
 
@@ -89,28 +87,13 @@ export const TrustedBy: React.FC = () => {
                   : ''
               }`}
             >
-              {/* Top Half: Large, Prominent Centered Logo Area */}
-              <div className="h-32 sm:h-36 flex items-center justify-center p-3 sm:p-4 relative">
-                {brand.logoDark ? (
-                  <>
-                    <img
-                      src={brand.logoLight}
-                      alt={brand.logoAlt}
-                      className={`${brand.logoClassName} dark:hidden transition-transform duration-300 group-hover:scale-105`}
-                    />
-                    <img
-                      src={brand.logoDark}
-                      alt={brand.logoAlt}
-                      className={`${brand.logoClassName} hidden dark:block transition-transform duration-300 group-hover:scale-105`}
-                    />
-                  </>
-                ) : (
-                  <img
-                    src={brand.logoLight}
-                    alt={brand.logoAlt}
-                    className={`${brand.logoClassName} transition-transform duration-300 group-hover:scale-105`}
-                  />
-                )}
+              {/* Top Half: Large, Prominent Centered Logo Area on Pure White Background */}
+              <div className="h-32 sm:h-36 bg-white flex items-center justify-center p-3 sm:p-4 relative">
+                <img
+                  src={brand.logoLight}
+                  alt={brand.logoAlt}
+                  className={`${brand.logoClassName} transition-transform duration-300 group-hover:scale-105`}
+                />
               </div>
 
               {/* Subtle Horizontal Divider Line */}

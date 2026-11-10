@@ -12,7 +12,7 @@ export const PricingSection: React.FC = () => {
     if (planName) {
       const msgField = document.getElementById('message') as HTMLTextAreaElement | null;
       if (msgField && !msgField.value) {
-        msgField.value = `Hi Devansh, I would like to get started with the ${planName} package. Please share the timeline and next steps.`;
+        msgField.value = `Hi Steel & Stack team, I would like to get started with the ${planName} package. Please share the timeline and next steps.`;
       }
     }
   };

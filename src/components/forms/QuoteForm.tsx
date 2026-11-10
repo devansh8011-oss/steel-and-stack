@@ -137,7 +137,7 @@ async function submitQuoteAction(
       return {
         success: true,
         message:
-          'Your project details have been sent straight to Devansh. Our team is reviewing what you need and will reach out with a clear plan and fixed quote within 24 hours.',
+          'Your project details have been sent straight to the Steel & Stack team. Our engineers are reviewing what you need and will reach out with a clear plan and fixed quote within 24 hours.',
         submittedData: { name, email, projectType, budget },
       };
     } else {

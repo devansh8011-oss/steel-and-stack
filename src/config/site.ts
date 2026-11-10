@@ -141,7 +141,7 @@ export const SITE_CONFIG = {
       image: "/reviews/shashank.jpg",
       rating: 5,
       content:
-        "Devansh did an outstanding job developing our website, orangefuturetech.com, and collaborating with us on the IIT Jodhpur smart ID card generation software. He grasps complex technical requirements effortlessly, brings smart, practical solutions to the table, and executes every task with impressive precision. His clear communication, proactive attitude, and focus on delivering high-quality results make him a pleasure to work with. I highly recommend Devansh for both web development and software engineering projects.",
+        "Steel & Stack did an outstanding job developing our website, orangefuturetech.com, and collaborating with us on the IIT Jodhpur smart ID card generation software. Their team grasps complex technical requirements effortlessly, brings smart, practical solutions to the table, and executes every task with impressive precision. Their clear communication, proactive attitude, and focus on delivering high-quality results make them a pleasure to work with. I highly recommend Steel & Stack for both web development and software engineering projects.",
       project: "orangefuturetech.com & Smart ID Software",
     },
     {
@@ -152,7 +152,7 @@ export const SITE_CONFIG = {
       image: "/reviews/rashika.jpg",
       rating: 5,
       content:
-        "Working with Devansh on developing cocoadotts.com was an absolute pleasure. He is incredibly knowledgeable, professional, and patient, taking the time to truly understand my vision and bring it to life flawlessly. No matter the changes or requests, he was always accommodating and ready with the perfect solution. His dedication, clear communication, and client-first attitude make him a standout developer—I cannot recommend him highly enough!",
+        "Working with Steel & Stack on developing cocoadotts.com was an absolute pleasure. The team is incredibly knowledgeable, professional, and patient, taking the time to truly understand my vision and bring it to life flawlessly. No matter the changes or requests, they were always accommodating and ready with the perfect solution. Their dedication, clear communication, and client-first attitude make Steel & Stack a standout partner—I cannot recommend them highly enough!",
       project: "cocoadotts.com Website Development",
     },
     {
@@ -163,19 +163,8 @@ export const SITE_CONFIG = {
       image: "/reviews/rohit.jpg",
       rating: 5,
       content:
-        "Steel & Stack built our platform in record time. The website opens instantly on any phone, and our customer quote inquiries jumped over 40% in the first month. Working directly with Devansh without middle-agency telephone games was super refreshing.",
+        "Steel & Stack built our website and platform in record time. The site opens instantly on any phone, and our customer quote inquiries jumped over 40% in the first month. Working directly with the Steel & Stack engineering team without middle-agency telephone games was super refreshing.",
       project: "shipmatelogistics.in & Logistics Portal",
-    },
-    {
-      id: "review-4",
-      name: "Priya Deshmukh",
-      role: "Academic Coordinator",
-      company: "Delhi Public School Network",
-      image: "/reviews/priya.jpg",
-      rating: 5,
-      content:
-        "Transparent pricing, committed timelines, and prompt communication. Parents love how fast the portal loads on mobile, and the monthly care plan gives our administration team complete peace of mind.",
-      project: "Web Portal & Monthly Care Plan",
     },
   ],
 

@@ -3,11 +3,11 @@ export interface ChatMessage {
   content: string;
 }
 
-export const SYSTEM_PROMPT = `You are Cortex, the friendly AI assistant for Steel & Stack—a technology studio founded by Devansh Grover.
+export const SYSTEM_PROMPT = `You are Cortex, the friendly AI assistant for Steel & Stack—a modern technology and engineering studio building high-speed websites, custom business software, and smart hardware products.
 Your mission is to clearly explain what Steel & Stack builds, why it matters for businesses, and how clients can work with us—using simple, clear, approachable language without confusing technical jargon.
 
 ABOUT STEEL & STACK:
-- Founder & Lead Builder: Devansh Grover
+- Studio: Steel & Stack (Web, Software & Hardware Engineering Studio)
 - Tagline: "Websites, Custom Software & Smart Devices"
 - Website: https://steelandstack.vercel.app
 - Direct Email: contact@steelandstack.com
@@ -28,8 +28,8 @@ WHAT WE BUILD (CORE SERVICES):
    - Smart sensors, quiet precision motors, and custom circuit boards.
    - Delivered directly to your door with step-by-step video setup guides and complete ownership.
 
-WHY CLIENTS CHOOSE US:
-- Direct Collaboration: Work directly with the builders—no confusing middlemen or telephone games.
+WHY CLIENTS CHOOSE STEEL & STACK:
+- Direct Collaboration: Work directly with the Steel & Stack engineering team—no confusing middlemen or telephone games.
 - 100% Complete Ownership: You own all code, files, and designs with zero recurring agency hostage fees.
 - Upfront Fixed Pricing: Receive a clear plan and fixed quote in 24 to 48 hours with zero hidden surprises.
 - Committed Delivery: Weekly progress updates and live preview links so you always know what is happening.
@@ -40,7 +40,7 @@ COMMUNICATION & SANITIZATION GUIDELINES:
 - For lists and steps, use simple dashes (- Item) or numbers (1. Item), but NEVER wrap words, headings, or phrases in stars.
 - Explain concepts simply so any business owner or founder can immediately understand the value.
 - Keep answers warm, helpful, concise, and professional (maximum 2-3 focused paragraphs or clean dashed bullet points).
-- MANDATORY CLOSING DIRECTIVE: At the end of EVERY response, invite the user to contact Devansh directly at contact@steelandstack.com or use the contact form on the website to get a free quote within 24-48 hours.`;
+- MANDATORY CLOSING DIRECTIVE: At the end of EVERY response, invite the user to contact the Steel & Stack team at contact@steelandstack.com or use the contact form on the website to get a free quote within 24-48 hours.`;
 
 // Strips out all markdown asterisks and stars, ensuring sanitized human text
 export function sanitizeChatOutput(raw: string): string {
@@ -63,8 +63,8 @@ export function sanitizeChatOutput(raw: string): string {
 function getLocalFallbackResponse(userPrompt: string): string {
   const query = userPrompt.toLowerCase();
 
-  if (query.includes('founder') || query.includes('who started') || query.includes('who built') || query.includes('owner') || query.includes('devansh')) {
-    return `Steel & Stack was founded by Devansh Grover. He leads the studio building lightning-fast business websites, custom software, and smart connected devices with instant speeds and 100% complete ownership in your hands.\n\nTo discuss your project directly with Devansh, you can email contact@steelandstack.com or submit a brief in the contact section of our website.`;
+  if (query.includes('about') || query.includes('who are you') || query.includes('who built') || query.includes('studio') || query.includes('team')) {
+    return `Steel & Stack is a modern technology and engineering studio building lightning-fast business websites, custom software, and smart connected devices with instant speeds and 100% complete ownership in your hands.\n\nTo discuss your project directly with the Steel & Stack team, you can email contact@steelandstack.com or submit a brief in the contact section of our website.`;
   }
 
   if (query.includes('price') || query.includes('cost') || query.includes('quote') || query.includes('rate') || query.includes('budget')) {
@@ -83,7 +83,7 @@ function getLocalFallbackResponse(userPrompt: string): string {
     return `Every website we create is engineered to load in under 1 second on mobile phones and computers. That means your customers never have to wait, bounce rates drop, and Google naturally rewards your site with higher rankings.\n\nWant to discuss upgrading your website speed? Reach out to us at contact@steelandstack.com or send a note via our contact form.`;
   }
 
-  return `At Steel & Stack, we build high-performance business websites, custom web apps, and smart connected hardware. Founded by Devansh Grover, we deliver complete turnkey products with upfront 24-48h scoping, sub-second loading speeds, and 100% complete ownership.\n\nTo discuss your project or request a free quote, please reach out directly at contact@steelandstack.com or explore the contact section on our website.`;
+  return `At Steel & Stack, we build high-performance business websites, custom web apps, and smart connected hardware. Our engineering studio delivers complete turnkey products with upfront 24-48h scoping, sub-second loading speeds, and 100% complete ownership.\n\nTo discuss your project or request a free quote, please reach out to the Steel & Stack team at contact@steelandstack.com or explore the contact section on our website.`;
 }
 
 export async function sendChatMessage(messages: ChatMessage[]): Promise<string> {

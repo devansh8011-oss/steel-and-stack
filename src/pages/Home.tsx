@@ -11,7 +11,7 @@ import { TechnicalInquirySection } from '../components/forms/TechnicalInquirySec
 import { openAIChat } from '../services/chatEvents';
 import { useTheme } from '../context/ThemeContext';
 import { TechText } from '../components/ui/TechText/TechText';
-import Dither from '../components/ui/Dither/Dither';
+import GradientASCII from '../components/ui/GradientASCII/GradientASCII';
 import {
   Globe,
   ArrowRight,
@@ -35,7 +35,7 @@ export const Home: React.FC = () => {
         description="We build fast, modern websites, custom business software, and smart hardware prototypes. 100% code ownership, fixed pricing, and rapid delivery across India."
       />
 
-      {/* 1. DYNAMIC HERO SECTION WITH INTERACTIVE DITHER BACKGROUND & TECHTEXT */}
+      {/* 1. DYNAMIC HERO SECTION WITH INTERACTIVE GRADIENT ASCII BACKGROUND & TECHTEXT */}
       <Section
         variant="subtle-grid"
         spacing="normal"
@@ -45,24 +45,20 @@ export const Home: React.FC = () => {
             {/* Warm Atmospheric Ambient Glow */}
             <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] sm:w-[900px] h-[380px] bg-gradient-to-tr from-brand-orange-200/50 via-amber-100/40 to-transparent dark:from-brand-orange-600/20 dark:via-amber-600/10 dark:to-transparent rounded-full blur-[130px] dark:blur-[150px] pointer-events-none" />
 
-            {/* Interactive Dither Wave Effect - Crisp & Visible in Both Light & Dark Mode */}
-            <Dither
-              waveColor={isDark ? '#F97316' : '#EA580C'}
-              backgroundColor="transparent"
-              ditherMode="bayer"
-              colorNum={5}
-              pixelSize={2.5}
-              waveSpeed={0.06}
-              waveFrequency={2.8}
-              waveAmplitude={0.32}
-              mouseEffect="ripple"
-              mouseRadius={0.35}
-              clickRipple={true}
-              className="opacity-60 dark:opacity-40"
+            {/* Interactive WebGL2 GradientASCII Effect */}
+            <GradientASCII
+              colors={['#c2410c', '#fff7ed', '#fdba74', '#f97316']}
+              shape="horizon"
+              characters=" =+xX0S8#@"
+              cellSize={18}
+              density={0.8}
+              lightMode={!isDark}
+              mouseInteraction={true}
+              clickEffect="wave"
             />
 
-            {/* Subtle center fade so text remains 100% readable while waves remain crisp */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.35)_0%,transparent_75%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(9,13,22,0.45)_0%,transparent_75%)]" />
+            {/* Subtle center fade so text remains 100% readable while ASCII horizon remains crisp */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.85)_0%,rgba(255,255,255,0.55)_45%,transparent_82%)] dark:bg-[radial-gradient(ellipse_at_center,rgba(9,13,22,0.85)_0%,rgba(9,13,22,0.55)_45%,transparent_82%)]" />
           </div>
         }
       >
@@ -116,11 +112,11 @@ export const Home: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="space-y-3"
             >
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-950 dark:text-white leading-[1.12] font-display">
-                Engineering the <span className="bg-gradient-to-r from-brand-orange-600 via-amber-500 to-brand-orange-600 bg-clip-text text-transparent">Future of Tech</span>
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-950 dark:text-white leading-[1.12] font-display drop-shadow-[0_2px_10px_rgba(255,255,255,0.95)] dark:drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]">
+                Engineering the <span className="bg-gradient-to-r from-[#9A3412] via-[#C2410C] to-[#EA580C] dark:from-[#FB923C] dark:via-[#F97316] dark:to-[#FBBF24] bg-clip-text text-transparent">Future of Tech</span>
               </h1>
 
-              <p className="text-xs sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed pt-1 font-sans">
+              <p className="text-xs sm:text-base text-slate-700 dark:text-slate-200 font-medium max-w-2xl mx-auto leading-relaxed pt-1 font-sans drop-shadow-[0_1px_6px_rgba(255,255,255,0.9)] dark:drop-shadow-none">
                 Clean, ultra-fast commercial websites, custom client web portals, and smart connected electronics. 100% complete ownership, sub-second speeds, and direct engineer collaboration.
               </p>
             </motion.div>

@@ -101,14 +101,14 @@ export const SITE_CONFIG = {
 
   works: [
     {
-      id: "orange-future-tech",
-      title: "Orange Future Tech",
-      category: "Enterprise Web & AI Systems",
+      id: "steelcircuits",
+      title: "Devansh Grover",
+      category: "Personal Portfolio & Interactive Web",
       oneLiner:
-        "High-performance website and academic software suite engineered for speed, AI assistance, 360° virtual tours, and automated smart ID generation.",
-      image: "/works/orange-future-tech.png",
-      url: "https://orangefuturetech.com",
-      tags: ["AI Website", "360° VR Tours", "CardGen Suite"],
+        "Bespoke interactive portfolio website crafted for the studio founder, featuring atmospheric motion design, editorial typography, and ultra-fast performance.",
+      image: "/works/steelcircuits.jpg",
+      url: "https://steelcircuits.com",
+      tags: ["Portfolio", "Interactive UI", "Editorial Design"],
     },
     {
       id: "cocoadotts",
@@ -141,8 +141,8 @@ export const SITE_CONFIG = {
       image: "/reviews/shashank.jpg",
       rating: 5,
       content:
-        "Steel & Stack did an outstanding job developing our website, orangefuturetech.com, and collaborating with us on the IIT Jodhpur smart ID card generation software. Their team grasps complex technical requirements effortlessly, brings smart, practical solutions to the table, and executes every task with impressive precision. Their clear communication, proactive attitude, and focus on delivering high-quality results make them a pleasure to work with. I highly recommend Steel & Stack for both web development and software engineering projects.",
-      project: "orangefuturetech.com & Smart ID Software",
+        "Steel & Stack did an outstanding job collaborating with us on the IIT Jodhpur smart ID card generation software. Their team grasps complex technical requirements effortlessly, brings smart, practical solutions to the table, and executes every task with impressive precision. Their clear communication, proactive attitude, and focus on delivering high-quality results make them a pleasure to work with. I highly recommend Steel & Stack for software engineering projects.",
+      project: "IIT Jodhpur Smart ID Software",
     },
     {
       id: "review-2",

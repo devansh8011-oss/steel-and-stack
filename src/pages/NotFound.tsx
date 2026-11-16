@@ -120,6 +120,8 @@ export const NotFound: React.FC = () => {
       <MetaTags
         title="404: Page Not Found | Steel & Stack"
         description="The requested page could not be found. Explore Steel & Stack's fast websites, custom software, transparent pricing, and digital solutions."
+        canonicalPath="/404"
+        noindex={true}
       />
 
       <Section

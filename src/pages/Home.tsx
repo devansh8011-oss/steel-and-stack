@@ -31,8 +31,10 @@ export const Home: React.FC = () => {
   return (
     <>
       <MetaTags
-        title="Steel & Stack | Fast Websites, Custom Software & Smart Hardware"
-        description="We build fast, modern websites, custom business software, and smart hardware prototypes. 100% code ownership, fixed pricing, and rapid delivery across India."
+        title="Steel & Stack | Fast Websites, Software & Smart Hardware"
+        description="Fast, modern websites, custom business software, and smart hardware prototypes. Sub-second load speeds, fixed pricing, and 100% complete code ownership."
+        canonicalPath="/"
+        noindex={false}
       />
 
       {/* 1. DYNAMIC HERO SECTION WITH INTERACTIVE GRADIENT ASCII BACKGROUND & TECHTEXT */}
@@ -360,7 +362,6 @@ export const Home: React.FC = () => {
 
       {/* 8. DIRECT PROJECT INGESTION & SCOPING TERMINAL */}
       <Section
-        id="contact"
         variant="slate"
         spacing="normal"
         className="py-12 md:py-20 relative overflow-hidden"

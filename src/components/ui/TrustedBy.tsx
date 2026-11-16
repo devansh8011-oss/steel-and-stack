@@ -13,35 +13,35 @@ const TRUSTED_BRANDS: TrustedBrand[] = [
     id: 'shipmate',
     name: 'Shipmate Logistics',
     logoLight: '/logos/shipmate-hq.png',
-    logoAlt: 'Shipmate Logistics',
+    logoAlt: 'Shipmate Logistics Official Partner Logo',
     logoClassName: 'h-24 sm:h-28 w-auto max-w-[90%] object-contain',
   },
   {
     id: 'iit-jodhpur',
     name: 'IIT Jodhpur',
     logoLight: '/logos/iit-jodhpur-hq.png',
-    logoAlt: 'IIT Jodhpur',
+    logoAlt: 'IIT Jodhpur Premier Technical Institute Logo',
     logoClassName: 'h-24 sm:h-28 w-auto max-w-[90%] object-contain',
   },
   {
     id: 'dps',
     name: 'Delhi Public School',
     logoLight: '/logos/dps-hq.png',
-    logoAlt: 'Delhi Public School',
+    logoAlt: 'Delhi Public School (DPS) Educational Partner Logo',
     logoClassName: 'h-24 sm:h-28 w-auto max-w-[90%] object-contain',
   },
   {
     id: 'orange-future-tech',
     name: 'Orange Future Tech',
     logoLight: '/logos/orange-future-tech-hq.png',
-    logoAlt: 'Orange Future Tech',
+    logoAlt: 'Orange Future Tech IT & Automation Partner Logo',
     logoClassName: 'w-full h-20 sm:h-24 max-w-[92%] object-contain',
   },
   {
     id: 'cocoadotts',
     name: 'Cocoadotts',
     logoLight: '/logos/cocoadotts-hq.png',
-    logoAlt: 'Cocoadotts',
+    logoAlt: 'Cocoadotts D2C Artisanal Brand Logo',
     logoClassName: 'h-20 sm:h-24 w-auto max-w-[88%] object-contain',
   },
 ];
@@ -93,6 +93,8 @@ export const TrustedBy: React.FC = () => {
                   src={brand.logoLight}
                   alt={brand.logoAlt}
                   className={`${brand.logoClassName} transition-transform duration-300 group-hover:scale-105`}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 

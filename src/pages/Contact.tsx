@@ -6,11 +6,33 @@ import { SITE_CONFIG } from '../config/site';
 import { Mail, MapPin } from 'lucide-react';
 
 export const Contact: React.FC = () => {
+  const contactBreadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': 'https://steelandstack.com/',
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Contact Us & Quote',
+        'item': 'https://steelandstack.com/contact',
+      },
+    ],
+  };
+
   return (
     <>
       <MetaTags
-        title="Contact Us &amp; Get a Quote | Steel &amp; Stack"
-        description="Reach out directly to Steel & Stack. We respond to all project inquiries with a clear plan and fixed quote within 24 hours."
+        title="Contact Us & Get a Quote | Steel & Stack"
+        description="Reach out directly to Steel & Stack. We respond to all project inquiries with a clear roadmap and fixed price quote within 24–48 hours."
+        canonicalPath="/contact"
+        noindex={false}
+        schema={contactBreadcrumbSchema}
       />
 
       {/* Hero / Form Section */}

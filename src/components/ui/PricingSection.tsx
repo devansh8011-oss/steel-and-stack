@@ -18,7 +18,7 @@ export const PricingSection: React.FC = () => {
   };
 
   return (
-    <div id="pricing" className="space-y-12 sm:space-y-16">
+    <div className="space-y-12 sm:space-y-16">
       {/* Section Header */}
       <div className="text-center max-w-2xl mx-auto space-y-3">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange-50 dark:bg-brand-orange-950/60 border border-brand-orange-200 dark:border-brand-orange-800/60">

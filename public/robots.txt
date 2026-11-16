@@ -1,0 +1,13 @@
+# robots.txt for https://steelandstack.com
+User-agent: *
+Allow: /
+
+# Prevent crawling of backend API endpoints and error pages
+Disallow: /api/
+Disallow: /404
+
+# Host
+Host: https://steelandstack.com
+
+# XML Sitemap
+Sitemap: https://steelandstack.com/sitemap.xml

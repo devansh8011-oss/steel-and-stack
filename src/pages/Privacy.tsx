@@ -5,11 +5,33 @@ import { Shield } from 'lucide-react';
 import { SITE_CONFIG } from '../config/site';
 
 export const Privacy: React.FC = () => {
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': 'https://steelandstack.com/',
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Privacy Policy',
+        'item': 'https://steelandstack.com/privacy',
+      },
+    ],
+  };
+
   return (
     <>
       <MetaTags
         title="Privacy Policy | Steel & Stack"
         description="Learn how Steel & Stack safeguards your personal details, project briefs, NDA information, and technical specifications with strict privacy measures."
+        canonicalPath="/privacy"
+        noindex={false}
+        schema={breadcrumbSchema}
       />
 
       <Section variant="subtle-grid" spacing="compact" className="pt-12 pb-16">

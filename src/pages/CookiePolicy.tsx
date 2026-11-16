@@ -5,11 +5,33 @@ import { Cookie } from 'lucide-react';
 import { SITE_CONFIG } from '../config/site';
 
 export const CookiePolicy: React.FC = () => {
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': 'https://steelandstack.com/',
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Cookie Policy',
+        'item': 'https://steelandstack.com/cookie-policy',
+      },
+    ],
+  };
+
   return (
     <>
       <MetaTags
         title="Cookie Policy | Steel & Stack"
         description="Learn about our minimal cookie usage. Steel & Stack uses zero intrusive advertising trackers and only stores functional preferences like light/dark theme."
+        canonicalPath="/cookie-policy"
+        noindex={false}
+        schema={breadcrumbSchema}
       />
 
       <Section variant="subtle-grid" spacing="compact" className="pt-12 pb-16">

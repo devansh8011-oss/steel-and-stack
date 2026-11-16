@@ -5,11 +5,33 @@ import { RefreshCcw, CheckCircle2 } from 'lucide-react';
 import { SITE_CONFIG } from '../config/site';
 
 export const RefundPolicy: React.FC = () => {
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': 'https://steelandstack.com/',
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Refund Policy',
+        'item': 'https://steelandstack.com/refund-policy',
+      },
+    ],
+  };
+
   return (
     <>
       <MetaTags
         title="Refund Policy & Guarantee | Steel & Stack"
         description="Understand our transparent milestone-based refund policy, discovery guarantee, and client satisfaction commitments across website and hardware projects."
+        canonicalPath="/refund-policy"
+        noindex={false}
+        schema={breadcrumbSchema}
       />
 
       <Section variant="subtle-grid" spacing="compact" className="pt-12 pb-16">

@@ -4,7 +4,7 @@ export const SITE_CONFIG = {
   tagline: "Fast, Modern Websites & Custom Digital Solutions",
   subTagline: "Website & Product Studio • Serving Clients Across India & Worldwide",
   description:
-    "We create beautiful, high-speed websites, custom business software, and smart hardware products. You get clear fixed pricing, fast delivery, and 100% complete ownership of your project.",
+    "Fast, modern websites, custom business software, and smart hardware prototypes. Sub-second load speeds, fixed pricing, and 100% complete code ownership.",
   email: "contact@steelandstack.com",
   coverage: "Serving Ambitious Companies Pan-India & Worldwide",
   hours: "Mon – Sat: 9:00 AM – 8:00 PM IST",

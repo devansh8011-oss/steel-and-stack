@@ -27,7 +27,7 @@ export const TestimonialsSection: React.FC = () => {
   };
 
   return (
-    <div id="reviews" className="space-y-6 sm:space-y-12">
+    <div className="space-y-6 sm:space-y-12">
       {/* Section Header */}
       <div className="text-center max-w-2xl mx-auto space-y-2 sm:space-y-3 px-4">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange-50 dark:bg-brand-orange-950/60 border border-brand-orange-200 dark:border-brand-orange-800/60">
@@ -83,8 +83,12 @@ export const TestimonialsSection: React.FC = () => {
           <div className="pt-4 sm:pt-5 mt-5 border-t border-slate-100 dark:border-slate-800/80 flex items-center gap-3.5">
             <img
               src={activeReview.image}
-              alt={activeReview.name}
+              alt={`${activeReview.name}, ${activeReview.role} at ${activeReview.company}`}
               className="w-12 h-12 rounded-full object-cover border-2 border-brand-orange-500/70 shadow-2xs flex-shrink-0"
+              loading="lazy"
+              decoding="async"
+              width={48}
+              height={48}
             />
             <div className="min-w-0">
               <div className="flex items-center gap-1.5">
@@ -121,12 +125,16 @@ export const TestimonialsSection: React.FC = () => {
                 {/* Author Avatar */}
                 <img
                   src={rev.image}
-                  alt={rev.name}
+                  alt={`${rev.name} - ${rev.company} testimonial avatar`}
                   className={`w-11 h-11 rounded-full object-cover flex-shrink-0 transition-transform duration-200 ${
                     isSelected
                       ? 'border-2 border-brand-orange-500 scale-102 shadow-2xs'
                       : 'border border-slate-200 dark:border-slate-700'
                   }`}
+                  loading="lazy"
+                  decoding="async"
+                  width={44}
+                  height={44}
                 />
 
                 {/* Info Text */}

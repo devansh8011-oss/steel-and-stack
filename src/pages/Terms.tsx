@@ -5,11 +5,33 @@ import { Scale } from 'lucide-react';
 import { SITE_CONFIG } from '../config/site';
 
 export const Terms: React.FC = () => {
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      {
+        '@type': 'ListItem',
+        'position': 1,
+        'name': 'Home',
+        'item': 'https://steelandstack.com/',
+      },
+      {
+        '@type': 'ListItem',
+        'position': 2,
+        'name': 'Terms & Conditions',
+        'item': 'https://steelandstack.com/terms',
+      },
+    ],
+  };
+
   return (
     <>
       <MetaTags
         title="Terms & Conditions | Steel & Stack"
         description="Review the terms and conditions governing project engagements, deliverables, 100% intellectual property ownership, and service agreements with Steel & Stack."
+        canonicalPath="/terms"
+        noindex={false}
+        schema={breadcrumbSchema}
       />
 
       <Section variant="subtle-grid" spacing="compact" className="pt-12 pb-16">

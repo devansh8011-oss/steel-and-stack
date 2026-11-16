@@ -68,8 +68,12 @@ export const Navbar: React.FC = () => {
             <div className="w-9 h-9 sm:w-11 sm:h-11 flex items-center justify-center rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200 p-1.5 sm:p-2 group-hover:border-brand-orange-400 group-hover:shadow-orange-sm transition-all flex-shrink-0">
               <img
                 src="/logo-mark.png"
-                alt="Steel & Stack Monogram"
+                alt="Steel & Stack Brand Logo Mark"
                 className="w-full h-full object-contain"
+                width={44}
+                height={44}
+                loading="eager"
+                decoding="async"
               />
             </div>
             <div className="flex items-center gap-1.5 sm:gap-2">

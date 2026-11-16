@@ -4,7 +4,7 @@ import { Sparkles, ArrowUpRight } from 'lucide-react';
 
 export const WorksSection: React.FC = () => {
   return (
-    <div id="works" className="space-y-12 sm:space-y-16">
+    <div className="space-y-12 sm:space-y-16">
       {/* Section Header */}
       <div className="text-center max-w-2xl mx-auto space-y-3">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-orange-50 dark:bg-brand-orange-950/60 border border-brand-orange-200 dark:border-brand-orange-800/60">
@@ -47,9 +47,12 @@ export const WorksSection: React.FC = () => {
               <div className="relative aspect-[16/10] overflow-hidden bg-slate-950">
                 <img
                   src={work.image}
-                  alt={work.title}
+                  alt={`${work.title} - ${work.category} showcase project by Steel & Stack`}
                   className="w-full h-full object-cover object-top group-hover:scale-[1.03] transition-transform duration-500 ease-out"
                   loading="lazy"
+                  decoding="async"
+                  width={800}
+                  height={500}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
